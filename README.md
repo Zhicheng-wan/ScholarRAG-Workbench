@@ -53,3 +53,18 @@ python src/preprocess/pdf_to_sections.py \
 ```
 
 Outputs should be in data/processed/corpus.jsonl
+
+
+
+# For Blogs
+
+Paste the URL in data/raw/blogs/urls.txt
+
+# Run the Script
+```
+python src/preprocess/prep_blogs.py \
+  --urls data/raw/blogs/urls.txt \
+  --out data/processed/corpus.jsonl \
+  --max_tokens 512 --overlap 80 \
+  --skip-existing
+```

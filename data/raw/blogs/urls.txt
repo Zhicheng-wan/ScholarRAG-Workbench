@@ -1,0 +1,3 @@
+https://news.microsoft.com/source/features/ai/ai-agents-what-they-are-and-how-theyll-change-the-way-we-work/
+https://www.databricks.com/blog/llm-inference-performance-engineering-best-practices
+https://medium.com/@williamwarley/understanding-ai-agents-how-they-work-types-and-practical-applications-bd261845f7c3
