@@ -1,1 +1,66 @@
-[]
+[
+  {
+    "id": "http://arxiv.org/abs/2404.10630v2",
+    "title": "HLAT: High-quality Large Language Model Pre-trained on AWS Trainium",
+    "summary": "Getting large language models (LLMs) to perform well on the downstream tasks\nrequires pre-training over trillions of tokens. This typically demands a large\nnumber of powerful computational devices in addition to a stable distributed\ntraining framework to accelerate the training. The growing number of\napplications leveraging AI/ML led to a scarcity of the expensive conventional\naccelerators (such as GPUs), which emphasizes the need for the alternative\nspecialized-accelerators that are scalable and cost-efficient. AWS Trainium is\nthe second-generation machine learning accelerator purposely built for training\nlarge deep learning models. However, training LLMs with billions of parameters\non AWS Trainium is challenging due to its relatively nascent software\necosystem. In this paper, we showcase HLAT: a family of 7B and 70B decoder-only\nLLMs pre-trained using 4096 AWS Trainium accelerators over 1.8 trillion tokens.\nThe performance of HLAT is benchmarked against popular open source models\nincluding LLaMA and OpenLLaMA, which have been trained on NVIDIA GPUs and\nGoogle TPUs, respectively. On various evaluation tasks, we show that HLAT\nachieves model quality on par with the baselines of similar model size. We also\nopen-source all the training scripts and configurations of HLAT\n(https://github.com/awslabs/HLAT) and share the best practice of using the\nNeuronX Distributed Training (NxDT), a customized distributed training library\nfor AWS Trainium. Our work demonstrates that AWS Trainium powered by NxDT is\nable to successfully pre-train state-of-the-art LLM models with high\nperformance and cost-effectiveness.",
+    "authors": [
+      "Haozheng Fan",
+      "Hao Zhou",
+      "Guangtai Huang",
+      "Parameswaran Raman",
+      "Xinwei Fu",
+      "Gaurav Gupta",
+      "Dhananjay Ram",
+      "Yida Wang",
+      "Jun Huan"
+    ],
+    "links": [
+      {
+        "rel": "alternate",
+        "href": "http://arxiv.org/abs/2404.10630v2"
+      },
+      {
+        "rel": "related",
+        "href": "http://arxiv.org/pdf/2404.10630v2"
+      }
+    ],
+    "updated": "2024-11-23T04:02:06Z",
+    "published": "2024-04-16T15:02:46Z",
+    "tags": [
+      "cs.CL",
+      "cs.LG"
+    ]
+  },
+  {
+    "id": "http://arxiv.org/abs/2412.10543v2",
+    "title": "METIS: Fast Quality-Aware RAG Systems with Configuration Adaptation",
+    "summary": "RAG (Retrieval Augmented Generation) allows LLMs (large language models) to\ngenerate better responses with external knowledge, but using more external\nknowledge often improves generation quality at the expense of response delay.\nPrior work either reduces the response delay (through better scheduling of RAG\nqueries) or strives to maximize quality (which involves tuning the RAG\nworkflow), but they fall short in optimizing the tradeoff between the delay and\nquality of RAG responses. This paper presents METIS, the first RAG system that\njointly schedules queries and adapts the key RAG configurations of each query,\nsuch as the number of retrieved text chunks and synthesis methods, in order to\nbalance quality optimization and response delay reduction. Using 4 popular\nRAG-QA datasets, we show that compared with the state-of-the-art RAG\noptimization schemes, METIS reduces the generation latency by $1.64-2.54\\times$\nwithout sacrificing generation quality.",
+    "authors": [
+      "Siddhant Ray",
+      "Rui Pan",
+      "Zhuohan Gu",
+      "Kuntai Du",
+      "Shaoting Feng",
+      "Ganesh Ananthanarayanan",
+      "Ravi Netravali",
+      "Junchen Jiang"
+    ],
+    "links": [
+      {
+        "rel": "alternate",
+        "href": "http://arxiv.org/abs/2412.10543v2"
+      },
+      {
+        "rel": "related",
+        "href": "http://arxiv.org/pdf/2412.10543v2"
+      }
+    ],
+    "updated": "2025-07-16T03:02:57Z",
+    "published": "2024-12-13T20:39:30Z",
+    "tags": [
+      "cs.LG",
+      "cs.CL",
+      "cs.IR"
+    ]
+  }
+]

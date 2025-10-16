@@ -48,7 +48,8 @@ Parse PDFs with PyMuPDF, split into major sections (Introduction, Method, Experi
 python src/preprocess/pdf_to_sections.py \
   --pdfdir data/raw/papers/pdfs \
   --out data/processed/corpus.jsonl \
-  --max_tokens 512 --overlap 80
+  --max_tokens 512 --overlap 80 \
+  --skip-existing
 ```
 
 Outputs should be in data/processed/corpus.jsonl
