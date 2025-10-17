@@ -1,0 +1,5 @@
+data/raw/papers/pdfs/
+*.pdf
+.DS_Store
+*.pyc
+__pycache__/
