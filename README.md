@@ -34,6 +34,11 @@ ScholarRAG-Workbench/
 
 # Quickstart: From ArXiv to RAG Corpus
 
+## Add the paper to arxiv_raw.json using the crawler’s --ids flag:
+```
+python src/ingest/crawl_arxiv.py --ids 2404.10630,2412.10543
+```
+
 ## Download PDFs
 ```
 python src/ingest/download_pdfs.py
