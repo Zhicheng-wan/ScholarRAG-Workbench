@@ -1,66 +1,512 @@
 [
   {
-    "id": "http://arxiv.org/abs/2404.10630v2",
-    "title": "HLAT: High-quality Large Language Model Pre-trained on AWS Trainium",
-    "summary": "Getting large language models (LLMs) to perform well on the downstream tasks\nrequires pre-training over trillions of tokens. This typically demands a large\nnumber of powerful computational devices in addition to a stable distributed\ntraining framework to accelerate the training. The growing number of\napplications leveraging AI/ML led to a scarcity of the expensive conventional\naccelerators (such as GPUs), which emphasizes the need for the alternative\nspecialized-accelerators that are scalable and cost-efficient. AWS Trainium is\nthe second-generation machine learning accelerator purposely built for training\nlarge deep learning models. However, training LLMs with billions of parameters\non AWS Trainium is challenging due to its relatively nascent software\necosystem. In this paper, we showcase HLAT: a family of 7B and 70B decoder-only\nLLMs pre-trained using 4096 AWS Trainium accelerators over 1.8 trillion tokens.\nThe performance of HLAT is benchmarked against popular open source models\nincluding LLaMA and OpenLLaMA, which have been trained on NVIDIA GPUs and\nGoogle TPUs, respectively. On various evaluation tasks, we show that HLAT\nachieves model quality on par with the baselines of similar model size. We also\nopen-source all the training scripts and configurations of HLAT\n(https://github.com/awslabs/HLAT) and share the best practice of using the\nNeuronX Distributed Training (NxDT), a customized distributed training library\nfor AWS Trainium. Our work demonstrates that AWS Trainium powered by NxDT is\nable to successfully pre-train state-of-the-art LLM models with high\nperformance and cost-effectiveness.",
+    "id": "http://arxiv.org/abs/2407.05347v1",
+    "title": "A Queueing Theoretic Perspective on Low-Latency LLM Inference with\n  Variable Token Length",
+    "summary": "Large language models (LLMs) propel the prosperity of interactive AI\napplications showcased by ChatGPT that demand timely response of inference\nservices. However, LLM inference is computation intensive and memory intensive,\nand improper parameter configuration at LLM platforms may exacerbate the\ninference time. In this paper, we analyze the impact of LLM output token\ndistribution on the inference queueing delay, where the max-token clipping and\nthe batched inference are considered. By formulating an M/G/1 model, we observe\nthat enforcing a maximum output token limit on a very small fraction of\ninference requests can significantly reduce the queueing delay, and our model\nfacilitates the selection of the optimal limit. For the batch inference, we\nmodel the service process as a bulk queue in which the batch processing time is\naffected by the batch size and the maximum token size inside this batch\njointly. The queueing delays of the batching of all buffered requests (dynamic\nbatching), the batching of constant number of requests (fixed batching), and\nthe batching without intra-batch waiting (elastic batching) are derived.\nExperimental results show that our mathematical models coincide with the\nevent-driven simulations well.",
     "authors": [
-      "Haozheng Fan",
-      "Hao Zhou",
-      "Guangtai Huang",
-      "Parameswaran Raman",
-      "Xinwei Fu",
-      "Gaurav Gupta",
-      "Dhananjay Ram",
-      "Yida Wang",
-      "Jun Huan"
+      "Yuqing Yang",
+      "Yuedong Xu",
+      "Lei Jiao"
     ],
     "links": [
       {
         "rel": "alternate",
-        "href": "http://arxiv.org/abs/2404.10630v2"
+        "href": "http://arxiv.org/abs/2407.05347v1"
       },
       {
         "rel": "related",
-        "href": "http://arxiv.org/pdf/2404.10630v2"
+        "href": "http://arxiv.org/pdf/2407.05347v1"
       }
     ],
-    "updated": "2024-11-23T04:02:06Z",
-    "published": "2024-04-16T15:02:46Z",
+    "updated": "2024-07-07T12:49:56Z",
+    "published": "2024-07-07T12:49:56Z",
     "tags": [
-      "cs.CL",
+      "cs.NI"
+    ]
+  },
+  {
+    "id": "http://arxiv.org/abs/2205.14135v2",
+    "title": "FlashAttention: Fast and Memory-Efficient Exact Attention with\n  IO-Awareness",
+    "summary": "Transformers are slow and memory-hungry on long sequences, since the time and\nmemory complexity of self-attention are quadratic in sequence length.\nApproximate attention methods have attempted to address this problem by trading\noff model quality to reduce the compute complexity, but often do not achieve\nwall-clock speedup. We argue that a missing principle is making attention\nalgorithms IO-aware -- accounting for reads and writes between levels of GPU\nmemory. We propose FlashAttention, an IO-aware exact attention algorithm that\nuses tiling to reduce the number of memory reads/writes between GPU high\nbandwidth memory (HBM) and GPU on-chip SRAM. We analyze the IO complexity of\nFlashAttention, showing that it requires fewer HBM accesses than standard\nattention, and is optimal for a range of SRAM sizes. We also extend\nFlashAttention to block-sparse attention, yielding an approximate attention\nalgorithm that is faster than any existing approximate attention method.\nFlashAttention trains Transformers faster than existing baselines: 15%\nend-to-end wall-clock speedup on BERT-large (seq. length 512) compared to the\nMLPerf 1.1 training speed record, 3$\\times$ speedup on GPT-2 (seq. length 1K),\nand 2.4$\\times$ speedup on long-range arena (seq. length 1K-4K). FlashAttention\nand block-sparse FlashAttention enable longer context in Transformers, yielding\nhigher quality models (0.7 better perplexity on GPT-2 and 6.4 points of lift on\nlong-document classification) and entirely new capabilities: the first\nTransformers to achieve better-than-chance performance on the Path-X challenge\n(seq. length 16K, 61.4% accuracy) and Path-256 (seq. length 64K, 63.1%\naccuracy).",
+    "authors": [
+      "Tri Dao",
+      "Daniel Y. Fu",
+      "Stefano Ermon",
+      "Atri Rudra",
+      "Christopher Ré"
+    ],
+    "links": [
+      {
+        "rel": "alternate",
+        "href": "http://arxiv.org/abs/2205.14135v2"
+      },
+      {
+        "rel": "related",
+        "href": "http://arxiv.org/pdf/2205.14135v2"
+      }
+    ],
+    "updated": "2022-06-23T17:53:32Z",
+    "published": "2022-05-27T17:53:09Z",
+    "tags": [
       "cs.LG"
     ]
   },
   {
-    "id": "http://arxiv.org/abs/2412.10543v2",
-    "title": "METIS: Fast Quality-Aware RAG Systems with Configuration Adaptation",
-    "summary": "RAG (Retrieval Augmented Generation) allows LLMs (large language models) to\ngenerate better responses with external knowledge, but using more external\nknowledge often improves generation quality at the expense of response delay.\nPrior work either reduces the response delay (through better scheduling of RAG\nqueries) or strives to maximize quality (which involves tuning the RAG\nworkflow), but they fall short in optimizing the tradeoff between the delay and\nquality of RAG responses. This paper presents METIS, the first RAG system that\njointly schedules queries and adapts the key RAG configurations of each query,\nsuch as the number of retrieved text chunks and synthesis methods, in order to\nbalance quality optimization and response delay reduction. Using 4 popular\nRAG-QA datasets, we show that compared with the state-of-the-art RAG\noptimization schemes, METIS reduces the generation latency by $1.64-2.54\\times$\nwithout sacrificing generation quality.",
+    "id": "http://arxiv.org/abs/2412.19437v2",
+    "title": "DeepSeek-V3 Technical Report",
+    "summary": "We present DeepSeek-V3, a strong Mixture-of-Experts (MoE) language model with\n671B total parameters with 37B activated for each token. To achieve efficient\ninference and cost-effective training, DeepSeek-V3 adopts Multi-head Latent\nAttention (MLA) and DeepSeekMoE architectures, which were thoroughly validated\nin DeepSeek-V2. Furthermore, DeepSeek-V3 pioneers an auxiliary-loss-free\nstrategy for load balancing and sets a multi-token prediction training\nobjective for stronger performance. We pre-train DeepSeek-V3 on 14.8 trillion\ndiverse and high-quality tokens, followed by Supervised Fine-Tuning and\nReinforcement Learning stages to fully harness its capabilities. Comprehensive\nevaluations reveal that DeepSeek-V3 outperforms other open-source models and\nachieves performance comparable to leading closed-source models. Despite its\nexcellent performance, DeepSeek-V3 requires only 2.788M H800 GPU hours for its\nfull training. In addition, its training process is remarkably stable.\nThroughout the entire training process, we did not experience any irrecoverable\nloss spikes or perform any rollbacks. The model checkpoints are available at\nhttps://github.com/deepseek-ai/DeepSeek-V3.",
     "authors": [
-      "Siddhant Ray",
-      "Rui Pan",
-      "Zhuohan Gu",
-      "Kuntai Du",
-      "Shaoting Feng",
-      "Ganesh Ananthanarayanan",
-      "Ravi Netravali",
-      "Junchen Jiang"
+      "DeepSeek-AI",
+      "Aixin Liu",
+      "Bei Feng",
+      "Bing Xue",
+      "Bingxuan Wang",
+      "Bochao Wu",
+      "Chengda Lu",
+      "Chenggang Zhao",
+      "Chengqi Deng",
+      "Chenyu Zhang",
+      "Chong Ruan",
+      "Damai Dai",
+      "Daya Guo",
+      "Dejian Yang",
+      "Deli Chen",
+      "Dongjie Ji",
+      "Erhang Li",
+      "Fangyun Lin",
+      "Fucong Dai",
+      "Fuli Luo",
+      "Guangbo Hao",
+      "Guanting Chen",
+      "Guowei Li",
+      "H. Zhang",
+      "Han Bao",
+      "Hanwei Xu",
+      "Haocheng Wang",
+      "Haowei Zhang",
+      "Honghui Ding",
+      "Huajian Xin",
+      "Huazuo Gao",
+      "Hui Li",
+      "Hui Qu",
+      "J. L. Cai",
+      "Jian Liang",
+      "Jianzhong Guo",
+      "Jiaqi Ni",
+      "Jiashi Li",
+      "Jiawei Wang",
+      "Jin Chen",
+      "Jingchang Chen",
+      "Jingyang Yuan",
+      "Junjie Qiu",
+      "Junlong Li",
+      "Junxiao Song",
+      "Kai Dong",
+      "Kai Hu",
+      "Kaige Gao",
+      "Kang Guan",
+      "Kexin Huang",
+      "Kuai Yu",
+      "Lean Wang",
+      "Lecong Zhang",
+      "Lei Xu",
+      "Leyi Xia",
+      "Liang Zhao",
+      "Litong Wang",
+      "Liyue Zhang",
+      "Meng Li",
+      "Miaojun Wang",
+      "Mingchuan Zhang",
+      "Minghua Zhang",
+      "Minghui Tang",
+      "Mingming Li",
+      "Ning Tian",
+      "Panpan Huang",
+      "Peiyi Wang",
+      "Peng Zhang",
+      "Qiancheng Wang",
+      "Qihao Zhu",
+      "Qinyu Chen",
+      "Qiushi Du",
+      "R. J. Chen",
+      "R. L. Jin",
+      "Ruiqi Ge",
+      "Ruisong Zhang",
+      "Ruizhe Pan",
+      "Runji Wang",
+      "Runxin Xu",
+      "Ruoyu Zhang",
+      "Ruyi Chen",
+      "S. S. Li",
+      "Shanghao Lu",
+      "Shangyan Zhou",
+      "Shanhuang Chen",
+      "Shaoqing Wu",
+      "Shengfeng Ye",
+      "Shengfeng Ye",
+      "Shirong Ma",
+      "Shiyu Wang",
+      "Shuang Zhou",
+      "Shuiping Yu",
+      "Shunfeng Zhou",
+      "Shuting Pan",
+      "T. Wang",
+      "Tao Yun",
+      "Tian Pei",
+      "Tianyu Sun",
+      "W. L. Xiao",
+      "Wangding Zeng",
+      "Wanjia Zhao",
+      "Wei An",
+      "Wen Liu",
+      "Wenfeng Liang",
+      "Wenjun Gao",
+      "Wenqin Yu",
+      "Wentao Zhang",
+      "X. Q. Li",
+      "Xiangyue Jin",
+      "Xianzu Wang",
+      "Xiao Bi",
+      "Xiaodong Liu",
+      "Xiaohan Wang",
+      "Xiaojin Shen",
+      "Xiaokang Chen",
+      "Xiaokang Zhang",
+      "Xiaosha Chen",
+      "Xiaotao Nie",
+      "Xiaowen Sun",
+      "Xiaoxiang Wang",
+      "Xin Cheng",
+      "Xin Liu",
+      "Xin Xie",
+      "Xingchao Liu",
+      "Xingkai Yu",
+      "Xinnan Song",
+      "Xinxia Shan",
+      "Xinyi Zhou",
+      "Xinyu Yang",
+      "Xinyuan Li",
+      "Xuecheng Su",
+      "Xuheng Lin",
+      "Y. K. Li",
+      "Y. Q. Wang",
+      "Y. X. Wei",
+      "Y. X. Zhu",
+      "Yang Zhang",
+      "Yanhong Xu",
+      "Yanhong Xu",
+      "Yanping Huang",
+      "Yao Li",
+      "Yao Zhao",
+      "Yaofeng Sun",
+      "Yaohui Li",
+      "Yaohui Wang",
+      "Yi Yu",
+      "Yi Zheng",
+      "Yichao Zhang",
+      "Yifan Shi",
+      "Yiliang Xiong",
+      "Ying He",
+      "Ying Tang",
+      "Yishi Piao",
+      "Yisong Wang",
+      "Yixuan Tan",
+      "Yiyang Ma",
+      "Yiyuan Liu",
+      "Yongqiang Guo",
+      "Yu Wu",
+      "Yuan Ou",
+      "Yuchen Zhu",
+      "Yuduan Wang",
+      "Yue Gong",
+      "Yuheng Zou",
+      "Yujia He",
+      "Yukun Zha",
+      "Yunfan Xiong",
+      "Yunxian Ma",
+      "Yuting Yan",
+      "Yuxiang Luo",
+      "Yuxiang You",
+      "Yuxuan Liu",
+      "Yuyang Zhou",
+      "Z. F. Wu",
+      "Z. Z. Ren",
+      "Zehui Ren",
+      "Zhangli Sha",
+      "Zhe Fu",
+      "Zhean Xu",
+      "Zhen Huang",
+      "Zhen Zhang",
+      "Zhenda Xie",
+      "Zhengyan Zhang",
+      "Zhewen Hao",
+      "Zhibin Gou",
+      "Zhicheng Ma",
+      "Zhigang Yan",
+      "Zhihong Shao",
+      "Zhipeng Xu",
+      "Zhiyu Wu",
+      "Zhongyu Zhang",
+      "Zhuoshu Li",
+      "Zihui Gu",
+      "Zijia Zhu",
+      "Zijun Liu",
+      "Zilin Li",
+      "Ziwei Xie",
+      "Ziyang Song",
+      "Ziyi Gao",
+      "Zizheng Pan"
     ],
     "links": [
       {
         "rel": "alternate",
-        "href": "http://arxiv.org/abs/2412.10543v2"
+        "href": "http://arxiv.org/abs/2412.19437v2"
       },
       {
         "rel": "related",
-        "href": "http://arxiv.org/pdf/2412.10543v2"
+        "href": "http://arxiv.org/pdf/2412.19437v2"
       }
     ],
-    "updated": "2025-07-16T03:02:57Z",
-    "published": "2024-12-13T20:39:30Z",
+    "updated": "2025-02-18T17:26:38Z",
+    "published": "2024-12-27T04:03:16Z",
+    "tags": [
+      "cs.CL",
+      "cs.AI"
+    ]
+  },
+  {
+    "id": "http://arxiv.org/abs/2501.19393v3",
+    "title": "s1: Simple test-time scaling",
+    "summary": "Test-time scaling is a promising new approach to language modeling that uses\nextra test-time compute to improve performance. Recently, OpenAI's o1 model\nshowed this capability but did not publicly share its methodology, leading to\nmany replication efforts. We seek the simplest approach to achieve test-time\nscaling and strong reasoning performance. First, we curate a small dataset s1K\nof 1,000 questions paired with reasoning traces relying on three criteria we\nvalidate through ablations: difficulty, diversity, and quality. Second, we\ndevelop budget forcing to control test-time compute by forcefully terminating\nthe model's thinking process or lengthening it by appending \"Wait\" multiple\ntimes to the model's generation when it tries to end. This can lead the model\nto double-check its answer, often fixing incorrect reasoning steps. After\nsupervised finetuning the Qwen2.5-32B-Instruct language model on s1K and\nequipping it with budget forcing, our model s1-32B exceeds o1-preview on\ncompetition math questions by up to 27% (MATH and AIME24). Further, scaling\ns1-32B with budget forcing allows extrapolating beyond its performance without\ntest-time intervention: from 50% to 57% on AIME24. Our model, data, and code\nare open-source at https://github.com/simplescaling/s1",
+    "authors": [
+      "Niklas Muennighoff",
+      "Zitong Yang",
+      "Weijia Shi",
+      "Xiang Lisa Li",
+      "Li Fei-Fei",
+      "Hannaneh Hajishirzi",
+      "Luke Zettlemoyer",
+      "Percy Liang",
+      "Emmanuel Candès",
+      "Tatsunori Hashimoto"
+    ],
+    "links": [
+      {
+        "rel": "alternate",
+        "href": "http://arxiv.org/abs/2501.19393v3"
+      },
+      {
+        "rel": "related",
+        "href": "http://arxiv.org/pdf/2501.19393v3"
+      }
+    ],
+    "updated": "2025-03-01T06:07:39Z",
+    "published": "2025-01-31T18:48:08Z",
+    "tags": [
+      "cs.CL",
+      "cs.AI",
+      "cs.LG"
+    ]
+  },
+  {
+    "id": "http://arxiv.org/abs/2309.06180v1",
+    "title": "Efficient Memory Management for Large Language Model Serving with\n  PagedAttention",
+    "summary": "High throughput serving of large language models (LLMs) requires batching\nsufficiently many requests at a time. However, existing systems struggle\nbecause the key-value cache (KV cache) memory for each request is huge and\ngrows and shrinks dynamically. When managed inefficiently, this memory can be\nsignificantly wasted by fragmentation and redundant duplication, limiting the\nbatch size. To address this problem, we propose PagedAttention, an attention\nalgorithm inspired by the classical virtual memory and paging techniques in\noperating systems. On top of it, we build vLLM, an LLM serving system that\nachieves (1) near-zero waste in KV cache memory and (2) flexible sharing of KV\ncache within and across requests to further reduce memory usage. Our\nevaluations show that vLLM improves the throughput of popular LLMs by\n2-4$\\times$ with the same level of latency compared to the state-of-the-art\nsystems, such as FasterTransformer and Orca. The improvement is more pronounced\nwith longer sequences, larger models, and more complex decoding algorithms.\nvLLM's source code is publicly available at\nhttps://github.com/vllm-project/vllm",
+    "authors": [
+      "Woosuk Kwon",
+      "Zhuohan Li",
+      "Siyuan Zhuang",
+      "Ying Sheng",
+      "Lianmin Zheng",
+      "Cody Hao Yu",
+      "Joseph E. Gonzalez",
+      "Hao Zhang",
+      "Ion Stoica"
+    ],
+    "links": [
+      {
+        "rel": "alternate",
+        "href": "http://arxiv.org/abs/2309.06180v1"
+      },
+      {
+        "rel": "related",
+        "href": "http://arxiv.org/pdf/2309.06180v1"
+      }
+    ],
+    "updated": "2023-09-12T12:50:04Z",
+    "published": "2023-09-12T12:50:04Z",
     "tags": [
       "cs.LG",
+      "cs.DC"
+    ]
+  },
+  {
+    "id": "http://arxiv.org/abs/2303.06865v2",
+    "title": "FlexGen: High-Throughput Generative Inference of Large Language Models\n  with a Single GPU",
+    "summary": "The high computational and memory requirements of large language model (LLM)\ninference make it feasible only with multiple high-end accelerators. Motivated\nby the emerging demand for latency-insensitive tasks with batched processing,\nthis paper initiates the study of high-throughput LLM inference using limited\nresources, such as a single commodity GPU. We present FlexGen, a\nhigh-throughput generation engine for running LLMs with limited GPU memory.\nFlexGen can be flexibly configured under various hardware resource constraints\nby aggregating memory and computation from the GPU, CPU, and disk. By solving a\nlinear programming problem, it searches for efficient patterns to store and\naccess tensors. FlexGen further compresses the weights and the attention cache\nto 4 bits with negligible accuracy loss. These techniques enable FlexGen to\nhave a larger space of batch size choices and thus significantly increase\nmaximum throughput. As a result, when running OPT-175B on a single 16GB GPU,\nFlexGen achieves significantly higher throughput compared to state-of-the-art\noffloading systems, reaching a generation throughput of 1 token/s for the first\ntime with an effective batch size of 144. On the HELM benchmark, FlexGen can\nbenchmark a 30B model with a 16GB GPU on 7 representative sub-scenarios in 21\nhours. The code is available at https://github.com/FMInference/FlexGen",
+    "authors": [
+      "Ying Sheng",
+      "Lianmin Zheng",
+      "Binhang Yuan",
+      "Zhuohan Li",
+      "Max Ryabinin",
+      "Daniel Y. Fu",
+      "Zhiqiang Xie",
+      "Beidi Chen",
+      "Clark Barrett",
+      "Joseph E. Gonzalez",
+      "Percy Liang",
+      "Christopher Ré",
+      "Ion Stoica",
+      "Ce Zhang"
+    ],
+    "links": [
+      {
+        "rel": "alternate",
+        "href": "http://arxiv.org/abs/2303.06865v2"
+      },
+      {
+        "rel": "related",
+        "href": "http://arxiv.org/pdf/2303.06865v2"
+      }
+    ],
+    "updated": "2023-06-12T07:48:53Z",
+    "published": "2023-03-13T05:19:28Z",
+    "tags": [
+      "cs.LG",
+      "cs.AI",
+      "cs.PF"
+    ]
+  },
+  {
+    "id": "http://arxiv.org/abs/2312.07104v2",
+    "title": "SGLang: Efficient Execution of Structured Language Model Programs",
+    "summary": "Large language models (LLMs) are increasingly used for complex tasks that\nrequire multiple generation calls, advanced prompting techniques, control flow,\nand structured inputs/outputs. However, efficient systems are lacking for\nprogramming and executing these applications. We introduce SGLang, a system for\nefficient execution of complex language model programs. SGLang consists of a\nfrontend language and a runtime. The frontend simplifies programming with\nprimitives for generation and parallelism control. The runtime accelerates\nexecution with novel optimizations like RadixAttention for KV cache reuse and\ncompressed finite state machines for faster structured output decoding.\nExperiments show that SGLang achieves up to 6.4x higher throughput compared to\nstate-of-the-art inference systems on various large language and multi-modal\nmodels on tasks including agent control, logical reasoning, few-shot learning\nbenchmarks, JSON decoding, retrieval-augmented generation pipelines, and\nmulti-turn chat. The code is publicly available at\nhttps://github.com/sgl-project/sglang",
+    "authors": [
+      "Lianmin Zheng",
+      "Liangsheng Yin",
+      "Zhiqiang Xie",
+      "Chuyue Sun",
+      "Jeff Huang",
+      "Cody Hao Yu",
+      "Shiyi Cao",
+      "Christos Kozyrakis",
+      "Ion Stoica",
+      "Joseph E. Gonzalez",
+      "Clark Barrett",
+      "Ying Sheng"
+    ],
+    "links": [
+      {
+        "rel": "alternate",
+        "href": "http://arxiv.org/abs/2312.07104v2"
+      },
+      {
+        "rel": "related",
+        "href": "http://arxiv.org/pdf/2312.07104v2"
+      }
+    ],
+    "updated": "2024-06-06T00:10:06Z",
+    "published": "2023-12-12T09:34:27Z",
+    "tags": [
+      "cs.AI",
+      "cs.PL"
+    ]
+  },
+  {
+    "id": "http://arxiv.org/abs/2305.09781v4",
+    "title": "SpecInfer: Accelerating Generative Large Language Model Serving with\n  Tree-based Speculative Inference and Verification",
+    "summary": "This paper introduces SpecInfer, a system that accelerates generative large\nlanguage model (LLM) serving with tree-based speculative inference and\nverification. The key idea behind SpecInfer is leveraging small speculative\nmodels to predict the LLM's outputs; the predictions are organized as a token\ntree, whose nodes each represent a candidate token sequence. The correctness of\nall candidate token sequences represented by a token tree is verified against\nthe LLM in parallel using a novel tree-based parallel decoding mechanism.\nSpecInfer uses an LLM as a token tree verifier instead of an incremental\ndecoder, which significantly reduces the end-to-end latency and computational\nrequirement for serving generative LLMs while provably preserving model\nquality. Our evaluation shows that SpecInfer outperforms existing LLM serving\nsystems by 1.5-2.8x for distributed LLM inference and by 2.6-3.5x for\noffloading-based LLM inference, while preserving the same generative\nperformance. SpecInfer is publicly available at\nhttps://github.com/flexflow/FlexFlow/",
+    "authors": [
+      "Xupeng Miao",
+      "Gabriele Oliaro",
+      "Zhihao Zhang",
+      "Xinhao Cheng",
+      "Zeyu Wang",
+      "Zhengxin Zhang",
+      "Rae Ying Yee Wong",
+      "Alan Zhu",
+      "Lijie Yang",
+      "Xiaoxiang Shi",
+      "Chunan Shi",
+      "Zhuoming Chen",
+      "Daiyaan Arfeen",
+      "Reyna Abhyankar",
+      "Zhihao Jia"
+    ],
+    "links": [
+      {
+        "rel": "related",
+        "href": "http://dx.doi.org/10.1145/3620666.3651335"
+      },
+      {
+        "rel": "alternate",
+        "href": "http://arxiv.org/abs/2305.09781v4"
+      },
+      {
+        "rel": "related",
+        "href": "http://arxiv.org/pdf/2305.09781v4"
+      }
+    ],
+    "updated": "2024-04-01T02:18:42Z",
+    "published": "2023-05-16T20:12:59Z",
+    "tags": [
       "cs.CL",
-      "cs.IR"
+      "cs.DC",
+      "cs.LG"
+    ]
+  },
+  {
+    "id": "http://arxiv.org/abs/2401.15077v3",
+    "title": "EAGLE: Speculative Sampling Requires Rethinking Feature Uncertainty",
+    "summary": "Autoregressive decoding makes the inference of Large Language Models (LLMs)\ntime-consuming. In this paper, we reconsider speculative sampling and derive\ntwo key observations. Firstly, autoregression at the feature\n(second-to-top-layer) level is more straightforward than at the token level.\nSecondly, the inherent uncertainty in feature (second-to-top-layer) level\nautoregression constrains its performance. Based on these insights, we\nintroduce EAGLE (Extrapolation Algorithm for Greater Language-model\nEfficiency), a simple yet highly efficient speculative sampling framework. By\nincorporating a token sequence advanced by one time step, EAGLE effectively\nresolves the uncertainty, enabling precise second-to-top-layer feature\nprediction with minimal overhead. We conducted comprehensive evaluations of\nEAGLE, including all models from the Vicuna and LLaMA2-Chat series, the MoE\nmodel Mixtral 8x7B Instruct, and tasks in dialogue, code generation,\nmathematical reasoning, and instruction following. For LLaMA2-Chat 70B, EAGLE\nachieved a latency speedup ratio of 2.7x-3.5x, doubled throughput, while\nmaintaining the distribution of the generated text.",
+    "authors": [
+      "Yuhui Li",
+      "Fangyun Wei",
+      "Chao Zhang",
+      "Hongyang Zhang"
+    ],
+    "links": [
+      {
+        "rel": "alternate",
+        "href": "http://arxiv.org/abs/2401.15077v3"
+      },
+      {
+        "rel": "related",
+        "href": "http://arxiv.org/pdf/2401.15077v3"
+      }
+    ],
+    "updated": "2025-03-04T13:58:39Z",
+    "published": "2024-01-26T18:59:01Z",
+    "tags": [
+      "cs.LG",
+      "cs.CL"
+    ]
+  },
+  {
+    "id": "http://arxiv.org/abs/2503.01840v3",
+    "title": "EAGLE-3: Scaling up Inference Acceleration of Large Language Models via\n  Training-Time Test",
+    "summary": "The sequential nature of modern LLMs makes them expensive and slow, and\nspeculative sampling has proven to be an effective solution to this problem.\nMethods like EAGLE perform autoregression at the feature level, reusing\ntop-layer features from the target model to achieve better results than vanilla\nspeculative sampling. A growing trend in the LLM community is scaling up\ntraining data to improve model intelligence without increasing inference costs.\nHowever, we observe that scaling up data provides limited improvements for\nEAGLE. We identify that this limitation arises from EAGLE's feature prediction\nconstraints. In this paper, we introduce EAGLE-3, which abandons feature\nprediction in favor of direct token prediction and replaces reliance on\ntop-layer features with multi-layer feature fusion via a technique named\ntraining-time test. These improvements significantly enhance performance and\nenable the draft model to fully benefit from scaling up training data. Our\nexperiments include both chat models and reasoning models, evaluated on five\ntasks. The results show that EAGLE-3 achieves a speedup ratio up to 6.5x, with\nabout 1.4x improvement over EAGLE-2. In the SGLang framework, EAGLE-3 achieves\na 1.38x throughput improvement at a batch size of 64. The code is available at\nhttps://github.com/SafeAILab/EAGLE.",
+    "authors": [
+      "Yuhui Li",
+      "Fangyun Wei",
+      "Chao Zhang",
+      "Hongyang Zhang"
+    ],
+    "links": [
+      {
+        "rel": "alternate",
+        "href": "http://arxiv.org/abs/2503.01840v3"
+      },
+      {
+        "rel": "related",
+        "href": "http://arxiv.org/pdf/2503.01840v3"
+      }
+    ],
+    "updated": "2025-04-23T07:08:17Z",
+    "published": "2025-03-03T18:59:04Z",
+    "tags": [
+      "cs.CL"
     ]
   }
 ]

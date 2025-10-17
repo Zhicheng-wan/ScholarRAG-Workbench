@@ -8,20 +8,24 @@ ScholarRAG-Workbench/
 │
 ├── data/
 │   ├── raw/
-│   │   └── papers/
-│   │       ├── arxiv_raw.json        # metadata + abstract
-│   │       └── pdfs/                 # downloaded PDFs
+│   │   ├── papers/
+│   │   │   ├── arxiv_raw.json              # metadata + abstracts
+│   │   │   └── pdfs/                       # downloaded PDFs
+│   │   └── blogs/
+│   │       └── urls.txt                    # URLs of blogs
+│   │
 │   └── processed/
-│       ├── corpus.jsonl              # chunked text corpus for RAG
-│       └── corpus.stats.json         # token/chunk statistics
+│       ├── corpus.jsonl                    # chunked text corpus for RAG
+│       └── corpus.stats.json               # token/chunk statistics
 │
 ├── src/
 │   ├── ingest/
-│   │   ├── crawl_arxiv.py            # fetch paper metadata from arXiv
-│   │   └── download_pdfs.py          # download paper PDFs
+│   │   ├── crawl_arxiv.py                  # fetch paper metadata from arXiv
+│   │   └── download_pdfs.py                # download paper PDFs
 │   └── preprocess/
-│       ├── prep_papers.py            # clean + chunk abstracts
-│       └── pdf_to_sections.py        # extract + chunk PDF sections
+│       ├── prep_blogs.py                   # clean + chunk blog text
+│       ├── prep_papers.py                  # clean + chunk paper sections/abstracts
+│       └── pdf_to_sections.py              # extract + chunk PDF sections
 │
 ├── requirements.txt
 └── README.md

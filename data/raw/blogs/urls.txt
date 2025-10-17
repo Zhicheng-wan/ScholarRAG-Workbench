@@ -1,3 +1,7 @@
 https://news.microsoft.com/source/features/ai/ai-agents-what-they-are-and-how-theyll-change-the-way-we-work/
 https://www.databricks.com/blog/llm-inference-performance-engineering-best-practices
 https://medium.com/@williamwarley/understanding-ai-agents-how-they-work-types-and-practical-applications-bd261845f7c3
+https://www.amazon.science/publications/distributed-training-of-large-language-models-on-aws-trainium
+https://zhihaojia.medium.com/compiling-llms-into-a-megakernel-a-path-to-low-latency-inference-cf7840913c17
+https://hazyresearch.stanford.edu/blog/2025-09-28-tp-llama-main
+https://www.usenix.org/conference/nsdi23/presentation/hwang
