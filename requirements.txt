@@ -3,3 +3,6 @@ requests
 pymupdf
 tqdm
 trafilatura
+qdrant-client
+sentence-transformers
+numpy
