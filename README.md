@@ -8,9 +8,11 @@ ScholarRAG-Workbench/
 │
 ├── data/
 │   ├── raw/
-│   │   └── papers/
-│   │       ├── arxiv_raw.json        # metadata + abstract
-│   │       └── pdfs/                 # downloaded PDFs
+│   │   ├── papers/
+│   │   │   ├── arxiv_raw.json        # metadata + abstract
+│   │   │   └── pdfs/                 # downloaded PDFs
+│   │   └── blogs/
+│   │       └── urls.txt              # blog URLs to scrape
 │   └── processed/
 │       ├── corpus.jsonl              # chunked text corpus for RAG
 │       └── corpus.stats.json         # token/chunk statistics
@@ -19,9 +21,17 @@ ScholarRAG-Workbench/
 │   ├── ingest/
 │   │   ├── crawl_arxiv.py            # fetch paper metadata from arXiv
 │   │   └── download_pdfs.py          # download paper PDFs
-│   └── preprocess/
-│       ├── prep_papers.py            # clean + chunk abstracts
-│       └── pdf_to_sections.py        # extract + chunk PDF sections
+│   ├── preprocess/
+│   │   ├── prep_papers.py            # clean + chunk abstracts
+│   │   ├── pdf_to_sections.py        # extract + chunk PDF sections
+│   │   └── prep_blogs.py             # extract + chunk blog articles
+│   └── retrieval/
+│       ├── index_qdrant.py           # upload corpus chunks into Qdrant
+│       ├── query_qdrant.py           # run semantic search against Qdrant
+│       └── __init__.py
+│
+├── docs/
+│   └── qdrant.md                     # Qdrant setup and usage notes
 │
 ├── requirements.txt
 └── README.md
