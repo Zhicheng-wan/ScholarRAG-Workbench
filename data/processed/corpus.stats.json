@@ -1,9 +1,12 @@
 {
-  "num_input_records": 0,
-  "num_docs_with_abstract": 0,
-  "num_chunks": 0,
-  "avg_tokens_per_chunk": 0.0,
-  "token_hist_50buckets": {},
-  "max_tokens": 300,
-  "overlap": 40
+  "total_chunks": 305,
+  "total_papers": 4,
+  "avg_tokens_per_chunk": 447.47,
+  "total_tokens": 136478,
+  "papers": [
+    "arxiv_pdf",
+    "blog:medium.com",
+    "blog:news.microsoft.com",
+    "blog:www.databricks.com"
+  ]
 }
