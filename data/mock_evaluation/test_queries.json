@@ -1,0 +1,7 @@
+{
+  "query_1": "What are the latest advances in transformer architectures?",
+  "query_2": "How do retrieval-augmented generation systems work?",
+  "query_3": "What are the challenges in few-shot learning?",
+  "query_4": "How do large language models handle long sequences?",
+  "query_5": "What are the benefits of attention mechanisms in neural networks?"
+}

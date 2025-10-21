@@ -132,3 +132,153 @@ Additional options:
 - Use `--out data/retrieval_results/qdrant.json` to dump machine-readable responses for later evaluation.
 
 Ensure the same embedding model used during indexing is supplied via `--embedding-model` when querying.
+
+
+# Evaluator
+
+The evaluator is a comprehensive tool for measuring retrieval quality in RAG systems. It compares retrieval results against manual baselines to calculate standard information retrieval metrics.
+
+## Features
+
+### Available Metrics
+The evaluator calculates the following metrics:
+
+- **Precision@K**: Fraction of retrieved documents that are relevant
+- **Recall@K**: Fraction of relevant documents that were retrieved  
+- **NDCG@K**: Normalized Discounted Cumulative Gain (accounts for ranking quality)
+- **MRR**: Mean Reciprocal Rank (position of first relevant document)
+- **Hit Rate@K**: Binary metric (1 if any relevant doc found, 0 otherwise)
+
+All metrics are calculated for K values: 1, 3, 5, 10 (configurable)
+
+### Key Components
+- `RetrievalMetrics`: Core metric calculations
+- `RAGEvaluator`: Main evaluation orchestrator
+- `EvaluationResults`: Results storage and analysis
+- `data_loader`: Utilities for loading test data
+
+## Usage
+
+### 1. Create Mock Data for Testing
+```bash
+python -c "from src.evaluation.utils.data_loader import create_sample_data; create_sample_data('data/mock_evaluation')"
+```
+
+### 2. Run Evaluation
+```bash
+python src/evaluation/evaluator.py \
+  --queries data/mock_evaluation/test_queries.json \
+  --baseline data/mock_evaluation/manual_baseline.json \
+  --results data/mock_evaluation/retrieval_results.json \
+  --output data/mock_evaluation/evaluation_results.json \
+  --report data/mock_evaluation/evaluation_report.txt
+```
+
+## Input Data Formats
+
+### Test Queries (`test_queries.json`)
+```json
+{
+  "query_1": "What are the latest advances in transformer architectures?",
+  "query_2": "How do retrieval-augmented generation systems work?",
+  "query_3": "What are the challenges in few-shot learning?"
+}
+```
+
+### Manual Baseline (`manual_baseline.json`)
+```json
+{
+  "query_1": {
+    "relevant_docs": ["arxiv:2404.10630#model", "arxiv:2412.10543#introduction"],
+    "relevance_scores": {
+      "arxiv:2404.10630#model": 1.0,
+      "arxiv:2412.10543#introduction": 0.8
+    },
+    "notes": "Focus on recent transformer improvements"
+  }
+}
+```
+
+### Retrieval Results (`retrieval_results.json`)
+```json
+{
+  "query_1": ["arxiv:2404.10630#model", "arxiv:2412.10543#introduction", "arxiv:2510.13048#abstract"],
+  "query_2": ["blog:medium.com#rag", "arxiv:2404.10630#model", "arxiv:2412.10543#introduction"]
+}
+```
+
+## Output
+
+### Evaluation Results (`evaluation_results.json`)
+```json
+{
+  "query_results": {
+    "query_1": {
+      "precision@1": 1.0,
+      "recall@1": 0.5,
+      "ndcg@1": 1.0,
+      "mrr": 1.0
+    }
+  },
+  "aggregated_metrics": {
+    "precision@1": 1.0,
+    "recall@1": 0.5
+  },
+  "summary_stats": {
+    "precision@1": {
+      "mean": 1.0,
+      "std": 0.0,
+      "min": 1.0,
+      "max": 1.0
+    }
+  }
+}
+```
+
+### Evaluation Report (`evaluation_report.txt`)
+Human-readable report with:
+- Aggregated metrics across all queries
+- Summary statistics (mean, std, min, max)
+- Per-query detailed results
+
+## Command Line Options
+
+```bash
+python src/evaluation/evaluator.py [OPTIONS]
+
+Required:
+  --queries PATH        Path to test queries JSON file
+  --baseline PATH       Path to manual baseline JSON file  
+  --results PATH        Path to retrieval results JSON file
+
+Optional:
+  --output PATH         Path to save evaluation results JSON
+  --report PATH         Path to save evaluation report
+  --k-values K [K ...]  K values for metrics (default: 1 3 5 10)
+```
+
+## Example Workflow
+
+1. **Create test queries** for your domain
+2. **Manually create baselines** by identifying relevant documents
+3. **Run RAG systems** on test queries to get retrieval results
+4. **Evaluate performance** using this tool
+5. **Compare systems** by running evaluation on multiple result sets
+
+## Integration with Existing RAG Systems
+
+The evaluator works with any RAG system that can output document IDs. For example, with our existing Qdrant setup:
+
+```bash
+# Get retrieval results from Qdrant
+python src/retrieval/query_qdrant.py \
+  --query-file data/evaluation/test_queries.json \
+  --out data/evaluation/qdrant_results.json
+
+# Evaluate the results
+python src/evaluation/evaluator.py \
+  --queries data/evaluation/test_queries.json \
+  --baseline data/evaluation/manual_baseline.json \
+  --results data/evaluation/qdrant_results.json \
+  --output data/evaluation/qdrant_evaluation.json
+```

@@ -1,0 +1,12 @@
+{
+  "query_1": [
+    "arxiv:2404.10630#model",
+    "arxiv:2412.10543#introduction",
+    "arxiv:2510.13048#abstract"
+  ],
+  "query_2": [
+    "blog:medium.com#rag",
+    "arxiv:2404.10630#model",
+    "arxiv:2412.10543#introduction"
+  ]
+}
