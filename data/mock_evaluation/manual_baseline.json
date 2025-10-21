@@ -1,0 +1,24 @@
+{
+  "query_1": {
+    "relevant_docs": [
+      "arxiv:2404.10630#model",
+      "arxiv:2412.10543#introduction"
+    ],
+    "relevance_scores": {
+      "arxiv:2404.10630#model": 1.0,
+      "arxiv:2412.10543#introduction": 0.8
+    },
+    "notes": "Focus on recent transformer improvements"
+  },
+  "query_2": {
+    "relevant_docs": [
+      "arxiv:2404.10630#model",
+      "blog:medium.com#rag"
+    ],
+    "relevance_scores": {
+      "arxiv:2404.10630#model": 0.9,
+      "blog:medium.com#rag": 1.0
+    },
+    "notes": "RAG system explanations"
+  }
+}
