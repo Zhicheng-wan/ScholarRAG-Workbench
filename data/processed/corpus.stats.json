@@ -1,9 +1,26 @@
 {
-  "num_input_records": 0,
-  "num_docs_with_abstract": 0,
-  "num_chunks": 0,
-  "avg_tokens_per_chunk": 0.0,
-  "token_hist_50buckets": {},
-  "max_tokens": 300,
-  "overlap": 40
+  "total_documents": 327,
+  "total_tokens": 164287,
+  "sources": {
+    "arxiv_pdf": 274,
+    "blog:news.microsoft.com": 5,
+    "blog:www.databricks.com": 9,
+    "blog:medium.com": 17,
+    "blog:spectrum.ieee.org": 2,
+    "blog:www.therobotreport.com": 6,
+    "blog:www.sciencedaily.com": 1,
+    "blog:www.roboticstomorrow.com": 1,
+    "blog:www.technologyreview.com": 2,
+    "blog:techcrunch.com": 1,
+    "blog:singularityhub.com": 1,
+    "blog:news.mit.edu": 1,
+    "blog:www.roboticsbusinessreview.com": 1,
+    "blog:robohub.org": 1,
+    "blog:blog.robotiq.com": 1,
+    "blog:www.aethon.com": 1,
+    "blog:www.knightscope.com": 1,
+    "blog:www.magazino.eu": 2
+  },
+  "robotics_articles": 22,
+  "last_updated": "2025-10-20 12:49:12"
 }
