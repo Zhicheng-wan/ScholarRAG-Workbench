@@ -281,4 +281,12 @@ python src/evaluation/evaluator.py \
   --baseline data/evaluation/manual_baseline.json \
   --results data/evaluation/qdrant_results.json \
   --output data/evaluation/qdrant_evaluation.json
+
+# Evaluate with new metrics
+python src/evaluation/evaluator.py \
+  --queries data/mock_evaluation/test_queries.json \
+  --baseline data/mock_evaluation/manual_baseline.json \
+  --results data/mock_evaluation/retrieval_results.json \
+  --output data/mock_evaluation/updated_results.json \
+  --report data/mock_evaluation/updated_report.txt
 ```

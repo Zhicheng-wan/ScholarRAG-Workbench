@@ -145,6 +145,58 @@ class RetrievalMetrics:
         metrics['mrr'] = self.mean_reciprocal_rank(retrieved_docs, relevant_docs)
         
         return metrics
+    
+    def retrieval_latency(self, start_time: float, end_time: float) -> float:
+        """Calculate retrieval latency in seconds.
+        
+        Args:
+            start_time: Start time of retrieval
+            end_time: End time of retrieval
+            
+        Returns:
+            Latency in seconds
+        """
+        return end_time - start_time
+
+    def queries_per_second(self, total_queries: int, total_time: float) -> float:
+        """Calculate queries per second.
+        
+        Args:
+            total_queries: Total number of queries
+            total_time: Total time taken
+            
+        Returns:
+            Queries per second
+        """
+        return total_queries / total_time if total_time > 0 else 0.0
+
+    def average_response_time(self, query_times: List[float]) -> float:
+        """Calculate average response time across queries.
+        
+        Args:
+            query_times: List of response times for each query
+            
+        Returns:
+            Average response time in seconds
+        """
+        return sum(query_times) / len(query_times) if query_times else 0.0
+    
+    def grounding_accuracy(self, retrieved_docs: List[str], source_verification: Dict[str, bool]) -> float:
+        """Calculate grounding accuracy.
+        
+        Args:
+            retrieved_docs: List of retrieved document IDs
+            source_verification: Dict mapping doc_id to boolean verification
+            
+        Returns:
+            Grounding accuracy score
+        """
+        verified = sum(1 for doc in retrieved_docs if source_verification.get(doc, False))
+        return verified / len(retrieved_docs) if retrieved_docs else 0.0
+
+    def citation_accuracy(self, retrieved_docs: List[str], expected_citations: Set[str]) -> float:
+        correct_citations = sum(1 for doc in retrieved_docs if doc in expected_citations)
+        return correct_citations / len(retrieved_docs) if retrieved_docs else 0.0
 
 
 class EvaluationResults:
