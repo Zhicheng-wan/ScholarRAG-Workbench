@@ -14,8 +14,8 @@ ScholarRAG-Workbench/
 │   │   └── blogs/
 │   │       └── urls.txt              # blog URLs to scrape
 │   └── processed/
-│       ├── corpus.jsonl              # chunked text corpus for RAG
-│       └── corpus.stats.json         # token/chunk statistics
+│       ├── corpus.jsonl                    # chunked text corpus for RAG
+│       └── corpus.stats.json               # token/chunk statistics
 │
 ├── src/
 │   ├── ingest/
