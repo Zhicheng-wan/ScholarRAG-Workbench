@@ -1,12 +1,72 @@
 {
   "query_1": [
-    "arxiv:2404.10630#model",
-    "arxiv:2412.10543#introduction",
-    "arxiv:2510.13048#abstract"
+    "arxiv:2510.13594#conclusion:part-2",
+    "blog:www.therobotreport.com#robotics-309",
+    "blog:spectrum.ieee.org#robotics-307",
+    "blog:www.therobotreport.com#robotics-310",
+    "blog:www.therobotreport.com#robotics-308"
   ],
   "query_2": [
-    "blog:medium.com#rag",
-    "arxiv:2404.10630#model",
-    "arxiv:2412.10543#introduction"
+    "arxiv:2303.18223#introduction:part-1",
+    "blog:techcrunch.com#robotics-317",
+    "arxiv:1910.01108#introduction:part-1",
+    "arxiv:2211.09110#introduction:part-1",
+    "arxiv:2510.13778#model:part-19"
+  ],
+  "query_3": [
+    "blog:robohub.org#robotics-322",
+    "blog:www.magazino.eu#robotics-326",
+    "blog:www.therobotreport.com#robotics-309",
+    "blog:www.therobotreport.com#robotics-308",
+    "blog:www.therobotreport.com#robotics-311"
+  ],
+  "query_4": [
+    "blog:www.therobotreport.com#robotics-309",
+    "blog:spectrum.ieee.org#robotics-307",
+    "blog:robohub.org#robotics-322",
+    "arxiv:2303.18223#introduction:part-5",
+    "arxiv:2510.13778#model:part-18"
+  ],
+  "query_5": [
+    "blog:robohub.org#robotics-322",
+    "blog:medium.com#body:part-7",
+    "blog:www.therobotreport.com#robotics-309",
+    "arxiv:2510.13594#abstract",
+    "blog:www.therobotreport.com#robotics-311"
+  ],
+  "query_6": [
+    "blog:www.therobotreport.com#robotics-309",
+    "blog:spectrum.ieee.org#robotics-306",
+    "blog:www.therobotreport.com#robotics-308",
+    "blog:robohub.org#robotics-322",
+    "blog:www.therobotreport.com#robotics-311"
+  ],
+  "query_7": [
+    "arxiv:2510.13794#conclusion",
+    "arxiv:2510.13794#introduction",
+    "arxiv:2510.13626#related-work",
+    "arxiv:2510.13794#methods:part-1",
+    "arxiv:2510.13149#evaluation:part-2"
+  ],
+  "query_8": [
+    "blog:www.therobotreport.com#robotics-309",
+    "blog:robohub.org#robotics-322",
+    "blog:medium.com#body:part-14",
+    "blog:www.technologyreview.com#robotics-316",
+    "blog:medium.com#body:part-7"
+  ],
+  "query_9": [
+    "blog:www.therobotreport.com#robotics-309",
+    "arxiv:powerinfer-20231219#results:part-4",
+    "blog:spectrum.ieee.org#robotics-306",
+    "blog:robohub.org#robotics-322",
+    "arxiv:powerinfer-20231219#introduction:part-3"
+  ],
+  "query_10": [
+    "blog:www.therobotreport.com#robotics-309",
+    "blog:spectrum.ieee.org#robotics-306",
+    "blog:www.therobotreport.com#robotics-308",
+    "blog:www.technologyreview.com#robotics-316",
+    "blog:robohub.org#robotics-322"
   ]
 }
