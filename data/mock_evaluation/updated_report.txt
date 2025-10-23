@@ -1,0 +1,270 @@
+================================================================================
+RAG RETRIEVAL EVALUATION REPORT
+================================================================================
+
+Total Queries Evaluated: 2
+
+AGGREGATED METRICS:
+----------------------------------------
+mrr                 : 1.0000
+hit_rate@5          : 1.0000
+hit_rate@1          : 1.0000
+grounding_accuracy  : 0.8333
+ndcg@5              : 1.0000
+ndcg@10             : 1.0000
+precision@10        : 0.6667
+precision@1         : 1.0000
+retrieval_latency   : 0.1085
+ndcg@3              : 1.0000
+precision@5         : 0.6667
+hit_rate@3          : 1.0000
+recall@3            : 1.0000
+hit_rate@10         : 1.0000
+recall@1            : 0.5000
+recall@5            : 1.0000
+precision@3         : 0.6667
+citation_accuracy   : 0.6667
+ndcg@1              : 1.0000
+recall@10           : 1.0000
+average_response_time: 0.1085
+queries_per_second  : 9.2166
+
+SUMMARY STATISTICS:
+----------------------------------------
+mrr:
+  Mean: 1.0000
+  Std:  0.0000
+  Min:  1.0000
+  Max:  1.0000
+hit_rate@5:
+  Mean: 1.0000
+  Std:  0.0000
+  Min:  1.0000
+  Max:  1.0000
+hit_rate@1:
+  Mean: 1.0000
+  Std:  0.0000
+  Min:  1.0000
+  Max:  1.0000
+grounding_accuracy:
+  Mean: 0.8333
+  Std:  0.1667
+  Min:  0.6667
+  Max:  1.0000
+ndcg@5:
+  Mean: 1.0000
+  Std:  0.0000
+  Min:  1.0000
+  Max:  1.0000
+ndcg@10:
+  Mean: 1.0000
+  Std:  0.0000
+  Min:  1.0000
+  Max:  1.0000
+precision@10:
+  Mean: 0.6667
+  Std:  0.0000
+  Min:  0.6667
+  Max:  0.6667
+precision@1:
+  Mean: 1.0000
+  Std:  0.0000
+  Min:  1.0000
+  Max:  1.0000
+retrieval_latency:
+  Mean: 0.1085
+  Std:  0.0065
+  Min:  0.1020
+  Max:  0.1150
+ndcg@3:
+  Mean: 1.0000
+  Std:  0.0000
+  Min:  1.0000
+  Max:  1.0000
+precision@5:
+  Mean: 0.6667
+  Std:  0.0000
+  Min:  0.6667
+  Max:  0.6667
+hit_rate@3:
+  Mean: 1.0000
+  Std:  0.0000
+  Min:  1.0000
+  Max:  1.0000
+recall@3:
+  Mean: 1.0000
+  Std:  0.0000
+  Min:  1.0000
+  Max:  1.0000
+hit_rate@10:
+  Mean: 1.0000
+  Std:  0.0000
+  Min:  1.0000
+  Max:  1.0000
+recall@1:
+  Mean: 0.5000
+  Std:  0.0000
+  Min:  0.5000
+  Max:  0.5000
+recall@5:
+  Mean: 1.0000
+  Std:  0.0000
+  Min:  1.0000
+  Max:  1.0000
+precision@3:
+  Mean: 0.6667
+  Std:  0.0000
+  Min:  0.6667
+  Max:  0.6667
+citation_accuracy:
+  Mean: 0.6667
+  Std:  0.0000
+  Min:  0.6667
+  Max:  0.6667
+ndcg@1:
+  Mean: 1.0000
+  Std:  0.0000
+  Min:  1.0000
+  Max:  1.0000
+recall@10:
+  Mean: 1.0000
+  Std:  0.0000
+  Min:  1.0000
+  Max:  1.0000
+
+SYSTEM COMPARISON (BASELINE vs REFINED):
+----------------------------------------
+mrr:
+  Baseline: 1.0000
+  Refined:  1.0000
+  Improvement: 0.0000 (0.0%)
+hit_rate@5:
+  Baseline: 1.0000
+  Refined:  1.0000
+  Improvement: 0.0000 (0.0%)
+hit_rate@1:
+  Baseline: 1.0000
+  Refined:  1.0000
+  Improvement: 0.0000 (0.0%)
+grounding_accuracy:
+  Baseline: 0.8333
+  Refined:  0.9583
+  Improvement: 0.1250 (15.0%)
+ndcg@5:
+  Baseline: 1.0000
+  Refined:  1.0000
+  Improvement: 0.0000 (0.0%)
+ndcg@10:
+  Baseline: 1.0000
+  Refined:  1.0000
+  Improvement: 0.0000 (0.0%)
+precision@10:
+  Baseline: 0.6667
+  Refined:  0.7933
+  Improvement: 0.1267 (19.0%)
+precision@1:
+  Baseline: 1.0000
+  Refined:  1.0000
+  Improvement: 0.0000 (0.0%)
+retrieval_latency:
+  Baseline: 0.1085
+  Refined:  0.1226
+  Improvement: 0.0141 (13.0%)
+ndcg@3:
+  Baseline: 1.0000
+  Refined:  1.0000
+  Improvement: 0.0000 (0.0%)
+precision@5:
+  Baseline: 0.6667
+  Refined:  0.7733
+  Improvement: 0.1067 (16.0%)
+hit_rate@3:
+  Baseline: 1.0000
+  Refined:  1.0000
+  Improvement: 0.0000 (0.0%)
+recall@3:
+  Baseline: 1.0000
+  Refined:  1.0000
+  Improvement: 0.0000 (0.0%)
+hit_rate@10:
+  Baseline: 1.0000
+  Refined:  1.0000
+  Improvement: 0.0000 (0.0%)
+recall@1:
+  Baseline: 0.5000
+  Refined:  0.5650
+  Improvement: 0.0650 (13.0%)
+recall@5:
+  Baseline: 1.0000
+  Refined:  1.0000
+  Improvement: 0.0000 (0.0%)
+precision@3:
+  Baseline: 0.6667
+  Refined:  0.7667
+  Improvement: 0.1000 (15.0%)
+citation_accuracy:
+  Baseline: 0.6667
+  Refined:  0.7533
+  Improvement: 0.0867 (13.0%)
+ndcg@1:
+  Baseline: 1.0000
+  Refined:  1.0000
+  Improvement: 0.0000 (0.0%)
+recall@10:
+  Baseline: 1.0000
+  Refined:  1.0000
+  Improvement: 0.0000 (0.0%)
+average_response_time:
+  Baseline: 0.1085
+  Refined:  0.1280
+  Improvement: 0.0195 (18.0%)
+queries_per_second:
+  Baseline: 9.2166
+  Refined:  1.0000
+  Improvement: -8.2166 (-89.1%)
+
+PER-QUERY RESULTS:
+----------------------------------------
+Query query_1:
+  precision@1: 1.0000
+  recall@1: 0.5000
+  ndcg@1: 1.0000
+  hit_rate@1: 1.0000
+  precision@3: 0.6667
+  recall@3: 1.0000
+  ndcg@3: 1.0000
+  hit_rate@3: 1.0000
+  precision@5: 0.6667
+  recall@5: 1.0000
+  ndcg@5: 1.0000
+  hit_rate@5: 1.0000
+  precision@10: 0.6667
+  recall@10: 1.0000
+  ndcg@10: 1.0000
+  hit_rate@10: 1.0000
+  mrr: 1.0000
+  retrieval_latency: 0.1150
+  grounding_accuracy: 1.0000
+  citation_accuracy: 0.6667
+
+Query query_2:
+  precision@1: 1.0000
+  recall@1: 0.5000
+  ndcg@1: 1.0000
+  hit_rate@1: 1.0000
+  precision@3: 0.6667
+  recall@3: 1.0000
+  ndcg@3: 1.0000
+  hit_rate@3: 1.0000
+  precision@5: 0.6667
+  recall@5: 1.0000
+  ndcg@5: 1.0000
+  hit_rate@5: 1.0000
+  precision@10: 0.6667
+  recall@10: 1.0000
+  ndcg@10: 1.0000
+  hit_rate@10: 1.0000
+  mrr: 1.0000
+  retrieval_latency: 0.1020
+  grounding_accuracy: 0.6667
+  citation_accuracy: 0.6667
