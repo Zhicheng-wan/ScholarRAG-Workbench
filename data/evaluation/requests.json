@@ -1,0 +1,12 @@
+{
+  "query_1": "What techniques are proposed to reduce hallucinations in retrieval-augmented generation systems?",
+  "query_2": "How do parameter-efficient fine-tuning methods like LoRA or Prefix-Tuning compare in performance on downstream tasks?",
+  "query_3": "Which papers discuss scaling laws or compute-efficiency trade-offs for large language models?",
+  "query_4": "What evaluation benchmarks are used to measure reasoning or mathematical ability in LLMs?",
+  "query_5": "How is reinforcement learning from human feedback (RLHF) implemented differently across models like InstructGPT, Sparrow, and Claude?",
+  "query_6": "What approaches exist for multilingual or cross-lingual large language models?",
+  "query_7": "Which studies propose techniques for efficient context-window extension or long-sequence modeling?",
+  "query_8": "What papers address data-contamination or memorization issues in pretraining corpora?",
+  "query_9": "How have open-source models (e.g., LLaMA, Falcon, Mistral) influenced reproducibility and community research?",
+  "query_10": "What are recent advances in alignment methods beyond RLHF, such as direct preference optimization (DPO)?"
+}
