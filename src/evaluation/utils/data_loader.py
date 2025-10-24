@@ -63,7 +63,44 @@ def load_retrieval_results(results_path: str) -> Dict[str, List[str]]:
         raise FileNotFoundError(f"Results file not found: {results_path}")
     
     with path.open('r', encoding='utf-8') as f:
-        return json.load(f)
+        raw = json.load(f)
+
+    # Accept either the expected dict[str, list[str]] format or the direct
+    # JSON dumped output produced by `query_qdrant.py`, which is a list of
+    # records containing hit metadata. This keeps the evaluator usable without
+    # an extra conversion step.
+    if isinstance(raw, dict):
+        return {key: list(value) for key, value in raw.items()}
+
+    if isinstance(raw, list):
+        results: Dict[str, List[str]] = {}
+        for entry in raw:
+            if not isinstance(entry, dict):
+                continue
+            query_id = entry.get("id") or entry.get("query_id")
+            if not query_id:
+                continue
+            hits = entry.get("results", [])
+            if not isinstance(hits, list):
+                continue
+            doc_ids: List[str] = []
+            for hit in hits:
+                if not isinstance(hit, dict):
+                    continue
+                doc_id = hit.get("doc_id")
+                if not doc_id:
+                    payload = hit.get("payload")
+                    if isinstance(payload, dict):
+                        doc_id = payload.get("doc_id")
+                if doc_id:
+                    doc_ids.append(doc_id)
+            results[query_id] = doc_ids
+        return results
+
+    raise ValueError(
+        f"Unsupported retrieval results format in {results_path}. "
+        "Expected dict or list."
+    )
 
 
 def save_evaluation_results(results: Dict[str, Any], output_path: str):
