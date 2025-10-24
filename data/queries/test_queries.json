@@ -1,0 +1,17 @@
+{
+  "query_1": "What are the latest approaches in vision-language-action models for robotic manipulation?",
+  "query_2": "How does reinforcement learning improve robotic control policies?",
+  "query_3": "What methods exist for training autonomous robots in simulation environments?",
+  "query_4": "How do transformer-based architectures enhance robot learning and control?",
+  "query_5": "What are effective strategies for imitation learning in robotics?",
+  "query_6": "How can robots handle visual perception for manipulation tasks?",
+  "query_7": "What evaluation metrics and benchmarks are used for assessing robotic systems?",
+  "query_8": "How do language models enable better human-robot interaction?",
+  "query_9": "What are the challenges in real-world deployment of learned robot policies?",
+  "query_10": "How do vision-language models integrate multimodal information for robotics?",
+  "query_11": "What techniques enable zero-shot and few-shot learning for robot tasks?",
+  "query_12": "How does model training efficiency affect robotic learning outcomes?",
+  "query_13": "What are effective approaches for robot navigation and SLAM?",
+  "query_14": "How do different neural network architectures compare for robotic applications?",
+  "query_15": "What data collection and preprocessing methods improve robot learning?"
+}
