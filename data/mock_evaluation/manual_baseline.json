@@ -1,24 +1,168 @@
 {
   "query_1": {
     "relevant_docs": [
-      "arxiv:2404.10630#model",
-      "arxiv:2412.10543#introduction"
+      "arxiv:2510.13594#conclusion:part-2",
+      "blog:www.therobotreport.com#robotics-309",
+      "blog:spectrum.ieee.org#robotics-307",
+      "blog:www.therobotreport.com#robotics-310",
+      "arxiv:2510.13048#abstract"
     ],
     "relevance_scores": {
-      "arxiv:2404.10630#model": 1.0,
-      "arxiv:2412.10543#introduction": 0.8
+      "arxiv:2510.13594#conclusion:part-2": 1.0,
+      "blog:www.therobotreport.com#robotics-309": 0.9,
+      "blog:spectrum.ieee.org#robotics-307": 0.85,
+      "blog:www.therobotreport.com#robotics-310": 0.8,
+      "arxiv:2510.13048#abstract": 0.9
     },
-    "notes": "Focus on recent transformer improvements"
+    "notes": "Recent humanoid robot control and design advances"
   },
   "query_2": {
     "relevant_docs": [
-      "arxiv:2404.10630#model",
-      "blog:medium.com#rag"
+      "arxiv:2303.18223#introduction:part-1",
+      "blog:techcrunch.com#robotics-317",
+      "arxiv:1910.01108#introduction:part-1",
+      "arxiv:2211.09110#introduction:part-1",
+      "arxiv:2510.13778#model:part-19"
     ],
     "relevance_scores": {
-      "arxiv:2404.10630#model": 0.9,
-      "blog:medium.com#rag": 1.0
+      "arxiv:2303.18223#introduction:part-1": 0.95,
+      "blog:techcrunch.com#robotics-317": 1.0,
+      "arxiv:1910.01108#introduction:part-1": 0.85,
+      "arxiv:2211.09110#introduction:part-1": 0.85,
+      "arxiv:2510.13778#model:part-19": 0.8
     },
-    "notes": "RAG system explanations"
+    "notes": "Use of LLMs and generative AI in robot learning"
+  },
+  "query_3": {
+    "relevant_docs": [
+      "arxiv:2510.13356#experiments",
+      "arxiv:2510.13464#results",
+      "blog:www.therobotreport.com#robotics-309",
+      "blog:robohub.org#robotics-322"
+    ],
+    "relevance_scores": {
+      "arxiv:2510.13356#experiments": 1.0,
+      "arxiv:2510.13464#results": 0.9,
+      "blog:www.therobotreport.com#robotics-309": 0.75,
+      "blog:robohub.org#robotics-322": 0.7
+    },
+    "notes": "Robot manipulation in unstructured environments"
+  },
+  "query_4": {
+    "relevant_docs": [
+      "arxiv:2510.13488#model",
+      "arxiv:2510.13546#dataset",
+      "blog:www.therobotreport.com#robotics-309",
+      "arxiv:2303.18223#introduction:part-5",
+      "arxiv:2510.13778#model:part-18"
+    ],
+    "relevance_scores": {
+      "arxiv:2510.13488#model": 1.0,
+      "arxiv:2510.13546#dataset": 0.85,
+      "blog:www.therobotreport.com#robotics-309": 0.75,
+      "arxiv:2303.18223#introduction:part-5": 0.8,
+      "arxiv:2510.13778#model:part-18": 0.8
+    },
+    "notes": "Vision-based and multimodal robot perception methods"
+  },
+  "query_5": {
+    "relevant_docs": [
+      "arxiv:2510.13367#discussion",
+      "blog:robohub.org#robotics-322",
+      "blog:www.therobotreport.com#robotics-309",
+      "arxiv:2510.13594#abstract",
+      "blog:www.therobotreport.com#robotics-311"
+    ],
+    "relevance_scores": {
+      "arxiv:2510.13367#discussion": 0.95,
+      "blog:robohub.org#robotics-322": 1.0,
+      "blog:www.therobotreport.com#robotics-309": 0.85,
+      "arxiv:2510.13594#abstract": 0.8,
+      "blog:www.therobotreport.com#robotics-311": 0.75
+    },
+    "notes": "Human-robot collaboration in industrial robotics"
+  },
+  "query_6": {
+    "relevant_docs": [
+      "blog:www.therobotreport.com#robotics-309",
+      "blog:spectrum.ieee.org#robotics-306",
+      "blog:www.therobotreport.com#robotics-308",
+      "blog:robohub.org#robotics-322",
+      "blog:www.therobotreport.com#robotics-311"
+    ],
+    "relevance_scores": {
+      "blog:www.therobotreport.com#robotics-309": 1.0,
+      "blog:spectrum.ieee.org#robotics-306": 0.95,
+      "blog:www.therobotreport.com#robotics-308": 0.9,
+      "blog:robohub.org#robotics-322": 0.85,
+      "blog:www.therobotreport.com#robotics-311": 0.8
+    },
+    "notes": "Recent industrial and logistics automation breakthroughs"
+  },
+  "query_7": {
+    "relevant_docs": [
+      "arxiv:2510.13794#conclusion",
+      "arxiv:2510.13794#introduction",
+      "arxiv:2510.13626#related-work",
+      "arxiv:2510.13461#reinforcement",
+      "arxiv:2510.13794#methods:part-1"
+    ],
+    "relevance_scores": {
+      "arxiv:2510.13794#conclusion": 1.0,
+      "arxiv:2510.13794#introduction": 0.95,
+      "arxiv:2510.13626#related-work": 0.9,
+      "arxiv:2510.13461#reinforcement": 1.0,
+      "arxiv:2510.13794#methods:part-1": 0.85
+    },
+    "notes": "Reinforcement and imitation learning for robotics"
+  },
+  "query_8": {
+    "relevant_docs": [
+      "arxiv:2510.13625#safety",
+      "arxiv:2510.13704#explainability",
+      "blog:www.therobotreport.com#robotics-309",
+      "blog:robohub.org#robotics-322",
+      "blog:www.technologyreview.com#robotics-316"
+    ],
+    "relevance_scores": {
+      "arxiv:2510.13625#safety": 1.0,
+      "arxiv:2510.13704#explainability": 0.95,
+      "blog:www.therobotreport.com#robotics-309": 0.75,
+      "blog:robohub.org#robotics-322": 0.7,
+      "blog:www.technologyreview.com#robotics-316": 0.8
+    },
+    "notes": "Safety and explainability in robotic systems"
+  },
+  "query_9": {
+    "relevant_docs": [
+      "arxiv:2510.13595#hardware",
+      "arxiv:2510.13619#optimization",
+      "blog:www.therobotreport.com#robotics-309",
+      "blog:spectrum.ieee.org#robotics-306"
+    ],
+    "relevance_scores": {
+      "arxiv:2510.13595#hardware": 1.0,
+      "arxiv:2510.13619#optimization": 0.95,
+      "blog:www.therobotreport.com#robotics-309": 0.7,
+      "blog:spectrum.ieee.org#robotics-306": 0.65
+    },
+    "notes": "Hardware efficiency and optimization in robotics"
+  },
+  "query_10": {
+    "relevant_docs": [
+      "blog:www.technologyreview.com#robotics-316",
+      "blog:spectrum.ieee.org#robotics-306",
+      "blog:www.therobotreport.com#robotics-309",
+      "blog:www.therobotreport.com#robotics-308",
+      "blog:robohub.org#robotics-322"
+    ],
+    "relevance_scores": {
+      "blog:www.technologyreview.com#robotics-316": 1.0,
+      "blog:spectrum.ieee.org#robotics-306": 0.9,
+      "blog:www.therobotreport.com#robotics-309": 0.8,
+      "blog:www.therobotreport.com#robotics-308": 0.75,
+      "blog:robohub.org#robotics-322": 0.7
+    },
+    "notes": "Ethical and societal aspects of robotics deployment"
   }
 }

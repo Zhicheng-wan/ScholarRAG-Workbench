@@ -1,7 +1,12 @@
 {
-  "query_1": "What are the latest advances in transformer architectures?",
-  "query_2": "How do retrieval-augmented generation systems work?",
-  "query_3": "What are the challenges in few-shot learning?",
-  "query_4": "How do large language models handle long sequences?",
-  "query_5": "What are the benefits of attention mechanisms in neural networks?"
+  "query_1": "Summarize the most recent advancements in humanoid robot design and control.",
+  "query_2": "Which papers or blogs discuss the integration of large language models or generative AI into robot learning and control?",
+  "query_3": "Identify research focusing on robot manipulation or grasping in unstructured environments.",
+  "query_4": "Find works that discuss robot perception improvements using vision-based or multimodal approaches.",
+  "query_5": "Summarize the main challenges and solutions in human-robot collaboration for industrial applications.",
+  "query_6": "Which blog articles report major breakthroughs in autonomous mobile robots or warehouse automation in 2024?",
+  "query_7": "Find and summarize works that discuss reinforcement learning or imitation learning for robotic motion control.",
+  "query_8": "Which papers focus on robotic safety and explainable AI in decision-making systems?",
+  "query_9": "Summarize discussions about energy efficiency or hardware optimization in robotics research.",
+  "query_10": "Identify works or blog posts highlighting the societal or ethical impacts of deploying robots in real-world environments."
 }
