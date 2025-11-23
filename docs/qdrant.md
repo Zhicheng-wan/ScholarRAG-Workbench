@@ -1,6 +1,6 @@
 # Qdrant Retrieval Workflow
 
-This guide explains how to push processed chunks into a Qdrant vector store and run ad-hoc retrieval using the utilities under `src/retrieval/`.
+This guide explains how to push processed chunks into a Qdrant vector store and run ad-hoc retrieval using the utilities under `src/utils/retrieval/`.
 
 ## Prerequisites
 - Install Python requirements (new dependencies: `qdrant-client`, `sentence-transformers`, `numpy`).
@@ -18,7 +18,7 @@ This guide explains how to push processed chunks into a Qdrant vector store and 
 Run the indexing script to create (or recreate) a collection and upload embeddings:
 
 ```bash
-python src/retrieval/index_qdrant.py \
+python src/utils/retrieval/index_qdrant.py \
   --corpus data/processed/corpus.jsonl \
   --collection scholar_rag_chunks \
   --embedding-model sentence-transformers/all-MiniLM-L6-v2 \
@@ -36,7 +36,7 @@ Key flags:
 Execute semantic search over the indexed chunks:
 
 ```bash
-python src/retrieval/query_qdrant.py \
+python src/utils/retrieval/query_qdrant.py \
   --collection scholar_rag_chunks \
   --query "How do retrieval-augmented transformers scale with corpus size?" \
   --top-k 5

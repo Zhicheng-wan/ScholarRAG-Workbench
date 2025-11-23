@@ -7,7 +7,7 @@ from __future__ import annotations
 import argparse
 import json
 import pathlib
-from typing import Dict, List, Any, Set
+from typing import Dict, List, Any, Set, Union
 from collections import defaultdict
 
 from metrics import RetrievalMetrics, EvaluationResults
@@ -15,7 +15,7 @@ from utils.data_loader import load_test_queries, load_manual_baseline, load_retr
 
 
 class RAGEvaluator:
-    """Main evaluator for RAG retrieval systems."""
+    """Main evaluator for RAG retrieval systems. System-agnostic."""
     
     def __init__(self):
         self.metrics_calculator = RetrievalMetrics()
@@ -36,7 +36,7 @@ class RAGEvaluator:
             relevant_docs: Set of relevant document IDs from manual baseline
             relevance_scores: Optional graded relevance scores
             k_values: List of k values to evaluate
-            query_time: Time taken to retrieve documents
+            query_time: Time taken to retrieve documents (in seconds)
         Returns:
             Dictionary of metric scores
         """
@@ -49,7 +49,7 @@ class RAGEvaluator:
         if query_time is not None:
             metrics['retrieval_latency'] = query_time
         
-        # Add grounding metrics using mock verification
+        # Add grounding metrics using mock verification (can be overridden)
         mock_verification = self.create_mock_grounding_verification(retrieved_docs)
         metrics['grounding_accuracy'] = self.metrics_calculator.grounding_accuracy(
             retrieved_docs, mock_verification
@@ -66,14 +66,18 @@ class RAGEvaluator:
     def evaluate_batch(self, 
                       test_queries: Dict[str, str],
                       manual_baseline: Dict[str, Dict[str, Any]],
-                      retrieval_results: Dict[str, List[str]],
+                      retrieval_results: Union[Dict[str, List[str]], Dict[str, Dict[str, Any]]],
                       k_values: List[int] = None) -> Dict[str, Any]:
         """Evaluate multiple queries in batch.
         
         Args:
             test_queries: Dict mapping query_id to query text
             manual_baseline: Dict mapping query_id to baseline info
-            retrieval_results: Dict mapping query_id to retrieved docs
+            retrieval_results: Dict mapping query_id to either:
+                             - List[str]: Simple list of doc_ids (backward compatible)
+                             - Dict with keys:
+                               - 'doc_ids': List[str] (required)
+                               - 'query_time': float (optional, in seconds)
             k_values: List of k values to evaluate
             
         Returns:
@@ -81,7 +85,7 @@ class RAGEvaluator:
         """
         if k_values is None:
             k_values = [1, 3, 5, 10]
-        query_times = []  # Track timing for performance metrics
+        query_times = []
         
         # Evaluate each query
         for query_id in test_queries:
@@ -93,17 +97,26 @@ class RAGEvaluator:
                 print(f"Warning: No retrieval results for query {query_id}")
                 continue
             
-            # Mock query time (since you don't have real timing yet)
-            mock_query_time = 0.1 + (hash(query_id) % 50) / 1000  # 0.1-0.15 seconds
-            query_times.append(mock_query_time)
+            result_data = retrieval_results[query_id]
+            
+            # Support both simple list format and enhanced dict format
+            if isinstance(result_data, list):
+                retrieved_docs = result_data
+                query_time = None
+            else:
+                # Enhanced format with metadata
+                retrieved_docs = result_data.get('doc_ids', [])
+                query_time = result_data.get('query_time')
+            
+            if query_time is not None:
+                query_times.append(query_time)
             
             baseline_info = manual_baseline[query_id]
             relevant_docs = set(baseline_info.get('relevant_docs', []))
             relevance_scores = baseline_info.get('relevance_scores', {})
-            retrieved_docs = retrieval_results[query_id]
             
             self.evaluate_single_query(
-                query_id, retrieved_docs, relevant_docs, relevance_scores, k_values, mock_query_time
+                query_id, retrieved_docs, relevant_docs, relevance_scores, k_values, query_time
             )
         
         # Calculate aggregated metrics
@@ -130,9 +143,10 @@ class RAGEvaluator:
         
         Args:
             system_results: Dict mapping system_name to evaluation results
+                           (from evaluate_batch)
             
         Returns:
-            Comparison results
+            Comparison results with metrics and improvements
         """
         comparison = {}
         
@@ -142,33 +156,37 @@ class RAGEvaluator:
         
         # Find best system for each metric
         best_systems = {}
-        for metric in comparison[list(comparison.keys())[0]].keys():
-            best_score = -1
-            best_system = None
-            for system_name, metrics in comparison.items():
-                if metrics.get(metric, 0) > best_score:
-                    best_score = metrics[metric]
-                    best_system = system_name
-            best_systems[metric] = {'system': best_system, 'score': best_score}
+        if comparison:
+            first_system_metrics = comparison[list(comparison.keys())[0]]
+            for metric in first_system_metrics.keys():
+                best_score = -1
+                best_system = None
+                for system_name, metrics in comparison.items():
+                    score = metrics.get(metric, 0)
+                    if score > best_score:
+                        best_score = score
+                        best_system = system_name
+                best_systems[metric] = {'system': best_system, 'score': best_score}
         
         return {
             'system_metrics': comparison,
             'best_systems': best_systems
         }
     
-    def generate_report(self, results: Dict[str, Any], output_path: str = None) -> str:
-        """Generate a human-readable evaluation report.
+    def generate_report(self, results: Dict[str, Any], output_path: str = None, system_name: str = "System") -> str:
+        """Generate a human-readable evaluation report for a single system.
         
         Args:
             results: Evaluation results from evaluate_batch
             output_path: Optional path to save report
+            system_name: Name of the system being evaluated
             
         Returns:
             Report text
         """
         report_lines = []
         report_lines.append("=" * 80)
-        report_lines.append("RAG RETRIEVAL EVALUATION REPORT")
+        report_lines.append(f"RAG RETRIEVAL EVALUATION REPORT: {system_name}")
         report_lines.append("=" * 80)
         report_lines.append("")
         
@@ -180,7 +198,7 @@ class RAGEvaluator:
         report_lines.append("AGGREGATED METRICS:")
         report_lines.append("-" * 40)
         for metric, score in results['aggregated_metrics'].items():
-            report_lines.append(f"{metric:20s}: {score:.4f}")
+            report_lines.append(f"{metric:30s}: {score:.4f}")
         report_lines.append("")
         
         # Summary Statistics
@@ -192,25 +210,6 @@ class RAGEvaluator:
             report_lines.append(f"  Std:  {stats['std']:.4f}")
             report_lines.append(f"  Min:  {stats['min']:.4f}")
             report_lines.append(f"  Max:  {stats['max']:.4f}")
-        report_lines.append("")
-        
-        # System Comparison (Baseline vs Refined) - ADD THIS SECTION
-        report_lines.append("SYSTEM COMPARISON (BASELINE vs REFINED):")
-        report_lines.append("-" * 40)
-        
-        # Create mock refined results
-        baseline_results = results['aggregated_metrics']
-        mock_refined = self.create_mock_refined_results(baseline_results)
-        
-        # Perform comparison
-        comparison = self.compare_baseline_vs_refined(baseline_results, mock_refined)
-        
-        for metric, data in comparison.items():
-            if 'improvement' in data:
-                report_lines.append(f"{metric}:")
-                report_lines.append(f"  Baseline: {data['baseline']:.4f}")
-                report_lines.append(f"  Refined:  {data['refined']:.4f}")
-                report_lines.append(f"  Improvement: {data['improvement']:.4f} ({data['percentage_improvement']:.1f}%)")
         report_lines.append("")
         
         # Per-Query Results
@@ -230,23 +229,105 @@ class RAGEvaluator:
         
         return report_text
     
-    def compare_baseline_vs_refined(self, baseline_results: Dict, refined_results: Dict) -> Dict:
-        """Compare baseline vs refined RAG performance."""
-        comparison = {}
-        for metric in baseline_results.keys():
-            if metric in refined_results:
-                improvement = refined_results[metric] - baseline_results[metric]
-                percentage_improvement = (improvement / baseline_results[metric]) * 100 if baseline_results[metric] > 0 else 0
-                comparison[metric] = {
-                    'baseline': baseline_results[metric],
-                    'refined': refined_results[metric],
-                    'improvement': improvement,
-                    'percentage_improvement': percentage_improvement
-                }
-        return comparison
+    def generate_comparison_report(self,
+                                  comparison_results: Dict[str, Any],
+                                  output_path: str = None) -> str:
+        """Generate a comparison report for multiple systems.
+        
+        Args:
+            comparison_results: Results from compare_systems()
+            output_path: Optional path to save report
+            
+        Returns:
+            Report text
+        """
+        report_lines = []
+        report_lines.append("=" * 80)
+        report_lines.append("RAG SYSTEM COMPARISON REPORT")
+        report_lines.append("=" * 80)
+        report_lines.append("")
+        
+        system_metrics = comparison_results.get('system_metrics', {})
+        best_systems = comparison_results.get('best_systems', {})
+        
+        if not system_metrics:
+            report_lines.append("No systems to compare.")
+            report_text = "\n".join(report_lines)
+            if output_path:
+                pathlib.Path(output_path).write_text(report_text, encoding='utf-8')
+            return report_text
+        
+        # Get all metrics
+        first_system = list(system_metrics.keys())[0]
+        all_metrics = list(system_metrics[first_system].keys())
+        
+        # Comparison table
+        report_lines.append("METRIC COMPARISON:")
+        report_lines.append("-" * 80)
+        
+        # Header
+        header = f"{'Metric':<30s}"
+        for system_name in system_metrics.keys():
+            header += f"{system_name:>20s}"
+        header += f"{'Best':>20s}"
+        report_lines.append(header)
+        report_lines.append("-" * 80)
+        
+        # Rows
+        for metric in all_metrics:
+            row = f"{metric:<30s}"
+            best_score = -1
+            for system_name in system_metrics.keys():
+                score = system_metrics[system_name].get(metric, 0.0)
+                row += f"{score:>20.4f}"
+                if score > best_score:
+                    best_score = score
+            best_system_info = best_systems.get(metric, {})
+            best_system_name = best_system_info.get('system', 'N/A')
+            row += f"{best_system_name:>20s}"
+            report_lines.append(row)
+        
+        report_lines.append("")
+        
+        # Improvement analysis (if exactly 2 systems)
+        if len(system_metrics) == 2:
+            system_names = list(system_metrics.keys())
+            baseline_name = system_names[0]
+            refined_name = system_names[1]
+            
+            report_lines.append(f"IMPROVEMENT ANALYSIS ({baseline_name} -> {refined_name}):")
+            report_lines.append("-" * 40)
+            
+            baseline_metrics = system_metrics[baseline_name]
+            refined_metrics = system_metrics[refined_name]
+            
+            for metric in all_metrics:
+                baseline_score = baseline_metrics.get(metric, 0.0)
+                refined_score = refined_metrics.get(metric, 0.0)
+                
+                if baseline_score > 0:
+                    improvement = refined_score - baseline_score
+                    percentage_improvement = (improvement / baseline_score) * 100
+                    
+                    report_lines.append(f"{metric}:")
+                    report_lines.append(f"  {baseline_name}: {baseline_score:.4f}")
+                    report_lines.append(f"  {refined_name}: {refined_score:.4f}")
+                    report_lines.append(f"  Improvement: {improvement:+.4f} ({percentage_improvement:+.1f}%)")
+                    report_lines.append("")
+        
+        report_text = "\n".join(report_lines)
+        
+        if output_path:
+            pathlib.Path(output_path).write_text(report_text, encoding='utf-8')
+            print(f"Comparison report saved to {output_path}")
+        
+        return report_text
     
     def create_mock_grounding_verification(self, retrieved_docs: List[str]) -> Dict[str, bool]:
-        """Mock grounding verification - arxiv papers are 'verified', blogs are 'unverified'"""
+        """Mock grounding verification - arxiv papers are 'verified', blogs are 'unverified'.
+        
+        Users can override this by providing their own verification in the result format.
+        """
         verification = {}
         for doc in retrieved_docs:
             if doc.startswith('arxiv:'):
@@ -254,32 +335,51 @@ class RAGEvaluator:
             else:
                 verification[doc] = False  # Other sources are "unverified"
         return verification
-    
-    def create_mock_refined_results(self, baseline_results: Dict) -> Dict:
-        """Create mock refined results by improving baseline scores by 10-20%"""
-        refined = {}
-        for metric, score in baseline_results.items():
-            improvement_factor = 1.1 + (hash(metric) % 10) / 100
-            refined[metric] = min(1.0, score * improvement_factor)
-        return refined
 
 
 def main():
     """Command-line interface for the evaluator."""
-    ap = argparse.ArgumentParser(description="Evaluate RAG retrieval systems")
+    ap = argparse.ArgumentParser(
+        description="Evaluate a RAG retrieval system. Uses system-specific manual baseline.",
+        epilog="""
+Note: The system must have its own manual_baseline.json at data/{system_name}/manual_baseline.json
+
+Example:
+  python evaluator.py \\
+    --queries data/evaluation/requests.json \\
+    --results data/baseline/results.json
+        """
+    )
     ap.add_argument("--queries", required=True, help="Path to test queries JSON file")
-    ap.add_argument("--baseline", required=True, help="Path to manual baseline JSON file")
     ap.add_argument("--results", required=True, help="Path to retrieval results JSON file")
     ap.add_argument("--output", help="Path to save evaluation results JSON")
     ap.add_argument("--report", help="Path to save evaluation report")
+    ap.add_argument("--system-name", help="Name of the system being evaluated (auto-detected from results path)")
     ap.add_argument("--k-values", nargs="+", type=int, default=[1, 3, 5, 10],
                    help="K values for evaluation metrics")
     
     args = ap.parse_args()
     
+    # Auto-detect system name from results path if not provided
+    if not args.system_name:
+        results_path = pathlib.Path(args.results)
+        args.system_name = results_path.parent.name
+    
+    # Get system-specific baseline path
+    system_baseline = pathlib.Path(f"data/{args.system_name}/manual_baseline.json")
+    if not system_baseline.exists():
+        raise FileNotFoundError(
+            f"No baseline found for system '{args.system_name}'. "
+            f"Expected: {system_baseline}\n"
+            f"Each system must have its own manual_baseline.json file."
+        )
+    
+    print(f"System: {args.system_name}")
+    print(f"Using baseline: {system_baseline}")
+    
     # Load data
     test_queries = load_test_queries(args.queries)
-    manual_baseline = load_manual_baseline(args.baseline)
+    manual_baseline = load_manual_baseline(str(system_baseline))
     retrieval_results = load_retrieval_results(args.results)
     
     # Evaluate
@@ -296,7 +396,7 @@ def main():
         print(f"Results saved to {args.output}")
     
     # Generate report
-    report = evaluator.generate_report(results, args.report)
+    report = evaluator.generate_report(results, args.report, args.system_name)
     print("\n" + report)
 
 
