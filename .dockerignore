@@ -1,0 +1,38 @@
+# Python
+__pycache__/
+*.py[cod]
+*$py.class
+*.so
+.Python
+env/
+venv/
+ENV/
+.venv
+
+# Data (don't copy large data files into image)
+data/raw/
+data/*/corpus.jsonl
+data/*/results.json
+
+# Git
+.git/
+.gitignore
+
+# IDE
+.vscode/
+.idea/
+*.swp
+*.swo
+
+# Docker
+Dockerfile*
+.dockerignore
+
+# Documentation
+*.md
+docs/
+
+# Other
+.DS_Store
+*.log
+

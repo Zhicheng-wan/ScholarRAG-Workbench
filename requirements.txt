@@ -3,6 +3,6 @@ requests
 pymupdf
 tqdm
 trafilatura
-qdrant-client
+qdrant-client==1.16.0
 sentence-transformers
 numpy

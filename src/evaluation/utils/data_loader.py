@@ -6,7 +6,7 @@ from __future__ import annotations
 
 import json
 import pathlib
-from typing import Dict, List, Any
+from typing import Dict, List, Any, Union
 
 
 def load_test_queries(queries_path: str) -> Dict[str, str]:
@@ -48,15 +48,38 @@ def load_manual_baseline(baseline_path: str) -> Dict[str, Dict[str, Any]]:
         return json.load(f)
 
 
-def load_retrieval_results(results_path: str) -> Dict[str, List[str]]:
+def load_retrieval_results(results_path: str) -> Union[Dict[str, List[str]], Dict[str, Dict[str, Any]]]:
     """Load retrieval results from JSON file.
     
-    Expected format:
-    {
-        "query_1": ["doc1", "doc2", "doc3", "doc4", "doc5"],
-        "query_2": ["doc2", "doc1", "doc5", "doc3", "doc4"],
-        ...
-    }
+    Supports multiple formats:
+    1. Simple format (dict of lists):
+       {
+           "query_1": ["doc1", "doc2", "doc3"],
+           ...
+       }
+    
+    2. Enhanced format (dict of dicts with metadata):
+       {
+           "query_1": {
+               "doc_ids": ["doc1", "doc2", "doc3"],
+               "query_time": 0.123,
+               "metadata": {...}
+           },
+           ...
+       }
+    
+    3. Qdrant output format (list of query results):
+       [
+           {
+               "id": "query_1",
+               "query": "...",
+               "results": [
+                   {"doc_id": "doc1", "score": 0.9, ...},
+                   ...
+               ]
+           },
+           ...
+       ]
     """
     path = pathlib.Path(results_path)
     if not path.exists():
@@ -65,13 +88,11 @@ def load_retrieval_results(results_path: str) -> Dict[str, List[str]]:
     with path.open('r', encoding='utf-8') as f:
         raw = json.load(f)
 
-    # Accept either the expected dict[str, list[str]] format or the direct
-    # JSON dumped output produced by `query_qdrant.py`, which is a list of
-    # records containing hit metadata. This keeps the evaluator usable without
-    # an extra conversion step.
+    # Format 1 & 2: Dict format (simple or enhanced)
     if isinstance(raw, dict):
-        return {key: list(value) for key, value in raw.items()}
+        return raw
 
+    # Format 3: List format (from query_qdrant.py)
     if isinstance(raw, list):
         results: Dict[str, List[str]] = {}
         for entry in raw:
@@ -112,6 +133,33 @@ def save_evaluation_results(results: Dict[str, Any], output_path: str):
         json.dump(results, f, indent=2, ensure_ascii=False)
 
 
+def save_retrieval_results(results: Dict[str, Any], output_path: str, format: str = "enhanced"):
+    """Save retrieval results to JSON file.
+    
+    Args:
+        results: Dict mapping query_id to either:
+                - List[str]: Simple list of doc_ids
+                - Dict with 'doc_ids' and optional 'query_time', 'metadata'
+        output_path: Path to save the file
+        format: "simple" or "enhanced" (default: "enhanced")
+    """
+    path = pathlib.Path(output_path)
+    path.parent.mkdir(parents=True, exist_ok=True)
+    
+    # Convert to simple format if requested
+    if format == "simple":
+        simple_results = {}
+        for query_id, result in results.items():
+            if isinstance(result, list):
+                simple_results[query_id] = result
+            else:
+                simple_results[query_id] = result.get('doc_ids', [])
+        results = simple_results
+    
+    with path.open('w', encoding='utf-8') as f:
+        json.dump(results, f, indent=2, ensure_ascii=False)
+
+
 def create_sample_data(output_dir: str):
     """Create sample test data files for demonstration."""
     output_path = pathlib.Path(output_dir)
@@ -147,10 +195,16 @@ def create_sample_data(output_dir: str):
         # Add more baselines as needed
     }
     
-    # Sample retrieval results
+    # Sample retrieval results (enhanced format)
     retrieval_results = {
-        "query_1": ["arxiv:2404.10630#model", "arxiv:2412.10543#introduction", "arxiv:2510.13048#abstract"],
-        "query_2": ["blog:medium.com#rag", "arxiv:2404.10630#model", "arxiv:2412.10543#introduction"]
+        "query_1": {
+            "doc_ids": ["arxiv:2404.10630#model", "arxiv:2412.10543#introduction", "arxiv:2510.13048#abstract"],
+            "query_time": 0.123
+        },
+        "query_2": {
+            "doc_ids": ["blog:medium.com#rag", "arxiv:2404.10630#model", "arxiv:2412.10543#introduction"],
+            "query_time": 0.145
+        }
         # Add more results as needed
     }
     

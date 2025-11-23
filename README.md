@@ -1,292 +1,418 @@
 # ScholarRAG-Workbench
-ScholarRAG-Workbench is a research-oriented Retrieval-Augmented Generation (RAG) system designed for the Computer Science research domain.
 
+A research-oriented Retrieval-Augmented Generation (RAG) system designed for the Computer Science research domain. This workbench provides a modular framework for developing, testing, and comparing different RAG techniques.
 
-# Structure
+## Quick Start
+
+### 1. Set Up and Run a RAG System
+
+To set up a new RAG system (or run an existing one), use the automated setup script:
+
+```bash
+python src/evaluation/setup_system.py \
+  --system src/reranking \
+  --queries data/evaluation/requests.json \
+  --copy-corpus data/processed/corpus.jsonl \
+  --use-docker
+```
+
+This single command will:
+1. ✅ Copy/create the corpus for the system
+2. ✅ Index the corpus into Qdrant
+3. ✅ Set up the manual baseline
+4. ✅ Run queries on the system
+5. ✅ Evaluate the results
+
+**Key Options:**
+- `--copy-corpus <path>`: Copy an existing corpus instead of processing PDFs (recommended if you have dependency issues)
+- `--use-docker`: Automatically start Qdrant in Docker if not running
+- `--copy-baseline <path>`: Copy baseline from another system (e.g., `data/baseline/manual_baseline.json`)
+
+### 2. Compare Two Systems
+
+After running multiple systems, compare their performance:
+
+```bash
+python src/evaluation/compare_systems.py \
+  --queries data/evaluation/requests.json \
+  --baseline-system src/baseline \
+  --refined-system src/reranking \
+  --output data/evaluation/comparison.json \
+  --report data/evaluation/comparison.txt
+```
+
+This will:
+1. Run both systems (if results don't exist)
+2. Evaluate each system using its own `manual_baseline.json`
+3. Generate a comparison report showing performance differences
+
+---
+
+## Project Structure
+
 ```
 ScholarRAG-Workbench/
 │
 ├── data/
-│   ├── raw/
-│   │   ├── papers/
-│   │   │   ├── arxiv_raw.json        # metadata + abstract
-│   │   │   └── pdfs/                 # downloaded PDFs
-│   │   └── blogs/
-│   │       └── urls.txt              # blog URLs to scrape
-│   └── processed/
-│       ├── corpus.jsonl                    # chunked text corpus for RAG
-│       └── corpus.stats.json               # token/chunk statistics
+│   ├── evaluation/
+│   │   └── requests.json              # Shared test queries
+│   ├── baseline/                      # Baseline system data
+│   │   ├── corpus.jsonl              # Processed corpus
+│   │   ├── results.json              # Query results
+│   │   └── manual_baseline.json      # Manual baseline (system-specific)
+│   ├── reranking/                     # Reranking technique data
+│   │   ├── corpus.jsonl
+│   │   ├── results.json
+│   │   └── manual_baseline.json
+│   └── raw/                           # Raw data (PDFs, etc.)
 │
 ├── src/
-│   ├── ingest/
-│   │   ├── crawl_arxiv.py            # fetch paper metadata from arXiv
-│   │   └── download_pdfs.py          # download paper PDFs
-│   ├── preprocess/
-│   │   ├── prep_papers.py            # clean + chunk abstracts
-│   │   ├── pdf_to_sections.py        # extract + chunk PDF sections
-│   │   └── prep_blogs.py             # extract + chunk blog articles
-│   └── retrieval/
-│       ├── index_qdrant.py           # upload corpus chunks into Qdrant
-│       ├── query_qdrant.py           # run semantic search against Qdrant
-│       └── __init__.py
-│
-├── docs/
-│   └── qdrant.md                     # Qdrant setup and usage notes
+│   ├── baseline/                      # Baseline RAG system
+│   │   ├── query.py                  # Query implementation
+│   │   └── index.py                  # Indexing script
+│   ├── reranking/                     # Reranking technique
+│   │   ├── query.py
+│   │   └── index.py
+│   ├── evaluation/                    # Evaluation framework
+│   │   ├── setup_system.py           # Automated setup (main command)
+│   │   ├── compare_systems.py        # System comparison (main command)
+│   │   ├── run_system.py             # Run a single system
+│   │   ├── evaluator.py              # Single system evaluation
+│   │   └── metrics.py                # Metric calculations
+│   └── utils/                         # Shared utilities
+│       ├── ingest/                    # Data ingestion
+│       ├── preprocess/                # Data preprocessing
+│       └── retrieval/                 # Retrieval utilities
 │
 ├── requirements.txt
 └── README.md
 ```
 
+## Key Concepts
 
-# Quickstart: From ArXiv to RAG Corpus
+### System Independence
 
-## Add the paper to arxiv_raw.json using the crawler’s --ids flag:
-```
-python src/ingest/crawl_arxiv.py --ids 2404.10630,2412.10543
-```
+Each RAG system (baseline, reranking, etc.) is completely independent:
+- **Own code**: `src/{system_name}/query.py` and `index.py`
+- **Own data**: `data/{system_name}/corpus.jsonl`
+- **Own baseline**: `data/{system_name}/manual_baseline.json`
+- **Own results**: `data/{system_name}/results.json`
+- **Own Qdrant collection**: `scholar_rag_{system_name}`
 
-## Download PDFs
-```
-python src/ingest/download_pdfs.py
-```
+### Folder Naming
 
-## Extract and chunk full text
+The folder name in `src/` must match the folder name in `data/`:
+- `src/baseline/` → `data/baseline/`
+- `src/reranking/` → `data/reranking/`
 
-Parse PDFs with PyMuPDF, split into major sections (Introduction, Method, Experiments, etc.), and append them to your corpus.
+---
 
-```
-python src/preprocess/pdf_to_sections.py \
-  --pdfdir data/raw/papers/pdfs \
-  --out data/processed/corpus.jsonl \
-  --max_tokens 512 --overlap 80 \
-  --skip-existing
-```
+## Prerequisites
 
-Outputs should be in data/processed/corpus.jsonl
-
-
-
-# For Blogs
-
-Paste the URL in data/raw/blogs/urls.txt
-
-# Run the Script
-```
-python src/preprocess/prep_blogs.py \
-  --urls data/raw/blogs/urls.txt \
-  --out data/processed/corpus.jsonl \
-  --max_tokens 512 --overlap 80 \
-  --skip-existing
+1. **Install dependencies**:
+```bash
+pip install -r requirements.txt
 ```
 
+2. **Start Qdrant** (vector database):
+```bash
+# Option 1: Manual Docker command
+docker run -p 6333:6333 -p 6334:6334 qdrant/qdrant
 
-# Qdrant Vector-storage
+# Option 2: Use --use-docker flag in setup_system.py (auto-starts if not running)
+```
 
-## Qdrant Retrieval Workflow
+---
 
-This guide explains how to push processed chunks into a Qdrant vector store and run ad-hoc retrieval using the utilities under `src/retrieval/`.
+## Complete Workflow Example
 
-### Prerequisites
-- Install Python requirements (new dependencies: `qdrant-client`, `sentence-transformers`, `numpy`).
-- Have a Qdrant instance running. For local testing you can launch one with Docker:
-
-  ```bash
-  docker run -p 6333:6333 -p 6334:6334 qdrant/qdrant
-  ```
-
-  Adjust endpoint and authentication flags if you are using a managed Qdrant service.
-
-- Ensure `data/processed/corpus.jsonl` is populated via the preprocessing pipeline.
-
-### Index the Corpus
-Run the indexing script to create (or recreate) a collection and upload embeddings:
+### Example: Setting Up the Baseline System
 
 ```bash
-python src/retrieval/index_qdrant.py \
-  --corpus data/processed/corpus.jsonl \
-  --collection scholar_rag_chunks \
-  --embedding-model sentence-transformers/all-MiniLM-L6-v2 \
-  --recreate \
-  --store-text
+python src/evaluation/setup_system.py \
+  --system src/baseline \
+  --queries data/evaluation/requests.json \
+  --copy-corpus data/processed/corpus.jsonl \
+  --use-docker
 ```
 
-Key flags:
-- `--recreate` drops any existing collection with the same name before uploading.
-- `--store-text` keeps a truncated copy (default 2000 characters) of each chunk in the payload for quick inspection.
-- Use `--url` (or `--host`/`--port`) and `--api-key` to point at remote deployments.
-- `--max-points` is helpful for dry runs with a smaller sample.
-
-### Query the Collection
-Execute semantic search over the indexed chunks:
+### Example: Setting Up the Reranking System
 
 ```bash
-python src/retrieval/query_qdrant.py \
-  --collection scholar_rag_chunks \
-  --query "How do retrieval-augmented transformers scale with corpus size?" \
-  --top-k 5
+python src/evaluation/setup_system.py \
+  --system src/reranking \
+  --queries data/evaluation/requests.json \
+  --copy-corpus data/processed/corpus.jsonl \
+  --copy-baseline data/baseline/manual_baseline.json \
+  --use-docker
 ```
 
-Additional options:
-- Provide `--query-file` to batch queries from a text file (one per line) or JSONL with `{"id": "...", "query": "..."}` entries.
-- Apply payload filters such as `--filter-source arxiv_pdf` or `--filter-type blog`.
-- Use `--out data/retrieval_results/qdrant.json` to dump machine-readable responses for later evaluation.
+### Example: Comparing Both Systems
 
-Ensure the same embedding model used during indexing is supplied via `--embedding-model` when querying.
+```bash
+python src/evaluation/compare_systems.py \
+  --queries data/evaluation/requests.json \
+  --baseline-system src/baseline \
+  --refined-system src/reranking \
+  --output data/evaluation/comparison.json \
+  --report data/evaluation/comparison.txt
+```
+
+---
+
+## Creating a New RAG Version
+
+### Step 1: Create System Folder
+
+```bash
+mkdir -p src/my_technique
+```
+
+### Step 2: Create Query Implementation
+
+Create `src/my_technique/query.py`:
+
+```python
+#!/usr/bin/env python3
+"""My RAG technique implementation."""
+
+import json
+import pathlib
+import sys
+import time
+from typing import Dict, Any
+
+import numpy as np
+from qdrant_client import QdrantClient
+from sentence_transformers import SentenceTransformer
+
+sys.path.insert(0, str(pathlib.Path(__file__).parent.parent))
 
 
-# Evaluator
+def get_system_data_dir() -> pathlib.Path:
+    system_name = pathlib.Path(__file__).parent.name
+    return pathlib.Path(__file__).parent.parent.parent / "data" / system_name
 
-The evaluator is a comprehensive tool for measuring retrieval quality in RAG systems. It compares retrieval results against manual baselines to calculate standard information retrieval metrics.
 
-## Features
+def get_collection_name() -> str:
+    system_name = pathlib.Path(__file__).parent.name
+    return f"scholar_rag_{system_name}"
 
-### Available Metrics
-The evaluator calculates the following metrics:
+
+def run_queries(queries: Dict[str, str]) -> Dict[str, Dict[str, Any]]:
+    """Run queries with your technique."""
+    collection = get_collection_name()
+    embedding_model = "sentence-transformers/all-MiniLM-L6-v2"
+    top_k = 10
+    
+    client = QdrantClient(host="localhost", port=6333)
+    model = SentenceTransformer(embedding_model)
+    
+    results = {}
+    for query_id, query_text in queries.items():
+        # Encode query
+        vector = model.encode(
+            query_text,
+            convert_to_numpy=True,
+            normalize_embeddings=True
+        )
+        
+        if isinstance(vector, np.ndarray):
+            query_vector = vector.astype(np.float32).tolist()
+        else:
+            query_vector = list(vector)
+        
+        # Search with timing
+        start_time = time.time()
+        result = client.query_points(
+            collection_name=collection,
+            query=query_vector,
+            limit=top_k,
+            with_payload=True
+        )
+        hits = result.points
+        end_time = time.time()
+        
+        # Extract doc_ids
+        doc_ids = [
+            point.payload.get('doc_id') 
+            for point in hits 
+            if point.payload.get('doc_id')
+        ]
+        
+        results[query_id] = {
+            'doc_ids': doc_ids,
+            'query_time': end_time - start_time,
+            'metadata': {}
+        }
+    
+    return results
+```
+
+### Step 3: Create Indexing Script
+
+Create `src/my_technique/index.py`:
+
+```python
+#!/usr/bin/env python3
+"""Index the my_technique system's corpus."""
+
+import pathlib
+import sys
+
+sys.path.insert(0, str(pathlib.Path(__file__).parent.parent))
+
+from utils.retrieval.index_qdrant import main as index_main
+
+
+def get_system_data_dir() -> pathlib.Path:
+    system_name = pathlib.Path(__file__).parent.name
+    return pathlib.Path(__file__).parent.parent.parent / "data" / system_name
+
+
+def get_collection_name() -> str:
+    system_name = pathlib.Path(__file__).parent.name
+    return f"scholar_rag_{system_name}"
+
+
+def main():
+    data_dir = get_system_data_dir()
+    corpus_path = data_dir / "corpus.jsonl"
+    collection = get_collection_name()
+    
+    if not corpus_path.exists():
+        print(f"Error: Corpus not found at {corpus_path}")
+        sys.exit(1)
+    
+    sys.argv = [
+        'index.py',
+        '--corpus', str(corpus_path),
+        '--collection', collection,
+        '--embedding-model', 'sentence-transformers/all-MiniLM-L6-v2',
+        '--recreate',
+        '--store-text'
+    ]
+    
+    print(f"Indexing corpus from {corpus_path} into collection '{collection}'...")
+    index_main()
+
+
+if __name__ == "__main__":
+    main()
+```
+
+### Step 4: Set Up and Run
+
+```bash
+python src/evaluation/setup_system.py \
+  --system src/my_technique \
+  --queries data/evaluation/requests.json \
+  --copy-corpus data/processed/corpus.jsonl \
+  --copy-baseline data/baseline/manual_baseline.json \
+  --use-docker
+```
+
+---
+
+## Evaluation Metrics
+
+The evaluation framework calculates:
 
 - **Precision@K**: Fraction of retrieved documents that are relevant
 - **Recall@K**: Fraction of relevant documents that were retrieved  
 - **NDCG@K**: Normalized Discounted Cumulative Gain (accounts for ranking quality)
 - **MRR**: Mean Reciprocal Rank (position of first relevant document)
 - **Hit Rate@K**: Binary metric (1 if any relevant doc found, 0 otherwise)
+- **Retrieval Latency**: Time taken per query
+- **Queries Per Second**: Throughput metric
 
-All metrics are calculated for K values: 1, 3, 5, 10 (configurable)
+All metrics are calculated for K values: 1, 3, 5, 10 (configurable).
 
-### Key Components
-- `RetrievalMetrics`: Core metric calculations
-- `RAGEvaluator`: Main evaluation orchestrator
-- `EvaluationResults`: Results storage and analysis
-- `data_loader`: Utilities for loading test data
+---
 
-## Usage
+## File Formats
 
-### 1. Create Mock Data for Testing
-```bash
-python -c "from src.evaluation.utils.data_loader import create_sample_data; create_sample_data('data/mock_evaluation')"
-```
+### Test Queries (`data/evaluation/requests.json`)
 
-### 2. Run Evaluation
-```bash
-python src/evaluation/evaluator.py \
-  --queries data/mock_evaluation/test_queries.json \
-  --baseline data/mock_evaluation/manual_baseline.json \
-  --results data/mock_evaluation/retrieval_results.json \
-  --output data/mock_evaluation/evaluation_results.json \
-  --report data/mock_evaluation/evaluation_report.txt
-```
-
-## Input Data Formats
-
-### Test Queries (`test_queries.json`)
 ```json
 {
-  "query_1": "What are the latest advances in transformer architectures?",
-  "query_2": "How do retrieval-augmented generation systems work?",
-  "query_3": "What are the challenges in few-shot learning?"
+  "query_1": "What techniques reduce hallucinations in RAG systems?",
+  "query_2": "How do parameter-efficient fine-tuning methods compare?",
+  "query_3": "Which papers discuss scaling laws for LLMs?"
 }
 ```
 
-### Manual Baseline (`manual_baseline.json`)
+### Manual Baseline (`data/{system_name}/manual_baseline.json`)
+
 ```json
 {
   "query_1": {
-    "relevant_docs": ["arxiv:2404.10630#model", "arxiv:2412.10543#introduction"],
+    "relevant_docs": [
+      "arxiv:2307.10169#methods:part-3",
+      "arxiv:2303.18223#result:part-11"
+    ],
     "relevance_scores": {
-      "arxiv:2404.10630#model": 1.0,
-      "arxiv:2412.10543#introduction": 0.8
+      "arxiv:2307.10169#methods:part-3": 1.0,
+      "arxiv:2303.18223#result:part-11": 0.5
     },
-    "notes": "Focus on recent transformer improvements"
+    "notes": "Optional notes"
   }
 }
 ```
 
-### Retrieval Results (`retrieval_results.json`)
+**Important**: The `doc_id` format in `manual_baseline.json` must exactly match the `doc_id` format in your `corpus.jsonl` file.
+
+### Retrieval Results (`data/{system_name}/results.json`)
+
 ```json
 {
-  "query_1": ["arxiv:2404.10630#model", "arxiv:2412.10543#introduction", "arxiv:2510.13048#abstract"],
-  "query_2": ["blog:medium.com#rag", "arxiv:2404.10630#model", "arxiv:2412.10543#introduction"]
-}
-```
-
-## Output
-
-### Evaluation Results (`evaluation_results.json`)
-```json
-{
-  "query_results": {
-    "query_1": {
-      "precision@1": 1.0,
-      "recall@1": 0.5,
-      "ndcg@1": 1.0,
-      "mrr": 1.0
-    }
-  },
-  "aggregated_metrics": {
-    "precision@1": 1.0,
-    "recall@1": 0.5
-  },
-  "summary_stats": {
-    "precision@1": {
-      "mean": 1.0,
-      "std": 0.0,
-      "min": 1.0,
-      "max": 1.0
+  "query_1": {
+    "doc_ids": [
+      "arxiv:2307.10169#methods:part-3",
+      "arxiv:2303.18223#result:part-11"
+    ],
+    "query_time": 0.123,
+    "metadata": {
+      "scores": [0.95, 0.87],
+      "num_hits": 10
     }
   }
 }
 ```
 
-### Evaluation Report (`evaluation_report.txt`)
-Human-readable report with:
-- Aggregated metrics across all queries
-- Summary statistics (mean, std, min, max)
-- Per-query detailed results
+---
 
-## Command Line Options
+## Important Notes
 
+1. **System Independence**: Each system is completely independent. Changing chunking, retrieval, or any component creates a new system.
+
+2. **Folder Naming**: The folder name in `src/` must exactly match the folder name in `data/`.
+
+3. **Baseline Matching**: Each system's `manual_baseline.json` must use doc_ids that match the format in that system's `corpus.jsonl`.
+
+4. **Shared Queries**: All systems use the same test queries from `data/evaluation/requests.json`.
+
+5. **Qdrant Collections**: Each system has its own Qdrant collection: `scholar_rag_{system_name}`.
+
+---
+
+## Quick Reference
+
+### Set Up a System
 ```bash
-python src/evaluation/evaluator.py [OPTIONS]
-
-Required:
-  --queries PATH        Path to test queries JSON file
-  --baseline PATH       Path to manual baseline JSON file  
-  --results PATH        Path to retrieval results JSON file
-
-Optional:
-  --output PATH         Path to save evaluation results JSON
-  --report PATH         Path to save evaluation report
-  --k-values K [K ...]  K values for metrics (default: 1 3 5 10)
+python src/evaluation/setup_system.py \
+  --system src/{system_name} \
+  --queries data/evaluation/requests.json \
+  --copy-corpus data/processed/corpus.jsonl \
+  --use-docker
 ```
 
-## Example Workflow
-
-1. **Create test queries** for your domain
-2. **Manually create baselines** by identifying relevant documents
-3. **Run RAG systems** on test queries to get retrieval results
-4. **Evaluate performance** using this tool
-5. **Compare systems** by running evaluation on multiple result sets
-
-## Integration with Existing RAG Systems
-
-The evaluator works with any RAG system that can output document IDs. For example, with our existing Qdrant setup:
-
+### Compare Systems
 ```bash
-# Get retrieval results from Qdrant
-python src/retrieval/query_qdrant.py \
-  --query-file data/evaluation/test_queries.json \
-  --out data/evaluation/qdrant_results.json
-
-# Evaluate the results
-python src/evaluation/evaluator.py \
-  --queries data/evaluation/test_queries.json \
-  --baseline data/evaluation/manual_baseline.json \
-  --results data/evaluation/qdrant_results.json \
-  --output data/evaluation/qdrant_evaluation.json
-
-# Evaluate with new metrics
-python src/evaluation/evaluator.py \
-  --queries data/mock_evaluation/test_queries.json \
-  --baseline data/mock_evaluation/manual_baseline.json \
-  --results data/mock_evaluation/retrieval_results.json \
-  --output data/mock_evaluation/updated_results.json \
-  --report data/mock_evaluation/updated_report.txt
+python src/evaluation/compare_systems.py \
+  --queries data/evaluation/requests.json \
+  --baseline-system src/baseline \
+  --refined-system src/{technique_name} \
+  --output data/evaluation/comparison.json \
+  --report data/evaluation/comparison.txt
 ```

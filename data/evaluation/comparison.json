@@ -1,0 +1,142 @@
+{
+  "system_metrics": {
+    "baseline": {
+      "precision@10": 0.32,
+      "grounding_accuracy": 1.0,
+      "ndcg@3": 0.5110912808139773,
+      "recall@3": 0.3803571428571429,
+      "hit_rate@3": 0.9,
+      "precision@1": 0.5,
+      "recall@1": 0.1101190476190476,
+      "ndcg@10": 0.6444591913853888,
+      "ndcg@1": 0.5,
+      "citation_accuracy": 0.32,
+      "precision@3": 0.5333333333333333,
+      "hit_rate@5": 0.9,
+      "mrr": 0.7166666666666667,
+      "ndcg@5": 0.5861281484315115,
+      "recall@10": 0.7255952380952382,
+      "recall@5": 0.5779761904761905,
+      "precision@5": 0.5000000000000001,
+      "hit_rate@10": 1.0,
+      "hit_rate@1": 0.5,
+      "retrieval_latency": 0.006319117546081543,
+      "average_response_time": 0.006319117546081543,
+      "queries_per_second": 158.24994434865286
+    },
+    "reranking": {
+      "precision@10": 0.21000000000000002,
+      "grounding_accuracy": 1.0,
+      "ndcg@3": 0.38701503415061506,
+      "recall@3": 0.2970238095238095,
+      "hit_rate@3": 0.8,
+      "precision@1": 0.4,
+      "recall@1": 0.11428571428571428,
+      "ndcg@10": 0.42633817825549125,
+      "ndcg@1": 0.35,
+      "citation_accuracy": 0.21000000000000002,
+      "precision@3": 0.4,
+      "hit_rate@5": 0.8,
+      "mrr": 0.5833333333333333,
+      "ndcg@5": 0.3908843307572788,
+      "recall@10": 0.45476190476190476,
+      "recall@5": 0.35297619047619044,
+      "precision@5": 0.32000000000000006,
+      "hit_rate@10": 0.8,
+      "hit_rate@1": 0.4,
+      "retrieval_latency": 0.2347412347793579,
+      "average_response_time": 0.2347412347793579,
+      "queries_per_second": 4.260009967741447
+    }
+  },
+  "best_systems": {
+    "precision@10": {
+      "system": "baseline",
+      "score": 0.32
+    },
+    "grounding_accuracy": {
+      "system": "baseline",
+      "score": 1.0
+    },
+    "ndcg@3": {
+      "system": "baseline",
+      "score": 0.5110912808139773
+    },
+    "recall@3": {
+      "system": "baseline",
+      "score": 0.3803571428571429
+    },
+    "hit_rate@3": {
+      "system": "baseline",
+      "score": 0.9
+    },
+    "precision@1": {
+      "system": "baseline",
+      "score": 0.5
+    },
+    "recall@1": {
+      "system": "reranking",
+      "score": 0.11428571428571428
+    },
+    "ndcg@10": {
+      "system": "baseline",
+      "score": 0.6444591913853888
+    },
+    "ndcg@1": {
+      "system": "baseline",
+      "score": 0.5
+    },
+    "citation_accuracy": {
+      "system": "baseline",
+      "score": 0.32
+    },
+    "precision@3": {
+      "system": "baseline",
+      "score": 0.5333333333333333
+    },
+    "hit_rate@5": {
+      "system": "baseline",
+      "score": 0.9
+    },
+    "mrr": {
+      "system": "baseline",
+      "score": 0.7166666666666667
+    },
+    "ndcg@5": {
+      "system": "baseline",
+      "score": 0.5861281484315115
+    },
+    "recall@10": {
+      "system": "baseline",
+      "score": 0.7255952380952382
+    },
+    "recall@5": {
+      "system": "baseline",
+      "score": 0.5779761904761905
+    },
+    "precision@5": {
+      "system": "baseline",
+      "score": 0.5000000000000001
+    },
+    "hit_rate@10": {
+      "system": "baseline",
+      "score": 1.0
+    },
+    "hit_rate@1": {
+      "system": "baseline",
+      "score": 0.5
+    },
+    "retrieval_latency": {
+      "system": "reranking",
+      "score": 0.2347412347793579
+    },
+    "average_response_time": {
+      "system": "reranking",
+      "score": 0.2347412347793579
+    },
+    "queries_per_second": {
+      "system": "baseline",
+      "score": 158.24994434865286
+    }
+  }
+}
