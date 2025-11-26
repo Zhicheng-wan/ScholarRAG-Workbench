@@ -15,6 +15,21 @@ class RetrievalMetrics:
         pass
 
     @staticmethod
+    def _extract_paper_level_id(doc_id: str) -> str:
+        """Extract paper-level ID from chunk-level or paper-level doc_id.
+        
+        If doc_id contains '#', returns the part before '#' (paper-level).
+        Otherwise, returns the doc_id as-is (already paper-level).
+        
+        Examples:
+            "arxiv:2307.10169#methods:part-3" -> "arxiv:2307.10169"
+            "arxiv:2307.10169" -> "arxiv:2307.10169"
+        """
+        if '#' in doc_id:
+            return doc_id.split('#', 1)[0]
+        return doc_id
+
+    @staticmethod
     def _dedup_preserve_order(docs: List[str]) -> List[str]:
         """Remove duplicate doc_ids while preserving original ranking order."""
         seen = set()
@@ -25,6 +40,40 @@ class RetrievalMetrics:
             seen.add(d)
             unique.append(d)
         return unique
+    
+    def _convert_to_paper_level(self, 
+                                retrieved_docs: List[str],
+                                relevant_docs: Set[str],
+                                relevance_scores: Dict[str, float] = None) -> tuple:
+        """Convert chunk-level IDs to paper-level IDs.
+        
+        Args:
+            retrieved_docs: List of retrieved document IDs (may be chunk-level)
+            relevant_docs: Set of relevant document IDs (may be chunk-level)
+            relevance_scores: Optional dict mapping doc_id to relevance score (may be chunk-level)
+        
+        Returns:
+            Tuple of (paper_level_retrieved, paper_level_relevant, paper_level_scores)
+            - paper_level_retrieved: List of paper-level doc_ids in original order
+            - paper_level_relevant: Set of paper-level doc_ids
+            - paper_level_scores: Dict mapping paper-level doc_id to max relevance score
+        """
+        # Convert retrieved docs to paper-level
+        paper_retrieved = [self._extract_paper_level_id(doc_id) for doc_id in retrieved_docs]
+        
+        # Convert relevant docs to paper-level
+        paper_relevant = {self._extract_paper_level_id(doc_id) for doc_id in relevant_docs}
+        
+        # Convert relevance scores to paper-level
+        # If multiple chunks from same paper have different scores, take the maximum
+        paper_scores = {}
+        if relevance_scores:
+            for chunk_id, score in relevance_scores.items():
+                paper_id = self._extract_paper_level_id(chunk_id)
+                if paper_id not in paper_scores or score > paper_scores[paper_id]:
+                    paper_scores[paper_id] = score
+        
+        return paper_retrieved, paper_relevant, paper_scores
     
     def precision_at_k(self, retrieved_docs: List[str], relevant_docs: Set[str], k: int) -> float:
         """Calculate Precision@K.
@@ -136,35 +185,40 @@ class RetrievalMetrics:
         """Calculate all metrics for a single query.
         
         Args:
-            retrieved_docs: List of retrieved document IDs in rank order
-            relevant_docs: Set of relevant document IDs
-            relevance_scores: Optional dict mapping doc_id to relevance score
+            retrieved_docs: List of retrieved document IDs in rank order (chunk-level or paper-level)
+            relevant_docs: Set of relevant document IDs (chunk-level or paper-level)
+            relevance_scores: Optional dict mapping doc_id to relevance score (chunk-level or paper-level)
             k_values: List of k values to evaluate (default: [1, 3, 5, 10])
             
         Returns:
-            Dictionary of metric scores
+            Dictionary of metric scores (all calculated at paper-level)
         """
         if k_values is None:
             k_values = [1, 3, 5, 10]
         
+        # Convert to paper-level IDs before deduplication
+        paper_retrieved, paper_relevant, paper_scores = self._convert_to_paper_level(
+            retrieved_docs, relevant_docs, relevance_scores
+        )
+        
         # IMPORTANT: dedup here so every metric sees unique paper-level ids
-        unique_docs = self._dedup_preserve_order(retrieved_docs)
+        unique_docs = self._dedup_preserve_order(paper_retrieved)
 
-        if relevance_scores is None:
+        if not paper_scores:
             # Binary relevance: 1.0 for relevant docs, 0.0 for others
-            relevance_scores = {doc: 1.0 for doc in relevant_docs}
+            paper_scores = {doc: 1.0 for doc in paper_relevant}
         
         metrics = {}
         
         # Calculate metrics for each k value
         for k in k_values:
-            metrics[f'precision@{k}'] = self.precision_at_k(unique_docs, relevant_docs, k)
-            metrics[f'recall@{k}'] = self.recall_at_k(unique_docs, relevant_docs, k)
-            metrics[f'ndcg@{k}'] = self.ndcg_at_k(unique_docs, relevance_scores, k)
-            metrics[f'hit_rate@{k}'] = self.hit_rate_at_k(unique_docs, relevant_docs, k)
+            metrics[f'precision@{k}'] = self.precision_at_k(unique_docs, paper_relevant, k)
+            metrics[f'recall@{k}'] = self.recall_at_k(unique_docs, paper_relevant, k)
+            metrics[f'ndcg@{k}'] = self.ndcg_at_k(unique_docs, paper_scores, k)
+            metrics[f'hit_rate@{k}'] = self.hit_rate_at_k(unique_docs, paper_relevant, k)
         
         # Calculate MRR (doesn't depend on k)
-        metrics['mrr'] = self.mean_reciprocal_rank(unique_docs, relevant_docs)
+        metrics['mrr'] = self.mean_reciprocal_rank(unique_docs, paper_relevant)
         
         return metrics
     
@@ -207,24 +261,50 @@ class RetrievalMetrics:
         """Calculate grounding accuracy.
         
         Args:
-            retrieved_docs: List of retrieved document IDs
-            source_verification: Dict mapping doc_id to boolean verification
+            retrieved_docs: List of retrieved document IDs (chunk-level or paper-level)
+            source_verification: Dict mapping doc_id to boolean verification (chunk-level or paper-level)
             
         Returns:
-            Grounding accuracy score
+            Grounding accuracy score (calculated at paper-level)
         """
-        unique_docs = self._dedup_preserve_order(retrieved_docs)
+        # Convert to paper-level
+        paper_retrieved = [self._extract_paper_level_id(doc_id) for doc_id in retrieved_docs]
+        unique_docs = self._dedup_preserve_order(paper_retrieved)
+        
         if not unique_docs:
             return 0.0
-        verified = sum(1 for doc in unique_docs if source_verification.get(doc, False))
+        
+        # Convert verification dict to paper-level (if any chunk is verified, paper is verified)
+        paper_verification = {}
+        for chunk_id, verified in source_verification.items():
+            paper_id = self._extract_paper_level_id(chunk_id)
+            if paper_id not in paper_verification:
+                paper_verification[paper_id] = verified
+            elif verified:  # If any chunk is verified, mark paper as verified
+                paper_verification[paper_id] = True
+        
+        verified = sum(1 for doc in unique_docs if paper_verification.get(doc, False))
         return verified / len(unique_docs)
 
     def citation_accuracy(self, retrieved_docs: List[str], expected_citations: Set[str]) -> float:
-        """Calculate citation accuracy."""
-        unique_docs = self._dedup_preserve_order(retrieved_docs)
+        """Calculate citation accuracy.
+        
+        Args:
+            retrieved_docs: List of retrieved document IDs (chunk-level or paper-level)
+            expected_citations: Set of expected citation doc_ids (chunk-level or paper-level)
+            
+        Returns:
+            Citation accuracy score (calculated at paper-level)
+        """
+        # Convert to paper-level
+        paper_retrieved = [self._extract_paper_level_id(doc_id) for doc_id in retrieved_docs]
+        paper_expected = {self._extract_paper_level_id(doc_id) for doc_id in expected_citations}
+        
+        unique_docs = self._dedup_preserve_order(paper_retrieved)
         if not unique_docs:
             return 0.0
-        correct_citations = sum(1 for doc in unique_docs if doc in expected_citations)
+        
+        correct_citations = sum(1 for doc in unique_docs if doc in paper_expected)
         return correct_citations / len(unique_docs)
 
 
