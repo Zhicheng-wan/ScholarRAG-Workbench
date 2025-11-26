@@ -5,8 +5,7 @@
 from __future__ import annotations
 
 import math
-from typing import Dict, List, Set, Tuple, Any
-from collections import defaultdict
+from typing import Dict, List, Set, Any
 
 
 class RetrievalMetrics:
@@ -14,6 +13,18 @@ class RetrievalMetrics:
     
     def __init__(self):
         pass
+
+    @staticmethod
+    def _dedup_preserve_order(docs: List[str]) -> List[str]:
+        """Remove duplicate doc_ids while preserving original ranking order."""
+        seen = set()
+        unique = []
+        for d in docs:
+            if d in seen:
+                continue
+            seen.add(d)
+            unique.append(d)
+        return unique
     
     def precision_at_k(self, retrieved_docs: List[str], relevant_docs: Set[str], k: int) -> float:
         """Calculate Precision@K.
@@ -30,6 +41,9 @@ class RetrievalMetrics:
             return 0.0
         
         top_k = retrieved_docs[:k]
+        if not top_k:
+            return 0.0
+
         relevant_retrieved = sum(1 for doc in top_k if doc in relevant_docs)
         return relevant_retrieved / min(k, len(top_k))
     
@@ -48,6 +62,9 @@ class RetrievalMetrics:
             return 0.0
         
         top_k = retrieved_docs[:k]
+        if not top_k:
+            return 0.0
+
         relevant_retrieved = sum(1 for doc in top_k if doc in relevant_docs)
         return relevant_retrieved / len(relevant_docs)
     
@@ -56,7 +73,7 @@ class RetrievalMetrics:
         
         Args:
             retrieved_docs: List of retrieved document IDs in rank order
-            relevance_scores: Dict mapping doc_id to relevance score (0-1)
+            relevance_scores: Dict mapping doc_id to relevance score (0-1 or graded)
             k: Number of top results to consider
             
         Returns:
@@ -107,13 +124,15 @@ class RetrievalMetrics:
             Hit Rate@K score (0 or 1)
         """
         top_k = retrieved_docs[:k]
+        if not top_k:
+            return 0.0
         return 1.0 if any(doc in relevant_docs for doc in top_k) else 0.0
     
     def calculate_all_metrics(self, 
-                            retrieved_docs: List[str], 
-                            relevant_docs: Set[str], 
-                            relevance_scores: Dict[str, float] = None,
-                            k_values: List[int] = None) -> Dict[str, float]:
+                              retrieved_docs: List[str], 
+                              relevant_docs: Set[str], 
+                              relevance_scores: Dict[str, float] = None,
+                              k_values: List[int] = None) -> Dict[str, float]:
         """Calculate all metrics for a single query.
         
         Args:
@@ -128,6 +147,9 @@ class RetrievalMetrics:
         if k_values is None:
             k_values = [1, 3, 5, 10]
         
+        # IMPORTANT: dedup here so every metric sees unique paper-level ids
+        unique_docs = self._dedup_preserve_order(retrieved_docs)
+
         if relevance_scores is None:
             # Binary relevance: 1.0 for relevant docs, 0.0 for others
             relevance_scores = {doc: 1.0 for doc in relevant_docs}
@@ -136,13 +158,13 @@ class RetrievalMetrics:
         
         # Calculate metrics for each k value
         for k in k_values:
-            metrics[f'precision@{k}'] = self.precision_at_k(retrieved_docs, relevant_docs, k)
-            metrics[f'recall@{k}'] = self.recall_at_k(retrieved_docs, relevant_docs, k)
-            metrics[f'ndcg@{k}'] = self.ndcg_at_k(retrieved_docs, relevance_scores, k)
-            metrics[f'hit_rate@{k}'] = self.hit_rate_at_k(retrieved_docs, relevant_docs, k)
+            metrics[f'precision@{k}'] = self.precision_at_k(unique_docs, relevant_docs, k)
+            metrics[f'recall@{k}'] = self.recall_at_k(unique_docs, relevant_docs, k)
+            metrics[f'ndcg@{k}'] = self.ndcg_at_k(unique_docs, relevance_scores, k)
+            metrics[f'hit_rate@{k}'] = self.hit_rate_at_k(unique_docs, relevant_docs, k)
         
         # Calculate MRR (doesn't depend on k)
-        metrics['mrr'] = self.mean_reciprocal_rank(retrieved_docs, relevant_docs)
+        metrics['mrr'] = self.mean_reciprocal_rank(unique_docs, relevant_docs)
         
         return metrics
     
@@ -191,12 +213,19 @@ class RetrievalMetrics:
         Returns:
             Grounding accuracy score
         """
-        verified = sum(1 for doc in retrieved_docs if source_verification.get(doc, False))
-        return verified / len(retrieved_docs) if retrieved_docs else 0.0
+        unique_docs = self._dedup_preserve_order(retrieved_docs)
+        if not unique_docs:
+            return 0.0
+        verified = sum(1 for doc in unique_docs if source_verification.get(doc, False))
+        return verified / len(unique_docs)
 
     def citation_accuracy(self, retrieved_docs: List[str], expected_citations: Set[str]) -> float:
-        correct_citations = sum(1 for doc in retrieved_docs if doc in expected_citations)
-        return correct_citations / len(retrieved_docs) if retrieved_docs else 0.0
+        """Calculate citation accuracy."""
+        unique_docs = self._dedup_preserve_order(retrieved_docs)
+        if not unique_docs:
+            return 0.0
+        correct_citations = sum(1 for doc in unique_docs if doc in expected_citations)
+        return correct_citations / len(unique_docs)
 
 
 class EvaluationResults:

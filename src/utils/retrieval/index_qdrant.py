@@ -18,7 +18,7 @@ from tqdm import tqdm
 
 
 def stable_int_id(text: str) -> int:
-    """Deterministically map a doc_id string to a Qdrant-friendly int id."""
+    """Deterministically map a string to a Qdrant-friendly int id."""
     digest = hashlib.md5(text.encode("utf-8")).hexdigest()
     return int(digest, 16) % (2**63)
 
@@ -123,6 +123,8 @@ def connect_client(args: argparse.Namespace) -> QdrantClient:
 
 
 def default_payload_keys(rec: Dict) -> Dict:
+    # NOTE: we now also keep "chunk_id" so you can still debug at chunk-level,
+    # while doc_id remains the paper-level id used in the manual baseline.
     keep: Sequence[str] = (
         "doc_id",
         "url",
@@ -134,6 +136,7 @@ def default_payload_keys(rec: Dict) -> Dict:
         "published",
         "tokens",
         "sha256",
+        "chunk_id",
     )
     return {k: rec.get(k) for k in keep if k in rec}
 
@@ -160,7 +163,12 @@ def main() -> None:
     ap.add_argument("--max-points", type=int, default=0, help="Optional limit when testing.")
     ap.add_argument("--no-progress", action="store_true", help="Disable progress bar output.")
     ap.add_argument("--store-text", action="store_true", help="Include truncated text in payloads.")
-    ap.add_argument("--max-text-length", type=int, default=2000, help="Characters of text to store when --store-text is set.")
+    ap.add_argument(
+        "--max-text-length",
+        type=int,
+        default=2000,
+        help="Characters of text to store when --store-text is set.",
+    )
     args = ap.parse_args()
 
     corpus_path = pathlib.Path(args.corpus)
@@ -176,7 +184,8 @@ def main() -> None:
 
     total_points = 0
     duplicates = 0
-    seen_ids = set()
+    seen_chunk_keys = set()  # (doc_id + chunk identity), not just doc_id
+
     record_iter: Iterable[Dict] = load_records(corpus_path)
     if not args.no_progress:
         record_iter = tqdm(record_iter, desc="Corpus chunks", unit="rec")
@@ -188,20 +197,40 @@ def main() -> None:
         texts: List[str] = []
         payloads: List[Dict] = []
         point_ids: List[int] = []
+
         for rec in batch:
             text = (rec.get("text") or "").strip()
             doc_id = rec.get("doc_id")
             if not text or not doc_id:
                 continue
-            pid = stable_int_id(doc_id)
-            if pid in seen_ids:
+
+            # --- NEW: per-chunk id, but paper-level doc_id remains in payload ---
+            # Prefer explicit chunk_id, then anchor, then a stable hash of text.
+            raw_chunk_id = (
+                rec.get("chunk_id")
+                or rec.get("anchor")
+                or hashlib.md5(text.encode("utf-8")).hexdigest()[:8]
+            )
+            chunk_key = f"{doc_id}::{raw_chunk_id}"
+
+            if chunk_key in seen_chunk_keys:
                 duplicates += 1
                 continue
-            seen_ids.add(pid)
+            seen_chunk_keys.add(chunk_key)
+
+            pid = stable_int_id(chunk_key)
+
             texts.append(text)
             payload = default_payload_keys(rec)
+            # Ensure doc_id is present and remains paper-level
+            payload["doc_id"] = doc_id
+            # Also keep chunk_id in payload for debugging if we had to synthesize it
+            if "chunk_id" not in payload:
+                payload["chunk_id"] = raw_chunk_id
+
             if args.store_text:
                 payload["text"] = text[: args.max_text_length]
+
             payloads.append(payload)
             point_ids.append(pid)
 
@@ -237,7 +266,7 @@ def main() -> None:
 
     print(f"Indexed {total_points} points into '{args.collection}'.")
     if duplicates:
-        print(f"Skipped {duplicates} duplicate doc_ids.")
+        print(f"Skipped {duplicates} duplicate chunk keys (same doc_id + chunk identity).")
 
 
 if __name__ == "__main__":
