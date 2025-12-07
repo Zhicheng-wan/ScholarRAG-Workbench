@@ -6,50 +6,85 @@ METRIC COMPARISON:
 --------------------------------------------------------------------------------
 Metric                                    baseline      chunk_clean_v1                Best
 --------------------------------------------------------------------------------
-ndcg@10                                     0.6445              0.7321      chunk_clean_v1
-precision@10                                0.3200              0.4495      chunk_clean_v1
-recall@5                                    0.5780              0.7321      chunk_clean_v1
-recall@10                                   0.7256              0.7607      chunk_clean_v1
-grounding_accuracy                          1.0000              1.0000            baseline
-ndcg@3                                      0.5111              0.6350      chunk_clean_v1
-mrr                                         0.7167              0.8250      chunk_clean_v1
-hit_rate@1                                  0.5000              0.7000      chunk_clean_v1
-recall@1                                    0.1101              0.2060      chunk_clean_v1
-ndcg@1                                      0.5000              0.7000      chunk_clean_v1
+precision@5                                 0.5400              0.5600      chunk_clean_v1
+hit_rate@5                                  1.0000              1.0000            baseline
+mrr                                         0.8250              0.8250            baseline
+precision@1                                 0.7000              0.7000            baseline
+recall@1                                    0.2060              0.2060            baseline
+ndcg@5                                      0.7238              0.7314      chunk_clean_v1
+precision@3                                 0.6333              0.6333            baseline
+citation_accuracy                           0.4495              0.4495            baseline
+ndcg@10                                     0.7321              0.7326      chunk_clean_v1
+hit_rate@1                                  0.7000              0.7000            baseline
 hit_rate@3                                  0.9000              0.9000            baseline
-hit_rate@5                                  0.9000              1.0000      chunk_clean_v1
-precision@5                                 0.5000              0.5400      chunk_clean_v1
-precision@1                                 0.5000              0.7000      chunk_clean_v1
-precision@3                                 0.5333              0.6333      chunk_clean_v1
-retrieval_latency                           0.0063              0.0162      chunk_clean_v1
-citation_accuracy                           0.3200              0.4495      chunk_clean_v1
-recall@3                                    0.3804              0.5345      chunk_clean_v1
+grounding_accuracy                          1.0000              1.0000            baseline
+ndcg@3                                      0.6350              0.6350            baseline
+ndcg@1                                      0.7000              0.7000            baseline
+recall@5                                    0.7321              0.7464      chunk_clean_v1
+retrieval_latency                           0.0060              0.0140      chunk_clean_v1
 hit_rate@10                                 1.0000              1.0000            baseline
-ndcg@5                                      0.5861              0.7238      chunk_clean_v1
-average_response_time                       0.0063              0.0162      chunk_clean_v1
-queries_per_second                        158.2499             61.9180            baseline
+precision@10                                0.4495              0.4495            baseline
+recall@3                                    0.5345              0.5345            baseline
+recall@10                                   0.7607              0.7607            baseline
+average_response_time                       0.0060              0.0140      chunk_clean_v1
+queries_per_second                        167.3251             71.3210            baseline
 
 IMPROVEMENT ANALYSIS (baseline -> chunk_clean_v1):
 ----------------------------------------
-ndcg@10:
-  baseline: 0.6445
-  chunk_clean_v1: 0.7321
-  Improvement: +0.0877 (+13.6%)
+precision@5:
+  baseline: 0.5400
+  chunk_clean_v1: 0.5600
+  Improvement: +0.0200 (+3.7%)
 
-precision@10:
-  baseline: 0.3200
+hit_rate@5:
+  baseline: 1.0000
+  chunk_clean_v1: 1.0000
+  Improvement: +0.0000 (+0.0%)
+
+mrr:
+  baseline: 0.8250
+  chunk_clean_v1: 0.8250
+  Improvement: +0.0000 (+0.0%)
+
+precision@1:
+  baseline: 0.7000
+  chunk_clean_v1: 0.7000
+  Improvement: +0.0000 (+0.0%)
+
+recall@1:
+  baseline: 0.2060
+  chunk_clean_v1: 0.2060
+  Improvement: +0.0000 (+0.0%)
+
+ndcg@5:
+  baseline: 0.7238
+  chunk_clean_v1: 0.7314
+  Improvement: +0.0076 (+1.1%)
+
+precision@3:
+  baseline: 0.6333
+  chunk_clean_v1: 0.6333
+  Improvement: +0.0000 (+0.0%)
+
+citation_accuracy:
+  baseline: 0.4495
   chunk_clean_v1: 0.4495
-  Improvement: +0.1295 (+40.5%)
+  Improvement: +0.0000 (+0.0%)
 
-recall@5:
-  baseline: 0.5780
-  chunk_clean_v1: 0.7321
-  Improvement: +0.1542 (+26.7%)
+ndcg@10:
+  baseline: 0.7321
+  chunk_clean_v1: 0.7326
+  Improvement: +0.0005 (+0.1%)
 
-recall@10:
-  baseline: 0.7256
-  chunk_clean_v1: 0.7607
-  Improvement: +0.0351 (+4.8%)
+hit_rate@1:
+  baseline: 0.7000
+  chunk_clean_v1: 0.7000
+  Improvement: +0.0000 (+0.0%)
+
+hit_rate@3:
+  baseline: 0.9000
+  chunk_clean_v1: 0.9000
+  Improvement: +0.0000 (+0.0%)
 
 grounding_accuracy:
   baseline: 1.0000
@@ -57,86 +92,51 @@ grounding_accuracy:
   Improvement: +0.0000 (+0.0%)
 
 ndcg@3:
-  baseline: 0.5111
+  baseline: 0.6350
   chunk_clean_v1: 0.6350
-  Improvement: +0.1240 (+24.3%)
-
-mrr:
-  baseline: 0.7167
-  chunk_clean_v1: 0.8250
-  Improvement: +0.1083 (+15.1%)
-
-hit_rate@1:
-  baseline: 0.5000
-  chunk_clean_v1: 0.7000
-  Improvement: +0.2000 (+40.0%)
-
-recall@1:
-  baseline: 0.1101
-  chunk_clean_v1: 0.2060
-  Improvement: +0.0958 (+87.0%)
-
-ndcg@1:
-  baseline: 0.5000
-  chunk_clean_v1: 0.7000
-  Improvement: +0.2000 (+40.0%)
-
-hit_rate@3:
-  baseline: 0.9000
-  chunk_clean_v1: 0.9000
   Improvement: +0.0000 (+0.0%)
 
-hit_rate@5:
-  baseline: 0.9000
-  chunk_clean_v1: 1.0000
-  Improvement: +0.1000 (+11.1%)
-
-precision@5:
-  baseline: 0.5000
-  chunk_clean_v1: 0.5400
-  Improvement: +0.0400 (+8.0%)
-
-precision@1:
-  baseline: 0.5000
+ndcg@1:
+  baseline: 0.7000
   chunk_clean_v1: 0.7000
-  Improvement: +0.2000 (+40.0%)
+  Improvement: +0.0000 (+0.0%)
 
-precision@3:
-  baseline: 0.5333
-  chunk_clean_v1: 0.6333
-  Improvement: +0.1000 (+18.7%)
+recall@5:
+  baseline: 0.7321
+  chunk_clean_v1: 0.7464
+  Improvement: +0.0143 (+2.0%)
 
 retrieval_latency:
-  baseline: 0.0063
-  chunk_clean_v1: 0.0162
-  Improvement: +0.0098 (+155.6%)
-
-citation_accuracy:
-  baseline: 0.3200
-  chunk_clean_v1: 0.4495
-  Improvement: +0.1295 (+40.5%)
-
-recall@3:
-  baseline: 0.3804
-  chunk_clean_v1: 0.5345
-  Improvement: +0.1542 (+40.5%)
+  baseline: 0.0060
+  chunk_clean_v1: 0.0140
+  Improvement: +0.0080 (+134.6%)
 
 hit_rate@10:
   baseline: 1.0000
   chunk_clean_v1: 1.0000
   Improvement: +0.0000 (+0.0%)
 
-ndcg@5:
-  baseline: 0.5861
-  chunk_clean_v1: 0.7238
-  Improvement: +0.1376 (+23.5%)
+precision@10:
+  baseline: 0.4495
+  chunk_clean_v1: 0.4495
+  Improvement: +0.0000 (+0.0%)
+
+recall@3:
+  baseline: 0.5345
+  chunk_clean_v1: 0.5345
+  Improvement: +0.0000 (+0.0%)
+
+recall@10:
+  baseline: 0.7607
+  chunk_clean_v1: 0.7607
+  Improvement: +0.0000 (+0.0%)
 
 average_response_time:
-  baseline: 0.0063
-  chunk_clean_v1: 0.0162
-  Improvement: +0.0098 (+155.6%)
+  baseline: 0.0060
+  chunk_clean_v1: 0.0140
+  Improvement: +0.0080 (+134.6%)
 
 queries_per_second:
-  baseline: 158.2499
-  chunk_clean_v1: 61.9180
-  Improvement: -96.3320 (-60.9%)
+  baseline: 167.3251
+  chunk_clean_v1: 71.3210
+  Improvement: -96.0040 (-57.4%)
