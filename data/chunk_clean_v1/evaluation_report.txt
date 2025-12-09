@@ -6,94 +6,44 @@ Total Queries Evaluated: 10
 
 AGGREGATED METRICS:
 ----------------------------------------
-ndcg@5                        : 0.7314
-recall@5                      : 0.7464
-hit_rate@10                   : 1.0000
-ndcg@1                        : 0.7000
-recall@10                     : 0.7607
-precision@1                   : 0.7000
-mrr                           : 0.8250
-precision@10                  : 0.4495
-hit_rate@1                    : 0.7000
-ndcg@10                       : 0.7326
-hit_rate@3                    : 0.9000
-recall@3                      : 0.5345
 precision@3                   : 0.6333
+grounding_accuracy            : 1.0000
+precision@1                   : 0.7000
 citation_accuracy             : 0.4495
-recall@1                      : 0.2060
+ndcg@1                        : 0.7000
 precision@5                   : 0.5600
-retrieval_latency             : 0.0140
+recall@5                      : 0.7464
+precision@10                  : 0.4495
+recall@10                     : 0.7607
+hit_rate@10                   : 1.0000
+ndcg@5                        : 0.7314
+mrr                           : 0.8250
+hit_rate@1                    : 0.7000
+recall@1                      : 0.2060
+recall@3                      : 0.5345
 hit_rate@5                    : 1.0000
 ndcg@3                        : 0.6350
-grounding_accuracy            : 1.0000
+hit_rate@3                    : 0.9000
+ndcg@10                       : 0.7326
+retrieval_latency             : 0.0140
 average_response_time         : 0.0140
 queries_per_second            : 71.3210
 
 SUMMARY STATISTICS:
 ----------------------------------------
-ndcg@5:
-  Mean: 0.7314
-  Std:  0.2280
-  Min:  0.2641
-  Max:  0.9652
-recall@5:
-  Mean: 0.7464
-  Std:  0.1829
-  Min:  0.5000
+precision@3:
+  Mean: 0.6333
+  Std:  0.3480
+  Min:  0.0000
   Max:  1.0000
-hit_rate@10:
+grounding_accuracy:
   Mean: 1.0000
   Std:  0.0000
   Min:  1.0000
   Max:  1.0000
-ndcg@1:
-  Mean: 0.7000
-  Std:  0.4583
-  Min:  0.0000
-  Max:  1.0000
-recall@10:
-  Mean: 0.7607
-  Std:  0.1854
-  Min:  0.5000
-  Max:  1.0000
 precision@1:
   Mean: 0.7000
   Std:  0.4583
-  Min:  0.0000
-  Max:  1.0000
-mrr:
-  Mean: 0.8250
-  Std:  0.2750
-  Min:  0.2500
-  Max:  1.0000
-precision@10:
-  Mean: 0.4495
-  Std:  0.2514
-  Min:  0.1250
-  Max:  1.0000
-hit_rate@1:
-  Mean: 0.7000
-  Std:  0.4583
-  Min:  0.0000
-  Max:  1.0000
-ndcg@10:
-  Mean: 0.7326
-  Std:  0.2287
-  Min:  0.2641
-  Max:  0.9652
-hit_rate@3:
-  Mean: 0.9000
-  Std:  0.3000
-  Min:  0.0000
-  Max:  1.0000
-recall@3:
-  Mean: 0.5345
-  Std:  0.2635
-  Min:  0.0000
-  Max:  1.0000
-precision@3:
-  Mean: 0.6333
-  Std:  0.3480
   Min:  0.0000
   Max:  1.0000
 citation_accuracy:
@@ -101,21 +51,61 @@ citation_accuracy:
   Std:  0.2514
   Min:  0.1250
   Max:  1.0000
-recall@1:
-  Mean: 0.2060
-  Std:  0.1464
+ndcg@1:
+  Mean: 0.7000
+  Std:  0.4583
   Min:  0.0000
-  Max:  0.3333
+  Max:  1.0000
 precision@5:
   Mean: 0.5600
   Std:  0.2653
   Min:  0.2000
   Max:  1.0000
-retrieval_latency:
-  Mean: 0.0140
-  Std:  0.0175
-  Min:  0.0054
-  Max:  0.0665
+recall@5:
+  Mean: 0.7464
+  Std:  0.1829
+  Min:  0.5000
+  Max:  1.0000
+precision@10:
+  Mean: 0.4495
+  Std:  0.2514
+  Min:  0.1250
+  Max:  1.0000
+recall@10:
+  Mean: 0.7607
+  Std:  0.1854
+  Min:  0.5000
+  Max:  1.0000
+hit_rate@10:
+  Mean: 1.0000
+  Std:  0.0000
+  Min:  1.0000
+  Max:  1.0000
+ndcg@5:
+  Mean: 0.7314
+  Std:  0.2280
+  Min:  0.2641
+  Max:  0.9652
+mrr:
+  Mean: 0.8250
+  Std:  0.2750
+  Min:  0.2500
+  Max:  1.0000
+hit_rate@1:
+  Mean: 0.7000
+  Std:  0.4583
+  Min:  0.0000
+  Max:  1.0000
+recall@1:
+  Mean: 0.2060
+  Std:  0.1464
+  Min:  0.0000
+  Max:  0.3333
+recall@3:
+  Mean: 0.5345
+  Std:  0.2635
+  Min:  0.0000
+  Max:  1.0000
 hit_rate@5:
   Mean: 1.0000
   Std:  0.0000
@@ -126,11 +116,21 @@ ndcg@3:
   Std:  0.2850
   Min:  0.0000
   Max:  1.0000
-grounding_accuracy:
-  Mean: 1.0000
-  Std:  0.0000
-  Min:  1.0000
+hit_rate@3:
+  Mean: 0.9000
+  Std:  0.3000
+  Min:  0.0000
   Max:  1.0000
+ndcg@10:
+  Mean: 0.7326
+  Std:  0.2287
+  Min:  0.2641
+  Max:  0.9652
+retrieval_latency:
+  Mean: 0.0140
+  Std:  0.0175
+  Min:  0.0054
+  Max:  0.0665
 
 PER-QUERY RESULTS:
 ----------------------------------------

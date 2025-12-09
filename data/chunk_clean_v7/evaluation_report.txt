@@ -6,60 +6,45 @@ Total Queries Evaluated: 10
 
 AGGREGATED METRICS:
 ----------------------------------------
-ndcg@5                        : 0.7021
-recall@5                      : 0.6655
-hit_rate@10                   : 1.0000
-ndcg@1                        : 0.8000
-recall@10                     : 0.6798
 precision@1                   : 0.8000
+hit_rate@5                    : 1.0000
+grounding_accuracy            : 1.0000
 mrr                           : 0.8833
 precision@10                  : 0.4292
+citation_accuracy             : 0.4292
 hit_rate@1                    : 0.8000
+recall@5                      : 0.6655
+precision@3                   : 0.6000
+ndcg@1                        : 0.8000
+retrieval_latency             : 0.0305
+ndcg@3                        : 0.6501
+recall@1                      : 0.2393
+recall@10                     : 0.6798
+hit_rate@10                   : 1.0000
 ndcg@10                       : 0.7051
+precision@5                   : 0.5050
 hit_rate@3                    : 1.0000
 recall@3                      : 0.5179
-precision@3                   : 0.6000
-citation_accuracy             : 0.4292
-recall@1                      : 0.2393
-precision@5                   : 0.5050
-retrieval_latency             : 0.0305
-hit_rate@5                    : 1.0000
-ndcg@3                        : 0.6501
-grounding_accuracy            : 1.0000
+ndcg@5                        : 0.7021
 average_response_time         : 0.0305
 queries_per_second            : 32.8018
 
 SUMMARY STATISTICS:
 ----------------------------------------
-ndcg@5:
-  Mean: 0.7021
-  Std:  0.2111
-  Min:  0.3066
-  Max:  0.9120
-recall@5:
-  Mean: 0.6655
-  Std:  0.2012
-  Min:  0.3333
-  Max:  1.0000
-hit_rate@10:
-  Mean: 1.0000
-  Std:  0.0000
-  Min:  1.0000
-  Max:  1.0000
-ndcg@1:
-  Mean: 0.8000
-  Std:  0.4000
-  Min:  0.0000
-  Max:  1.0000
-recall@10:
-  Mean: 0.6798
-  Std:  0.1991
-  Min:  0.3333
-  Max:  1.0000
 precision@1:
   Mean: 0.8000
   Std:  0.4000
   Min:  0.0000
+  Max:  1.0000
+hit_rate@5:
+  Mean: 1.0000
+  Std:  0.0000
+  Min:  1.0000
+  Max:  1.0000
+grounding_accuracy:
+  Mean: 1.0000
+  Std:  0.0000
+  Min:  1.0000
   Max:  1.0000
 mrr:
   Mean: 0.8833
@@ -71,16 +56,66 @@ precision@10:
   Std:  0.2661
   Min:  0.1667
   Max:  1.0000
+citation_accuracy:
+  Mean: 0.4292
+  Std:  0.2661
+  Min:  0.1667
+  Max:  1.0000
 hit_rate@1:
   Mean: 0.8000
   Std:  0.4000
   Min:  0.0000
+  Max:  1.0000
+recall@5:
+  Mean: 0.6655
+  Std:  0.2012
+  Min:  0.3333
+  Max:  1.0000
+precision@3:
+  Mean: 0.6000
+  Std:  0.2906
+  Min:  0.3333
+  Max:  1.0000
+ndcg@1:
+  Mean: 0.8000
+  Std:  0.4000
+  Min:  0.0000
+  Max:  1.0000
+retrieval_latency:
+  Mean: 0.0305
+  Std:  0.0297
+  Min:  0.0076
+  Max:  0.1119
+ndcg@3:
+  Mean: 0.6501
+  Std:  0.2128
+  Min:  0.3066
+  Max:  1.0000
+recall@1:
+  Mean: 0.2393
+  Std:  0.1330
+  Min:  0.0000
+  Max:  0.3333
+recall@10:
+  Mean: 0.6798
+  Std:  0.1991
+  Min:  0.3333
+  Max:  1.0000
+hit_rate@10:
+  Mean: 1.0000
+  Std:  0.0000
+  Min:  1.0000
   Max:  1.0000
 ndcg@10:
   Mean: 0.7051
   Std:  0.2125
   Min:  0.3066
   Max:  0.9120
+precision@5:
+  Mean: 0.5050
+  Std:  0.2514
+  Min:  0.2000
+  Max:  1.0000
 hit_rate@3:
   Mean: 1.0000
   Std:  0.0000
@@ -91,46 +126,11 @@ recall@3:
   Std:  0.1520
   Min:  0.3333
   Max:  0.7500
-precision@3:
-  Mean: 0.6000
-  Std:  0.2906
-  Min:  0.3333
-  Max:  1.0000
-citation_accuracy:
-  Mean: 0.4292
-  Std:  0.2661
-  Min:  0.1667
-  Max:  1.0000
-recall@1:
-  Mean: 0.2393
-  Std:  0.1330
-  Min:  0.0000
-  Max:  0.3333
-precision@5:
-  Mean: 0.5050
-  Std:  0.2514
-  Min:  0.2000
-  Max:  1.0000
-retrieval_latency:
-  Mean: 0.0305
-  Std:  0.0297
-  Min:  0.0076
-  Max:  0.1119
-hit_rate@5:
-  Mean: 1.0000
-  Std:  0.0000
-  Min:  1.0000
-  Max:  1.0000
-ndcg@3:
-  Mean: 0.6501
-  Std:  0.2128
+ndcg@5:
+  Mean: 0.7021
+  Std:  0.2111
   Min:  0.3066
-  Max:  1.0000
-grounding_accuracy:
-  Mean: 1.0000
-  Std:  0.0000
-  Min:  1.0000
-  Max:  1.0000
+  Max:  0.9120
 
 PER-QUERY RESULTS:
 ----------------------------------------
