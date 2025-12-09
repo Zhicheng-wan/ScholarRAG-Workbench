@@ -1,0 +1,142 @@
+================================================================================
+RAG SYSTEM COMPARISON REPORT
+================================================================================
+
+METRIC COMPARISON:
+--------------------------------------------------------------------------------
+Metric                                    baseline             specter                Best
+--------------------------------------------------------------------------------
+recall@1                                    0.2060              0.0810            baseline
+precision@1                                 0.7000              0.3000            baseline
+recall@10                                   0.7607              0.5238            baseline
+ndcg@5                                      0.7314              0.3330            baseline
+precision@5                                 0.5600              0.2800            baseline
+grounding_accuracy                          1.0000              1.0000            baseline
+retrieval_latency                           0.0066              0.0053            baseline
+hit_rate@3                                  0.9000              0.4000            baseline
+mrr                                         0.8250              0.4543            baseline
+recall@3                                    0.5345              0.2095            baseline
+recall@5                                    0.7464              0.4179            baseline
+ndcg@1                                      0.7000              0.2500            baseline
+hit_rate@5                                  1.0000              0.8000            baseline
+hit_rate@1                                  0.7000              0.3000            baseline
+citation_accuracy                           0.4495              0.2813            baseline
+hit_rate@10                                 1.0000              0.9000            baseline
+precision@10                                0.4495              0.2813            baseline
+ndcg@10                                     0.7326              0.3746            baseline
+precision@3                                 0.6333              0.2667            baseline
+ndcg@3                                      0.6350              0.2450            baseline
+average_response_time                       0.0066              0.0053            baseline
+queries_per_second                        151.9323            189.4592             specter
+
+IMPROVEMENT ANALYSIS (baseline -> specter):
+----------------------------------------
+recall@1:
+  baseline: 0.2060
+  specter: 0.0810
+  Improvement: -0.1250 (-60.7%)
+
+precision@1:
+  baseline: 0.7000
+  specter: 0.3000
+  Improvement: -0.4000 (-57.1%)
+
+recall@10:
+  baseline: 0.7607
+  specter: 0.5238
+  Improvement: -0.2369 (-31.1%)
+
+ndcg@5:
+  baseline: 0.7314
+  specter: 0.3330
+  Improvement: -0.3984 (-54.5%)
+
+precision@5:
+  baseline: 0.5600
+  specter: 0.2800
+  Improvement: -0.2800 (-50.0%)
+
+grounding_accuracy:
+  baseline: 1.0000
+  specter: 1.0000
+  Improvement: +0.0000 (+0.0%)
+
+retrieval_latency:
+  baseline: 0.0066
+  specter: 0.0053
+  Improvement: -0.0013 (-19.8%)
+
+hit_rate@3:
+  baseline: 0.9000
+  specter: 0.4000
+  Improvement: -0.5000 (-55.6%)
+
+mrr:
+  baseline: 0.8250
+  specter: 0.4543
+  Improvement: -0.3707 (-44.9%)
+
+recall@3:
+  baseline: 0.5345
+  specter: 0.2095
+  Improvement: -0.3250 (-60.8%)
+
+recall@5:
+  baseline: 0.7464
+  specter: 0.4179
+  Improvement: -0.3286 (-44.0%)
+
+ndcg@1:
+  baseline: 0.7000
+  specter: 0.2500
+  Improvement: -0.4500 (-64.3%)
+
+hit_rate@5:
+  baseline: 1.0000
+  specter: 0.8000
+  Improvement: -0.2000 (-20.0%)
+
+hit_rate@1:
+  baseline: 0.7000
+  specter: 0.3000
+  Improvement: -0.4000 (-57.1%)
+
+citation_accuracy:
+  baseline: 0.4495
+  specter: 0.2813
+  Improvement: -0.1682 (-37.4%)
+
+hit_rate@10:
+  baseline: 1.0000
+  specter: 0.9000
+  Improvement: -0.1000 (-10.0%)
+
+precision@10:
+  baseline: 0.4495
+  specter: 0.2813
+  Improvement: -0.1682 (-37.4%)
+
+ndcg@10:
+  baseline: 0.7326
+  specter: 0.3746
+  Improvement: -0.3580 (-48.9%)
+
+precision@3:
+  baseline: 0.6333
+  specter: 0.2667
+  Improvement: -0.3667 (-57.9%)
+
+ndcg@3:
+  baseline: 0.6350
+  specter: 0.2450
+  Improvement: -0.3900 (-61.4%)
+
+average_response_time:
+  baseline: 0.0066
+  specter: 0.0053
+  Improvement: -0.0013 (-19.8%)
+
+queries_per_second:
+  baseline: 151.9323
+  specter: 189.4592
+  Improvement: +37.5269 (+24.7%)

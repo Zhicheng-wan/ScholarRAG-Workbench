@@ -218,7 +218,7 @@ Query query_4:
   ndcg@10: 0.7975
   hit_rate@10: 1.0000
   mrr: 1.0000
-  retrieval_latency: 0.0057
+  retrieval_latency: 0.0043
   grounding_accuracy: 1.0000
   citation_accuracy: 0.4000
 
