@@ -8,5 +8,25 @@
     "query_7": "Which studies propose techniques for efficient context-window extension or long-sequence modeling?",
     "query_8": "What papers address data-contamination or memorization issues in pretraining corpora?",
     "query_9": "How have open-source models (e.g., LLaMA, Falcon, Mistral) influenced reproducibility and community research?",
-    "query_10": "What are recent advances in alignment methods beyond RLHF, such as direct preference optimization (DPO)?"
-  }
+    "query_10": "What are recent advances in alignment methods beyond RLHF, such as direct preference optimization (DPO)?",
+    "query_11": "Summarize the most recent advancements in humanoid robot design and control.",
+    "query_12": "Which papers or blogs discuss the integration of large language models or generative AI into robot learning and control?",
+    "query_13": "Identify research focusing on robot manipulation or grasping in unstructured environments.",
+    "query_14": "Find works that discuss robot perception improvements using vision-based or multimodal approaches.",
+    "query_15": "Summarize the main challenges and solutions in human-robot collaboration for industrial applications.",
+    "query_16": "Which blog articles report major breakthroughs in autonomous mobile robots or warehouse automation in 2024?",
+    "query_17": "Find and summarize works that discuss reinforcement learning or imitation learning for robotic motion control.",
+    "query_18": "Which papers focus on robotic safety and explainable AI in decision-making systems?",
+    "query_19": "Summarize discussions about energy efficiency or hardware optimization in robotics research.",
+    "query_20": "Identify works or blog posts highlighting the societal or ethical impacts of deploying robots in real-world environments.",
+    "query_21": "What architectures are used for efficient inference of large language models?",
+    "query_22": "Which papers study chain-of-thought prompting or step-by-step reasoning?",
+    "query_23": "What methods exist for few-shot and zero-shot learning in language models?",
+    "query_24": "Which studies explore mixture-of-experts architectures for scaling?",
+    "query_25": "What methods exist for model compression and quantization of LLMs?",
+    "query_26": "What techniques enable in-context learning in transformer models?",
+    "query_27": "Which studies explore code generation capabilities of language models?",
+    "query_28": "Which studies explore retrieval-augmented language models?",
+    "query_29": "How do models perform on commonsense reasoning tasks?",
+    "query_30": "What approaches exist for multi-task learning in language models?"
+}
