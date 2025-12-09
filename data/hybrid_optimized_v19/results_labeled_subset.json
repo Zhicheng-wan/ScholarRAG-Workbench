@@ -1,0 +1,289 @@
+{
+  "query_11": {
+    "doc_ids": [
+      "arxiv:2020.aacl-main.88#abstract",
+      "arxiv:2211.10438#related-work",
+      "arxiv:2304.01373#abstract:part-4",
+      "arxiv:2305.07185#model:part-8",
+      "arxiv:2207.00112#introduction:part-1",
+      "arxiv:2305.19268#introduction:part-1",
+      "arxiv:2307.10169#conclusion",
+      "arxiv:2311.00502#introduction:part-1",
+      "arxiv:2305.11627#introduction",
+      "arxiv:2310.06825#introduction:part-1"
+    ],
+    "query_time": 0.4463202953338623,
+    "metadata": {
+      "num_variations": 2,
+      "retrieval_method": "hybrid_optimized_v19",
+      "query_aware_boosts": {},
+      "optimizations": [
+        "v9_baseline",
+        "v18_static_section",
+        "v10_query_aware_section"
+      ]
+    }
+  },
+  "query_13": {
+    "doc_ids": [
+      "arxiv:2212.03551#introduction:part-15",
+      "arxiv:2307.10169#methods:part-1",
+      "arxiv:2303.18223#approach:part-19",
+      "arxiv:2307.10169#introduction:part-27",
+      "arxiv:2303.18223#model:part-35",
+      "arxiv:2303.18223#approach:part-14",
+      "arxiv:2304.00612#introduction:part-11",
+      "arxiv:2312.07104#introduction:part-1",
+      "arxiv:2303.18223#approach:part-18",
+      "arxiv:2303.18223#approach:part-17"
+    ],
+    "query_time": 0.018939971923828125,
+    "metadata": {
+      "num_variations": 1,
+      "retrieval_method": "hybrid_optimized_v19",
+      "query_aware_boosts": {
+        "abstract": 1.08,
+        "introduction": 1.05,
+        "related-work": 1.03
+      },
+      "optimizations": [
+        "v9_baseline",
+        "v18_static_section",
+        "v10_query_aware_section"
+      ]
+    }
+  },
+  "query_14": {
+    "doc_ids": [
+      "arxiv:20-074#abstract:part-10",
+      "arxiv:language_models_are_unsupervised_multitask_learners#abstract:part-3",
+      "arxiv:2005.14165#approach:part-2",
+      "arxiv:2005.14165#introduction:part-4",
+      "arxiv:2204.02311#abstract",
+      "arxiv:2307.10169#introduction:part-30",
+      "arxiv:2005.14165#approach:part-3",
+      "arxiv:2302.14045#abstract:part-1",
+      "arxiv:2005.14165#abstract",
+      "arxiv:2005.14165#introduction:part-3"
+    ],
+    "query_time": 0.014379739761352539,
+    "metadata": {
+      "num_variations": 1,
+      "retrieval_method": "hybrid_optimized_v19",
+      "query_aware_boosts": {
+        "method": 1.08,
+        "methods": 1.08,
+        "approach": 1.05
+      },
+      "optimizations": [
+        "v9_baseline",
+        "v18_static_section",
+        "v10_query_aware_section"
+      ]
+    }
+  },
+  "query_17": {
+    "doc_ids": [
+      "arxiv:Adaptive-mixtures-of-local-experts#abstract:part-8",
+      "arxiv:1701.06538#abstract:part-6",
+      "arxiv:1701.06538#abstract:part-4",
+      "arxiv:2401.04088#introduction:part-2",
+      "arxiv:1701.06538#abstract:part-7",
+      "arxiv:2307.10169#introduction:part-20",
+      "arxiv:20-074#abstract:part-42",
+      "arxiv:2203.15556#model:part-2",
+      "arxiv:2401.04088#conclusion",
+      "arxiv:2107.11817#model:part-2"
+    ],
+    "query_time": 0.0843808650970459,
+    "metadata": {
+      "num_variations": 2,
+      "retrieval_method": "hybrid_optimized_v19",
+      "query_aware_boosts": {
+        "abstract": 1.08,
+        "introduction": 1.05,
+        "related-work": 1.03
+      },
+      "optimizations": [
+        "v9_baseline",
+        "v18_static_section",
+        "v10_query_aware_section"
+      ]
+    }
+  },
+  "query_22": {
+    "doc_ids": [
+      "arxiv:2305.11627#methods:part-1",
+      "arxiv:2305.19268#introduction:part-1",
+      "arxiv:2306.11695#introduction:part-1",
+      "arxiv:2109.06243#introduction:part-1",
+      "arxiv:2307.13304#abstract",
+      "arxiv:2305.14314#introduction",
+      "arxiv:2305.11627#evaluation:part-1",
+      "arxiv:2305.11627#introduction",
+      "arxiv:2306.07629#related-work:part-3",
+      "arxiv:2307.13304#introduction"
+    ],
+    "query_time": 0.036624908447265625,
+    "metadata": {
+      "num_variations": 2,
+      "retrieval_method": "hybrid_optimized_v19",
+      "query_aware_boosts": {
+        "method": 1.08,
+        "methods": 1.08,
+        "approach": 1.05
+      },
+      "optimizations": [
+        "v9_baseline",
+        "v18_static_section",
+        "v10_query_aware_section"
+      ]
+    }
+  },
+  "query_25": {
+    "doc_ids": [
+      "arxiv:2302.10866#introduction:part-1",
+      "arxiv:2306.07042#introduction:part-1",
+      "arxiv:2303.18223#model:part-34",
+      "arxiv:2005.14165#introduction:part-3",
+      "arxiv:2211.09718#introduction:part-1",
+      "arxiv:2302.13971#introduction:part-2",
+      "arxiv:2306.07042#introduction:part-2",
+      "arxiv:2510.13367#conclusion",
+      "arxiv:1910.07467#model:part-2",
+      "arxiv:2307.10169#introduction:part-20"
+    ],
+    "query_time": 0.016858816146850586,
+    "metadata": {
+      "num_variations": 1,
+      "retrieval_method": "hybrid_optimized_v19",
+      "query_aware_boosts": {
+        "method": 1.08,
+        "methods": 1.08,
+        "approach": 1.05
+      },
+      "optimizations": [
+        "v9_baseline",
+        "v18_static_section",
+        "v10_query_aware_section"
+      ]
+    }
+  },
+  "query_29": {
+    "doc_ids": [
+      "arxiv:2310.05492#abstract",
+      "arxiv:2211.05100#abstract:part-2",
+      "arxiv:2303.18223#result:part-6",
+      "arxiv:2307.10169#methods:part-31",
+      "arxiv:2303.18223#model:part-11",
+      "arxiv:2308.10792#abstract",
+      "arxiv:2307.10169#related-work",
+      "arxiv:2211.09110#introduction:part-1",
+      "arxiv:2211.05100#abstract:part-1",
+      "arxiv:2306.17806#experiments:part-4"
+    ],
+    "query_time": 0.015760183334350586,
+    "metadata": {
+      "num_variations": 1,
+      "retrieval_method": "hybrid_optimized_v19",
+      "query_aware_boosts": {
+        "abstract": 1.08,
+        "introduction": 1.05,
+        "related-work": 1.03
+      },
+      "optimizations": [
+        "v9_baseline",
+        "v18_static_section",
+        "v10_query_aware_section"
+      ]
+    }
+  },
+  "query_35": {
+    "doc_ids": [
+      "arxiv:2307.03172#abstract",
+      "arxiv:2307.10169#methods:part-4",
+      "arxiv:2307.10169#methods:part-14",
+      "arxiv:2307.03172#introduction:part-2",
+      "arxiv:2307.10169#related-work",
+      "arxiv:2307.03172#introduction:part-4",
+      "arxiv:2303.18223#introduction:part-4",
+      "arxiv:2412.10543#introduction:part-1",
+      "arxiv:2307.10169#conclusion",
+      "arxiv:2204.02311#evaluation:part-1"
+    ],
+    "query_time": 0.020760059356689453,
+    "metadata": {
+      "num_variations": 1,
+      "retrieval_method": "hybrid_optimized_v19",
+      "query_aware_boosts": {
+        "abstract": 1.08,
+        "introduction": 1.05,
+        "related-work": 1.03
+      },
+      "optimizations": [
+        "v9_baseline",
+        "v18_static_section",
+        "v10_query_aware_section"
+      ]
+    }
+  },
+  "query_36": {
+    "doc_ids": [
+      "arxiv:2304.01933#method:part-4",
+      "arxiv:2204.02311#results:part-1",
+      "arxiv:2304.00612#introduction:part-6",
+      "arxiv:2303.18223#approach:part-19",
+      "arxiv:2404.10630#model",
+      "arxiv:2307.10169#methods:part-16",
+      "arxiv:2204.02311#model:part-7",
+      "arxiv:2302.14045#abstract:part-4",
+      "arxiv:2303.18223#result:part-13",
+      "arxiv:2212.03551#introduction:part-16"
+    ],
+    "query_time": 0.018478870391845703,
+    "metadata": {
+      "num_variations": 1,
+      "retrieval_method": "hybrid_optimized_v19",
+      "query_aware_boosts": {
+        "method": 1.1,
+        "methods": 1.1,
+        "model": 1.05,
+        "approach": 1.05
+      },
+      "optimizations": [
+        "v9_baseline",
+        "v18_static_section",
+        "v10_query_aware_section"
+      ]
+    }
+  },
+  "query_40": {
+    "doc_ids": [
+      "arxiv:20-074#abstract:part-36",
+      "arxiv:20-074#abstract:part-10",
+      "arxiv:language_models_are_unsupervised_multitask_learners#abstract:part-4",
+      "arxiv:2302.14045#abstract:part-6",
+      "arxiv:2301.13688#related-work:part-1",
+      "arxiv:2303.18223#model:part-33",
+      "arxiv:2303.18223#introduction:part-4",
+      "arxiv:20-074#abstract:part-20",
+      "arxiv:2005.14165#related-work:part-3",
+      "arxiv:2307.10169#conclusion"
+    ],
+    "query_time": 0.018871784210205078,
+    "metadata": {
+      "num_variations": 1,
+      "retrieval_method": "hybrid_optimized_v19",
+      "query_aware_boosts": {
+        "method": 1.08,
+        "methods": 1.08,
+        "approach": 1.05
+      },
+      "optimizations": [
+        "v9_baseline",
+        "v18_static_section",
+        "v10_query_aware_section"
+      ]
+    }
+  }
+}
