@@ -1,8 +1,10 @@
 # ScholarRAG: Domain-Specific RAG System for Academic Literature
 
-A production-ready Retrieval-Augmented Generation (RAG) system optimized for Computer Science and Robotics academic literature. This repository contains both the baseline system (Phase 1) and the final optimized system after systematic experimentation across 27 variants.
+This version keeps only the best working system we produced. All earlier variants and experiments remain available in the git history.
 
-## 📊 Performance
+A Retrieval-Augmented Generation (RAG) system optimized for Computer Science and Robotics academic literature. This repository contains the final optimized system and the original baseline (Phase 1); other intermediate attempts are in history only.
+
+## Performance
 
 ### Baseline System (Phase 1)
 - **MRR**: 0.825
@@ -18,7 +20,7 @@ A production-ready Retrieval-Augmented Generation (RAG) system optimized for Com
 - **Latency**: 29ms (with caching and batching)
 - **QPS**: 31.4
 
-## 🎯 Key Features
+## Key Features
 
 1. **Query-Aware Section Boosting**: Adapts retrieval to query intent (e.g., "What techniques..." boosts method sections)
 2. **Manual Domain-Specific Expansion**: 11 critical terms (RAG → retrieval-augmented generation, LLM → large language model)
@@ -26,7 +28,7 @@ A production-ready Retrieval-Augmented Generation (RAG) system optimized for Com
 4. **Persistent Caching**: Query embeddings and results cached for fast repeated queries
 5. **Batched Search**: Single API call for all query variations
 
-## 🚀 Quick Start
+## Quick Start
 
 ### Prerequisites
 
@@ -62,7 +64,7 @@ with open('results.json', 'w') as f:
 "
 ```
 
-## 📁 Repository Structure
+## Repository Structure
 
 ```
 ScholarRAG-Workbench/
@@ -98,7 +100,7 @@ ScholarRAG-Workbench/
 └── README.md
 ```
 
-## 🎓 Dataset
+## Dataset
 
 - **160 documents** across computer science and robotics
   - 100 LLM papers from Kaggle
@@ -108,7 +110,7 @@ ScholarRAG-Workbench/
 - **2,405 sections** after chunking (title, abstract, methods, results, etc.)
 - **30 test queries** covering LLM techniques and robotics systems
 
-## 🔬 Technical Approach
+## Technical Approach
 
 ### 1. Query Expansion
 Manual expansion of 11 domain-specific terms:
@@ -144,7 +146,7 @@ score = 1 / (k + rank)  where k=60
 - Cache keyed by raw query text
 - Auto-invalidates on model/collection changes
 
-## 📈 Evaluation Metrics
+## Evaluation Metrics
 
 The system is evaluated on:
 - **MRR (Mean Reciprocal Rank)**: Position of first relevant result
@@ -153,7 +155,7 @@ The system is evaluated on:
 - **Recall@k**: Coverage of relevant documents
 - **Latency**: Query processing time
 
-## 🏆 Why This System?
+## Why This System?
 
 After testing 27 variants, `scholarrag` emerged as the best because:
 
@@ -162,21 +164,21 @@ After testing 27 variants, `scholarrag` emerged as the best because:
 3. **Simple & effective**: Rule-based methods beat complex ML approaches
 4. **Proven robustness**: Tested on 30 diverse queries
 
-### What Worked ✅
+### What Worked
 - Manual domain-specific query expansion
 - Section-level semantic search with metadata
 - Bias reduction (conservative ArXiv/recency boosts)
 - Static + query-aware section boosting (multiplicative)
 - Persistent caching
 
-### What Didn't Work ❌
+### What Didn't Work
 - BM25 fusion for short sections (-15% to -51% performance)
 - General-purpose cross-encoder reranking (-8.4%)
 - Template-based HyDE without real LLM (-10.0%)
 - Diversity re-ranking (-34.0% catastrophic failure)
 - Ensemble of similar methods (-5.7%)
 
-## 📝 Documentation
+## Documentation
 
 This repository contains the complete implementation of ScholarRAG, including:
 - **Baseline system** (Phase 1): Basic semantic search
@@ -186,26 +188,25 @@ This repository contains the complete implementation of ScholarRAG, including:
 
 For detailed technical documentation, see the comprehensive README and inline code documentation.
 
-## 🤝 Contributors
+## Contributors
 
 - Yuhao Wang
 - Zhicheng Wang
 - Yvonne Wang
 - Tang Sheng
-- Thanh Trinh
 
 **University of California, San Diego**
 CSE 291A - Fall 2024
 
-## 📄 License
+## License
 
 This project is for academic research purposes.
 
-## 🔗 Links
+## Links
 
 - **GitHub Repository**: [Zhicheng-wan/ScholarRAG-Workbench](https://github.com/Zhicheng-wan/ScholarRAG-Workbench)
 - **System Documentation**: See `src/scholarrag/README.md`
 
 ---
 
-**Note**: This repository contains the baseline and final production system. The complete experimental journey (all 27 variants tested) is available in the git history.
+**Note**: Earlier RAG variants and experiments are in the git history.
