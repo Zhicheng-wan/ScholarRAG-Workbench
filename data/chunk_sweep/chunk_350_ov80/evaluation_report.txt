@@ -1,0 +1,355 @@
+================================================================================
+RAG RETRIEVAL EVALUATION REPORT: chunk_350_ov80
+================================================================================
+
+Total Queries Evaluated: 10
+
+AGGREGATED METRICS:
+----------------------------------------
+recall@1                      : 0.1310
+citation_accuracy             : 0.4181
+precision@10                  : 0.4181
+grounding_accuracy            : 1.0000
+precision@5                   : 0.3700
+precision@3                   : 0.4500
+ndcg@3                        : 0.4077
+precision@1                   : 0.4000
+ndcg@10                       : 0.4973
+ndcg@1                        : 0.3500
+hit_rate@10                   : 1.0000
+recall@5                      : 0.4345
+recall@3                      : 0.3679
+hit_rate@3                    : 0.8000
+mrr                           : 0.6200
+hit_rate@5                    : 0.9000
+retrieval_latency             : 0.0798
+ndcg@5                        : 0.4266
+recall@10                     : 0.5738
+hit_rate@1                    : 0.4000
+average_response_time         : 0.0798
+queries_per_second            : 12.5279
+
+SUMMARY STATISTICS:
+----------------------------------------
+recall@1:
+  Mean: 0.1310
+  Std:  0.1792
+  Min:  0.0000
+  Max:  0.5000
+citation_accuracy:
+  Mean: 0.4181
+  Std:  0.2586
+  Min:  0.1429
+  Max:  1.0000
+precision@10:
+  Mean: 0.4181
+  Std:  0.2586
+  Min:  0.1429
+  Max:  1.0000
+grounding_accuracy:
+  Mean: 1.0000
+  Std:  0.0000
+  Min:  1.0000
+  Max:  1.0000
+precision@5:
+  Mean: 0.3700
+  Std:  0.2830
+  Min:  0.0000
+  Max:  1.0000
+precision@3:
+  Mean: 0.4500
+  Std:  0.3337
+  Min:  0.0000
+  Max:  1.0000
+ndcg@3:
+  Mean: 0.4077
+  Std:  0.2733
+  Min:  0.0000
+  Max:  0.8403
+precision@1:
+  Mean: 0.4000
+  Std:  0.4899
+  Min:  0.0000
+  Max:  1.0000
+ndcg@10:
+  Mean: 0.4973
+  Std:  0.1993
+  Min:  0.0947
+  Max:  0.8403
+ndcg@1:
+  Mean: 0.3500
+  Std:  0.4500
+  Min:  0.0000
+  Max:  1.0000
+hit_rate@10:
+  Mean: 1.0000
+  Std:  0.0000
+  Min:  1.0000
+  Max:  1.0000
+recall@5:
+  Mean: 0.4345
+  Std:  0.2522
+  Min:  0.0000
+  Max:  1.0000
+recall@3:
+  Mean: 0.3679
+  Std:  0.2245
+  Min:  0.0000
+  Max:  0.6667
+hit_rate@3:
+  Mean: 0.8000
+  Std:  0.4000
+  Min:  0.0000
+  Max:  1.0000
+mrr:
+  Mean: 0.6200
+  Std:  0.3294
+  Min:  0.1667
+  Max:  1.0000
+hit_rate@5:
+  Mean: 0.9000
+  Std:  0.3000
+  Min:  0.0000
+  Max:  1.0000
+retrieval_latency:
+  Mean: 0.0798
+  Std:  0.1419
+  Min:  0.0087
+  Max:  0.4916
+ndcg@5:
+  Mean: 0.4266
+  Std:  0.2535
+  Min:  0.0000
+  Max:  0.8403
+recall@10:
+  Mean: 0.5738
+  Std:  0.1843
+  Min:  0.3333
+  Max:  1.0000
+hit_rate@1:
+  Mean: 0.4000
+  Std:  0.4899
+  Min:  0.0000
+  Max:  1.0000
+
+PER-QUERY RESULTS:
+----------------------------------------
+Query query_1:
+  precision@1: 1.0000
+  recall@1: 0.3333
+  ndcg@1: 1.0000
+  hit_rate@1: 1.0000
+  precision@3: 1.0000
+  recall@3: 0.6667
+  ndcg@3: 0.8403
+  hit_rate@3: 1.0000
+  precision@5: 1.0000
+  recall@5: 0.6667
+  ndcg@5: 0.8403
+  hit_rate@5: 1.0000
+  precision@10: 1.0000
+  recall@10: 0.6667
+  ndcg@10: 0.8403
+  hit_rate@10: 1.0000
+  mrr: 1.0000
+  retrieval_latency: 0.4916
+  grounding_accuracy: 1.0000
+  citation_accuracy: 1.0000
+
+Query query_2:
+  precision@1: 0.0000
+  recall@1: 0.0000
+  ndcg@1: 0.0000
+  hit_rate@1: 0.0000
+  precision@3: 0.6667
+  recall@3: 0.6667
+  ndcg@3: 0.6013
+  hit_rate@3: 1.0000
+  precision@5: 0.6000
+  recall@5: 1.0000
+  ndcg@5: 0.7157
+  hit_rate@5: 1.0000
+  precision@10: 0.6000
+  recall@10: 1.0000
+  ndcg@10: 0.7157
+  hit_rate@10: 1.0000
+  mrr: 0.5000
+  retrieval_latency: 0.1351
+  grounding_accuracy: 1.0000
+  citation_accuracy: 0.6000
+
+Query query_3:
+  precision@1: 1.0000
+  recall@1: 0.1429
+  ndcg@1: 0.5000
+  hit_rate@1: 1.0000
+  precision@3: 1.0000
+  recall@3: 0.4286
+  ndcg@3: 0.6480
+  hit_rate@3: 1.0000
+  precision@5: 0.6000
+  recall@5: 0.4286
+  ndcg@5: 0.5437
+  hit_rate@5: 1.0000
+  precision@10: 0.6667
+  recall@10: 0.5714
+  ndcg@10: 0.6022
+  hit_rate@10: 1.0000
+  mrr: 1.0000
+  retrieval_latency: 0.0308
+  grounding_accuracy: 1.0000
+  citation_accuracy: 0.6667
+
+Query query_4:
+  precision@1: 1.0000
+  recall@1: 0.3333
+  ndcg@1: 1.0000
+  hit_rate@1: 1.0000
+  precision@3: 0.5000
+  recall@3: 0.3333
+  ndcg@3: 0.5317
+  hit_rate@3: 1.0000
+  precision@5: 0.5000
+  recall@5: 0.3333
+  ndcg@5: 0.5317
+  hit_rate@5: 1.0000
+  precision@10: 0.5000
+  recall@10: 0.3333
+  ndcg@10: 0.5317
+  hit_rate@10: 1.0000
+  mrr: 1.0000
+  retrieval_latency: 0.0225
+  grounding_accuracy: 1.0000
+  citation_accuracy: 0.5000
+
+Query query_5:
+  precision@1: 0.0000
+  recall@1: 0.0000
+  ndcg@1: 0.0000
+  hit_rate@1: 0.0000
+  precision@3: 0.0000
+  recall@3: 0.0000
+  ndcg@3: 0.0000
+  hit_rate@3: 0.0000
+  precision@5: 0.2000
+  recall@5: 0.3333
+  ndcg@5: 0.2057
+  hit_rate@5: 1.0000
+  precision@10: 0.2857
+  recall@10: 0.6667
+  ndcg@10: 0.3950
+  hit_rate@10: 1.0000
+  mrr: 0.2000
+  retrieval_latency: 0.0503
+  grounding_accuracy: 1.0000
+  citation_accuracy: 0.2857
+
+Query query_6:
+  precision@1: 0.0000
+  recall@1: 0.0000
+  ndcg@1: 0.0000
+  hit_rate@1: 0.0000
+  precision@3: 0.3333
+  recall@3: 0.3333
+  ndcg@3: 0.1597
+  hit_rate@3: 1.0000
+  precision@5: 0.2000
+  recall@5: 0.3333
+  ndcg@5: 0.1597
+  hit_rate@5: 1.0000
+  precision@10: 0.2857
+  recall@10: 0.6667
+  ndcg@10: 0.3726
+  hit_rate@10: 1.0000
+  mrr: 0.3333
+  retrieval_latency: 0.0097
+  grounding_accuracy: 1.0000
+  citation_accuracy: 0.2857
+
+Query query_7:
+  precision@1: 1.0000
+  recall@1: 0.5000
+  ndcg@1: 1.0000
+  hit_rate@1: 1.0000
+  precision@3: 0.3333
+  recall@3: 0.5000
+  ndcg@3: 0.6131
+  hit_rate@3: 1.0000
+  precision@5: 0.2000
+  recall@5: 0.5000
+  ndcg@5: 0.6131
+  hit_rate@5: 1.0000
+  precision@10: 0.2000
+  recall@10: 0.5000
+  ndcg@10: 0.6131
+  hit_rate@10: 1.0000
+  mrr: 1.0000
+  retrieval_latency: 0.0106
+  grounding_accuracy: 1.0000
+  citation_accuracy: 0.2000
+
+Query query_8:
+  precision@1: 0.0000
+  recall@1: 0.0000
+  ndcg@1: 0.0000
+  hit_rate@1: 0.0000
+  precision@3: 0.3333
+  recall@3: 0.2500
+  ndcg@3: 0.2961
+  hit_rate@3: 1.0000
+  precision@5: 0.2000
+  recall@5: 0.2500
+  ndcg@5: 0.2689
+  hit_rate@5: 1.0000
+  precision@10: 0.3333
+  recall@10: 0.5000
+  ndcg@10: 0.4207
+  hit_rate@10: 1.0000
+  mrr: 0.5000
+  retrieval_latency: 0.0087
+  grounding_accuracy: 1.0000
+  citation_accuracy: 0.3333
+
+Query query_9:
+  precision@1: 0.0000
+  recall@1: 0.0000
+  ndcg@1: 0.0000
+  hit_rate@1: 0.0000
+  precision@3: 0.0000
+  recall@3: 0.0000
+  ndcg@3: 0.0000
+  hit_rate@3: 0.0000
+  precision@5: 0.0000
+  recall@5: 0.0000
+  ndcg@5: 0.0000
+  hit_rate@5: 0.0000
+  precision@10: 0.1667
+  recall@10: 0.3333
+  ndcg@10: 0.0947
+  hit_rate@10: 1.0000
+  mrr: 0.1667
+  retrieval_latency: 0.0152
+  grounding_accuracy: 1.0000
+  citation_accuracy: 0.1667
+
+Query query_10:
+  precision@1: 0.0000
+  recall@1: 0.0000
+  ndcg@1: 0.0000
+  hit_rate@1: 0.0000
+  precision@3: 0.3333
+  recall@3: 0.5000
+  ndcg@3: 0.3869
+  hit_rate@3: 1.0000
+  precision@5: 0.2000
+  recall@5: 0.5000
+  ndcg@5: 0.3869
+  hit_rate@5: 1.0000
+  precision@10: 0.1429
+  recall@10: 0.5000
+  ndcg@10: 0.3869
+  hit_rate@10: 1.0000
+  mrr: 0.5000
+  retrieval_latency: 0.0238
+  grounding_accuracy: 1.0000
+  citation_accuracy: 0.1429

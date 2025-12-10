@@ -1,0 +1,142 @@
+================================================================================
+RAG SYSTEM COMPARISON REPORT
+================================================================================
+
+METRIC COMPARISON:
+--------------------------------------------------------------------------------
+Metric                                    baseline      chunk_450_ov80                Best
+--------------------------------------------------------------------------------
+precision@1                                 0.7000              0.5000            baseline
+ndcg@3                                      0.6350              0.3862            baseline
+grounding_accuracy                          1.0000              1.0000            baseline
+recall@1                                    0.2060              0.1393            baseline
+precision@5                                 0.5400              0.3600            baseline
+hit_rate@1                                  0.7000              0.5000            baseline
+ndcg@1                                      0.7000              0.4500            baseline
+hit_rate@10                                 1.0000              1.0000            baseline
+precision@3                                 0.6333              0.3667            baseline
+hit_rate@5                                  1.0000              1.0000            baseline
+recall@5                                    0.7321              0.4738            baseline
+retrieval_latency                           0.0060              0.0104      chunk_450_ov80
+mrr                                         0.8250              0.6700            baseline
+recall@3                                    0.5345              0.3012            baseline
+ndcg@5                                      0.7238              0.4713            baseline
+precision@10                                0.4495              0.3480            baseline
+ndcg@10                                     0.7321              0.5250            baseline
+recall@10                                   0.7607              0.5881            baseline
+hit_rate@3                                  0.9000              0.7000            baseline
+citation_accuracy                           0.4495              0.3480            baseline
+average_response_time                       0.0060              0.0104      chunk_450_ov80
+queries_per_second                        167.3251             96.2129            baseline
+
+IMPROVEMENT ANALYSIS (baseline -> chunk_450_ov80):
+----------------------------------------
+precision@1:
+  baseline: 0.7000
+  chunk_450_ov80: 0.5000
+  Improvement: -0.2000 (-28.6%)
+
+ndcg@3:
+  baseline: 0.6350
+  chunk_450_ov80: 0.3862
+  Improvement: -0.2489 (-39.2%)
+
+grounding_accuracy:
+  baseline: 1.0000
+  chunk_450_ov80: 1.0000
+  Improvement: +0.0000 (+0.0%)
+
+recall@1:
+  baseline: 0.2060
+  chunk_450_ov80: 0.1393
+  Improvement: -0.0667 (-32.4%)
+
+precision@5:
+  baseline: 0.5400
+  chunk_450_ov80: 0.3600
+  Improvement: -0.1800 (-33.3%)
+
+hit_rate@1:
+  baseline: 0.7000
+  chunk_450_ov80: 0.5000
+  Improvement: -0.2000 (-28.6%)
+
+ndcg@1:
+  baseline: 0.7000
+  chunk_450_ov80: 0.4500
+  Improvement: -0.2500 (-35.7%)
+
+hit_rate@10:
+  baseline: 1.0000
+  chunk_450_ov80: 1.0000
+  Improvement: +0.0000 (+0.0%)
+
+precision@3:
+  baseline: 0.6333
+  chunk_450_ov80: 0.3667
+  Improvement: -0.2667 (-42.1%)
+
+hit_rate@5:
+  baseline: 1.0000
+  chunk_450_ov80: 1.0000
+  Improvement: +0.0000 (+0.0%)
+
+recall@5:
+  baseline: 0.7321
+  chunk_450_ov80: 0.4738
+  Improvement: -0.2583 (-35.3%)
+
+retrieval_latency:
+  baseline: 0.0060
+  chunk_450_ov80: 0.0104
+  Improvement: +0.0044 (+73.9%)
+
+mrr:
+  baseline: 0.8250
+  chunk_450_ov80: 0.6700
+  Improvement: -0.1550 (-18.8%)
+
+recall@3:
+  baseline: 0.5345
+  chunk_450_ov80: 0.3012
+  Improvement: -0.2333 (-43.7%)
+
+ndcg@5:
+  baseline: 0.7238
+  chunk_450_ov80: 0.4713
+  Improvement: -0.2525 (-34.9%)
+
+precision@10:
+  baseline: 0.4495
+  chunk_450_ov80: 0.3480
+  Improvement: -0.1015 (-22.6%)
+
+ndcg@10:
+  baseline: 0.7321
+  chunk_450_ov80: 0.5250
+  Improvement: -0.2071 (-28.3%)
+
+recall@10:
+  baseline: 0.7607
+  chunk_450_ov80: 0.5881
+  Improvement: -0.1726 (-22.7%)
+
+hit_rate@3:
+  baseline: 0.9000
+  chunk_450_ov80: 0.7000
+  Improvement: -0.2000 (-22.2%)
+
+citation_accuracy:
+  baseline: 0.4495
+  chunk_450_ov80: 0.3480
+  Improvement: -0.1015 (-22.6%)
+
+average_response_time:
+  baseline: 0.0060
+  chunk_450_ov80: 0.0104
+  Improvement: +0.0044 (+73.9%)
+
+queries_per_second:
+  baseline: 167.3251
+  chunk_450_ov80: 96.2129
+  Improvement: -71.1122 (-42.5%)

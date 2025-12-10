@@ -1,0 +1,302 @@
+{
+  "query_1": {
+    "doc_ids": [
+      "arxiv:2307.10169#methods:part-4",
+      "arxiv:2307.10169#methods:part-2",
+      "arxiv:2307.10169#methods:part-3",
+      "arxiv:2303.18223#result:part-9",
+      "arxiv:2303.18223#result:part-8",
+      "arxiv:10000000_662098952474184_2584067087619170692_n#model:part-10",
+      "arxiv:2307.09288#model:part-10",
+      "arxiv:2307.10169#methods:part-36",
+      "arxiv:1901.02860#model:part-3",
+      "arxiv:2309.06180#method:part-4"
+    ],
+    "query_time": 1.21970796585083,
+    "metadata": {
+      "scores": [
+        0.5862372,
+        0.53051156,
+        0.52111334,
+        0.45682412,
+        0.35053363,
+        0.33235395,
+        0.33235395,
+        0.32764354,
+        0.3207584,
+        0.299423
+      ],
+      "num_hits": 10
+    }
+  },
+  "query_2": {
+    "doc_ids": [
+      "arxiv:2306.09782#introduction:part-1",
+      "arxiv:2306.09782#experiment:part-1",
+      "arxiv:2306.09782#method:part-1",
+      "arxiv:2101.03961#introduction",
+      "arxiv:2305.14314#model",
+      "arxiv:2106.09685#introduction:part-8",
+      "arxiv:2308.10792#model:part-8",
+      "arxiv:2210.07558#introduction:part-1",
+      "arxiv:2412.10543#introduction:part-2",
+      "arxiv:2211.09718#experiment:part-2"
+    ],
+    "query_time": 0.7616360187530518,
+    "metadata": {
+      "scores": [
+        0.5357233,
+        0.5235605,
+        0.5170572,
+        0.5167752,
+        0.5092405,
+        0.5084625,
+        0.5074612,
+        0.4988831,
+        0.4903662,
+        0.48695192
+      ],
+      "num_hits": 10
+    }
+  },
+  "query_3": {
+    "doc_ids": [
+      "arxiv:2302.13971#introduction",
+      "arxiv:333078981_693988129081760_4712707815225756708_n#introduction",
+      "arxiv:2307.09288#related-work:part-1",
+      "arxiv:10000000_662098952474184_2584067087619170692_n#related-work:part-1",
+      "arxiv:2302.13971#related-work:part-2",
+      "arxiv:333078981_693988129081760_4712707815225756708_n#related-work:part-2",
+      "arxiv:2001.08361#abstract",
+      "arxiv:2307.10169#conclusion",
+      "arxiv:2204.06745#introduction:part-1",
+      "arxiv:2001.08361#results:part-6"
+    ],
+    "query_time": 0.5603158473968506,
+    "metadata": {
+      "scores": [
+        0.6884725,
+        0.6878826,
+        0.67381096,
+        0.67381096,
+        0.6699351,
+        0.66844225,
+        0.6493593,
+        0.6199197,
+        0.6191927,
+        0.61849916
+      ],
+      "num_hits": 10
+    }
+  },
+  "query_4": {
+    "doc_ids": [
+      "arxiv:2303.18223#result:part-16",
+      "arxiv:2303.18223#result:part-11",
+      "arxiv:2303.18223#result:part-15",
+      "arxiv:2303.18223#result:part-12",
+      "arxiv:2307.10169#methods:part-32",
+      "arxiv:2307.10169#methods:part-12",
+      "arxiv:2305.14314#evaluation:part-1",
+      "arxiv:2303.18223#result:part-10",
+      "arxiv:2412.19437#model",
+      "arxiv:2501.19393#evaluation"
+    ],
+    "query_time": 0.2513871192932129,
+    "metadata": {
+      "scores": [
+        0.68523395,
+        0.60450435,
+        0.5731321,
+        0.5714828,
+        0.57004297,
+        0.5689617,
+        0.55027187,
+        0.5488844,
+        0.5443043,
+        0.5412934
+      ],
+      "num_hits": 10
+    }
+  },
+  "query_5": {
+    "doc_ids": [
+      "arxiv:2307.10169#methods:part-5",
+      "arxiv:2510.13794#background:part-1",
+      "arxiv:10000000_662098952474184_2584067087619170692_n#model:part-3",
+      "arxiv:2307.09288#model:part-3",
+      "arxiv:2203.02155#related-work:part-1",
+      "arxiv:2510.13358#related-work:part-2",
+      "arxiv:2203.02155#model:part-2",
+      "arxiv:2510.13367#abstract",
+      "arxiv:2510.13626#related-work",
+      "arxiv:2510.13704#introduction:part-1"
+    ],
+    "query_time": 0.5155887603759766,
+    "metadata": {
+      "scores": [
+        0.58527017,
+        0.5328868,
+        0.5260566,
+        0.5260566,
+        0.51899755,
+        0.49454212,
+        0.48616326,
+        0.48110765,
+        0.47885683,
+        0.47374225
+      ],
+      "num_hits": 10
+    }
+  },
+  "query_6": {
+    "doc_ids": [
+      "arxiv:2307.10169#conclusion",
+      "arxiv:2207.00112#introduction:part-1",
+      "arxiv:palm2techreport#introduction:part-1",
+      "arxiv:2211.09110#model:part-5",
+      "arxiv:2203.15556#model:part-1",
+      "arxiv:2101.03961#model:part-4",
+      "arxiv:2211.05100#model:part-4",
+      "arxiv:1910.01108#introduction:part-1",
+      "arxiv:2307.10169#methods:part-24",
+      "arxiv:2211.09110#introduction:part-4"
+    ],
+    "query_time": 0.21013617515563965,
+    "metadata": {
+      "scores": [
+        0.7156366,
+        0.5896987,
+        0.58578,
+        0.5831952,
+        0.5775151,
+        0.57346016,
+        0.5733574,
+        0.5503161,
+        0.5469852,
+        0.54334486
+      ],
+      "num_hits": 10
+    }
+  },
+  "query_7": {
+    "doc_ids": [
+      "arxiv:2303.18223#method:part-5",
+      "arxiv:2312.00752#introduction:part-1",
+      "arxiv:2312.00752#introduction:part-9",
+      "arxiv:2307.03172#introduction:part-5",
+      "arxiv:2307.10169#introduction:part-17",
+      "arxiv:1901.02860#related-work",
+      "arxiv:2305.13048#background:part-6",
+      "arxiv:2307.03172#related-work",
+      "arxiv:2307.03172#abstract",
+      "arxiv:2312.00752#conclusion"
+    ],
+    "query_time": 0.33604907989501953,
+    "metadata": {
+      "scores": [
+        0.5892739,
+        0.5598581,
+        0.5418676,
+        0.5102854,
+        0.5070964,
+        0.50076807,
+        0.49633548,
+        0.4961029,
+        0.49580938,
+        0.49276823
+      ],
+      "num_hits": 10
+    }
+  },
+  "query_8": {
+    "doc_ids": [
+      "arxiv:palm2techreport#introduction:part-2",
+      "arxiv:2307.10169#introduction:part-2",
+      "arxiv:2304.01373#abstract:part-11",
+      "arxiv:2310.20707#introduction:part-2",
+      "arxiv:2303.18223#model:part-12",
+      "arxiv:2310.20707#model:part-2",
+      "arxiv:2304.01373#abstract:part-3",
+      "arxiv:palm2techreport#evaluation:part-11",
+      "arxiv:2310.20707#model:part-8",
+      "arxiv:2304.01373#abstract:part-10"
+    ],
+    "query_time": 0.2840311527252197,
+    "metadata": {
+      "scores": [
+        0.5940094,
+        0.58266497,
+        0.5605733,
+        0.5546498,
+        0.5173485,
+        0.51714593,
+        0.51695865,
+        0.5134096,
+        0.50694585,
+        0.50616425
+      ],
+      "num_hits": 10
+    }
+  },
+  "query_9": {
+    "doc_ids": [
+      "arxiv:2307.09288#related-work:part-1",
+      "arxiv:10000000_662098952474184_2584067087619170692_n#related-work:part-1",
+      "arxiv:2211.09110#conclusion:part-2",
+      "arxiv:10000000_662098952474184_2584067087619170692_n#model:part-13",
+      "arxiv:2307.09288#model:part-13",
+      "arxiv:2304.00612#abstract",
+      "arxiv:2510.13704#introduction:part-12",
+      "arxiv:2204.06745#introduction:part-9",
+      "arxiv:2211.09110#introduction:part-7",
+      "arxiv:2211.09110#introduction:part-4"
+    ],
+    "query_time": 0.2534787654876709,
+    "metadata": {
+      "scores": [
+        0.48764014,
+        0.48764014,
+        0.44850552,
+        0.44234186,
+        0.44234186,
+        0.43823314,
+        0.43822193,
+        0.43649977,
+        0.4131726,
+        0.40466923
+      ],
+      "num_hits": 10
+    }
+  },
+  "query_10": {
+    "doc_ids": [
+      "arxiv:2303.18223#model:part-4",
+      "arxiv:2203.02155#model:part-5",
+      "arxiv:2307.10169#methods:part-6",
+      "arxiv:1901.02860#model:part-4",
+      "arxiv:2305.03047#evaluation",
+      "arxiv:2303.18223#result:part-13",
+      "arxiv:2211.09718#experiment:part-3",
+      "arxiv:2310.05492#introduction:part-3",
+      "arxiv:2203.02155#introduction",
+      "arxiv:2211.09718#conclusion"
+    ],
+    "query_time": 0.11872124671936035,
+    "metadata": {
+      "scores": [
+        0.54330134,
+        0.52515197,
+        0.5125788,
+        0.45928228,
+        0.44628567,
+        0.43542975,
+        0.41806847,
+        0.41756362,
+        0.39532125,
+        0.39413857
+      ],
+      "num_hits": 10
+    }
+  }
+}

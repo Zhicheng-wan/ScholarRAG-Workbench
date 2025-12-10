@@ -1,6 +1,6 @@
 #!/usr/bin/env python3
 """
-chunk_clean_v8: Match v1's successful chunk size and granularity
+chunk_clean_v7: Match v1's successful chunk size and granularity
 
 KEY INSIGHT from diagnostic:
 - v1 has 454 token avg chunks → GOOD

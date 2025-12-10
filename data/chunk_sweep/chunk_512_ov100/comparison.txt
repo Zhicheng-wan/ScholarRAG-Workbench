@@ -1,0 +1,142 @@
+================================================================================
+RAG SYSTEM COMPARISON REPORT
+================================================================================
+
+METRIC COMPARISON:
+--------------------------------------------------------------------------------
+Metric                                    baseline     chunk_512_ov100                Best
+--------------------------------------------------------------------------------
+recall@3                                    0.5345              0.3012            baseline
+precision@10                                0.4495              0.3250            baseline
+hit_rate@5                                  1.0000              0.8000            baseline
+ndcg@3                                      0.6350              0.3672            baseline
+hit_rate@1                                  0.7000              0.4000            baseline
+ndcg@10                                     0.7321              0.4896            baseline
+ndcg@1                                      0.7000              0.4000            baseline
+precision@5                                 0.5400              0.3067            baseline
+hit_rate@3                                  0.9000              0.8000            baseline
+mrr                                         0.8250              0.5810            baseline
+recall@5                                    0.7321              0.3929            baseline
+recall@1                                    0.2060              0.1143            baseline
+precision@1                                 0.7000              0.4000            baseline
+citation_accuracy                           0.4495              0.3250            baseline
+ndcg@5                                      0.7238              0.4102            baseline
+grounding_accuracy                          1.0000              1.0000            baseline
+retrieval_latency                           0.0060              0.5213     chunk_512_ov100
+recall@10                                   0.7607              0.5774            baseline
+precision@3                                 0.6333              0.3667            baseline
+hit_rate@10                                 1.0000              0.9000            baseline
+average_response_time                       0.0060              0.5213     chunk_512_ov100
+queries_per_second                        167.3251              1.9183            baseline
+
+IMPROVEMENT ANALYSIS (baseline -> chunk_512_ov100):
+----------------------------------------
+recall@3:
+  baseline: 0.5345
+  chunk_512_ov100: 0.3012
+  Improvement: -0.2333 (-43.7%)
+
+precision@10:
+  baseline: 0.4495
+  chunk_512_ov100: 0.3250
+  Improvement: -0.1245 (-27.7%)
+
+hit_rate@5:
+  baseline: 1.0000
+  chunk_512_ov100: 0.8000
+  Improvement: -0.2000 (-20.0%)
+
+ndcg@3:
+  baseline: 0.6350
+  chunk_512_ov100: 0.3672
+  Improvement: -0.2679 (-42.2%)
+
+hit_rate@1:
+  baseline: 0.7000
+  chunk_512_ov100: 0.4000
+  Improvement: -0.3000 (-42.9%)
+
+ndcg@10:
+  baseline: 0.7321
+  chunk_512_ov100: 0.4896
+  Improvement: -0.2425 (-33.1%)
+
+ndcg@1:
+  baseline: 0.7000
+  chunk_512_ov100: 0.4000
+  Improvement: -0.3000 (-42.9%)
+
+precision@5:
+  baseline: 0.5400
+  chunk_512_ov100: 0.3067
+  Improvement: -0.2333 (-43.2%)
+
+hit_rate@3:
+  baseline: 0.9000
+  chunk_512_ov100: 0.8000
+  Improvement: -0.1000 (-11.1%)
+
+mrr:
+  baseline: 0.8250
+  chunk_512_ov100: 0.5810
+  Improvement: -0.2440 (-29.6%)
+
+recall@5:
+  baseline: 0.7321
+  chunk_512_ov100: 0.3929
+  Improvement: -0.3393 (-46.3%)
+
+recall@1:
+  baseline: 0.2060
+  chunk_512_ov100: 0.1143
+  Improvement: -0.0917 (-44.5%)
+
+precision@1:
+  baseline: 0.7000
+  chunk_512_ov100: 0.4000
+  Improvement: -0.3000 (-42.9%)
+
+citation_accuracy:
+  baseline: 0.4495
+  chunk_512_ov100: 0.3250
+  Improvement: -0.1245 (-27.7%)
+
+ndcg@5:
+  baseline: 0.7238
+  chunk_512_ov100: 0.4102
+  Improvement: -0.3135 (-43.3%)
+
+grounding_accuracy:
+  baseline: 1.0000
+  chunk_512_ov100: 1.0000
+  Improvement: +0.0000 (+0.0%)
+
+retrieval_latency:
+  baseline: 0.0060
+  chunk_512_ov100: 0.5213
+  Improvement: +0.5153 (+8622.5%)
+
+recall@10:
+  baseline: 0.7607
+  chunk_512_ov100: 0.5774
+  Improvement: -0.1833 (-24.1%)
+
+precision@3:
+  baseline: 0.6333
+  chunk_512_ov100: 0.3667
+  Improvement: -0.2667 (-42.1%)
+
+hit_rate@10:
+  baseline: 1.0000
+  chunk_512_ov100: 0.9000
+  Improvement: -0.1000 (-10.0%)
+
+average_response_time:
+  baseline: 0.0060
+  chunk_512_ov100: 0.5213
+  Improvement: +0.5153 (+8622.5%)
+
+queries_per_second:
+  baseline: 167.3251
+  chunk_512_ov100: 1.9183
+  Improvement: -165.4067 (-98.9%)

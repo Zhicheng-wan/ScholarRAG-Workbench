@@ -1,0 +1,142 @@
+{
+  "system_metrics": {
+    "baseline": {
+      "hit_rate@10": 1.0,
+      "grounding_accuracy": 1.0,
+      "ndcg@5": 0.7237737640164681,
+      "ndcg@10": 0.7321099877019595,
+      "precision@1": 0.7,
+      "ndcg@1": 0.7,
+      "recall@10": 0.7607142857142857,
+      "hit_rate@5": 1.0,
+      "recall@5": 0.7321428571428571,
+      "ndcg@3": 0.6350499802054138,
+      "precision@10": 0.44952380952380955,
+      "precision@3": 0.6333333333333333,
+      "precision@5": 0.54,
+      "retrieval_latency": 0.005976390838623047,
+      "recall@3": 0.5345238095238095,
+      "hit_rate@3": 0.9,
+      "hit_rate@1": 0.7,
+      "recall@1": 0.20595238095238094,
+      "citation_accuracy": 0.44952380952380955,
+      "mrr": 0.825,
+      "average_response_time": 0.005976390838623047,
+      "queries_per_second": 167.32506741985415
+    },
+    "chunk_250_ov80": {
+      "hit_rate@10": 1.0,
+      "grounding_accuracy": 1.0,
+      "ndcg@5": 0.42045509024774114,
+      "ndcg@10": 0.4524934836876998,
+      "precision@1": 0.4,
+      "ndcg@1": 0.35,
+      "recall@10": 0.5214285714285715,
+      "hit_rate@5": 1.0,
+      "recall@5": 0.4595238095238095,
+      "ndcg@3": 0.36136972288512326,
+      "precision@10": 0.3894047619047619,
+      "precision@3": 0.4,
+      "precision@5": 0.39166666666666666,
+      "retrieval_latency": 0.014348268508911133,
+      "recall@3": 0.3476190476190476,
+      "hit_rate@3": 0.8,
+      "hit_rate@1": 0.4,
+      "recall@1": 0.125,
+      "citation_accuracy": 0.3894047619047619,
+      "mrr": 0.5900000000000001,
+      "average_response_time": 0.014348268508911133,
+      "queries_per_second": 69.69482062444958
+    }
+  },
+  "best_systems": {
+    "hit_rate@10": {
+      "system": "baseline",
+      "score": 1.0
+    },
+    "grounding_accuracy": {
+      "system": "baseline",
+      "score": 1.0
+    },
+    "ndcg@5": {
+      "system": "baseline",
+      "score": 0.7237737640164681
+    },
+    "ndcg@10": {
+      "system": "baseline",
+      "score": 0.7321099877019595
+    },
+    "precision@1": {
+      "system": "baseline",
+      "score": 0.7
+    },
+    "ndcg@1": {
+      "system": "baseline",
+      "score": 0.7
+    },
+    "recall@10": {
+      "system": "baseline",
+      "score": 0.7607142857142857
+    },
+    "hit_rate@5": {
+      "system": "baseline",
+      "score": 1.0
+    },
+    "recall@5": {
+      "system": "baseline",
+      "score": 0.7321428571428571
+    },
+    "ndcg@3": {
+      "system": "baseline",
+      "score": 0.6350499802054138
+    },
+    "precision@10": {
+      "system": "baseline",
+      "score": 0.44952380952380955
+    },
+    "precision@3": {
+      "system": "baseline",
+      "score": 0.6333333333333333
+    },
+    "precision@5": {
+      "system": "baseline",
+      "score": 0.54
+    },
+    "retrieval_latency": {
+      "system": "chunk_250_ov80",
+      "score": 0.014348268508911133
+    },
+    "recall@3": {
+      "system": "baseline",
+      "score": 0.5345238095238095
+    },
+    "hit_rate@3": {
+      "system": "baseline",
+      "score": 0.9
+    },
+    "hit_rate@1": {
+      "system": "baseline",
+      "score": 0.7
+    },
+    "recall@1": {
+      "system": "baseline",
+      "score": 0.20595238095238094
+    },
+    "citation_accuracy": {
+      "system": "baseline",
+      "score": 0.44952380952380955
+    },
+    "mrr": {
+      "system": "baseline",
+      "score": 0.825
+    },
+    "average_response_time": {
+      "system": "chunk_250_ov80",
+      "score": 0.014348268508911133
+    },
+    "queries_per_second": {
+      "system": "baseline",
+      "score": 167.32506741985415
+    }
+  }
+}

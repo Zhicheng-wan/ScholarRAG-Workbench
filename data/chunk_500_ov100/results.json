@@ -1,0 +1,302 @@
+{
+  "query_1": {
+    "doc_ids": [
+      "arxiv:2307.10169#methods:part-5",
+      "arxiv:2303.18223#result:part-12",
+      "arxiv:2307.10169#methods:part-3",
+      "arxiv:2303.18223#model:part-38",
+      "arxiv:2307.10169#methods:part-42",
+      "arxiv:2303.18223#result:part-4",
+      "arxiv:2307.10169#methods:part-4",
+      "arxiv:2303.18223#model:part-23",
+      "arxiv:2510.13619#introduction:part-6",
+      "arxiv:2307.10169#methods:part-50"
+    ],
+    "query_time": 0.029741764068603516,
+    "metadata": {
+      "scores": [
+        0.5759183,
+        0.50921834,
+        0.43257847,
+        0.38729733,
+        0.3732425,
+        0.36358052,
+        0.34773067,
+        0.32931325,
+        0.32841006,
+        0.32764354
+      ],
+      "num_hits": 10
+    }
+  },
+  "query_2": {
+    "doc_ids": [
+      "arxiv:2106.09685#introduction:part-6",
+      "arxiv:2106.09685#introduction:part-7",
+      "arxiv:2306.09782#introduction:part-1",
+      "arxiv:2307.03172#model:part-6",
+      "arxiv:2306.09782#experiment:part-1",
+      "arxiv:2106.09685#introduction:part-2",
+      "arxiv:20-074#abstract:part-38",
+      "arxiv:2306.09782#method:part-1",
+      "arxiv:2101.03961#introduction:part-1",
+      "arxiv:2301.13688#model:part-5"
+    ],
+    "query_time": 0.007250785827636719,
+    "metadata": {
+      "scores": [
+        0.60586256,
+        0.5537679,
+        0.5357233,
+        0.53405803,
+        0.5235605,
+        0.5178307,
+        0.51780564,
+        0.5170572,
+        0.5167752,
+        0.51057154
+      ],
+      "num_hits": 10
+    }
+  },
+  "query_3": {
+    "doc_ids": [
+      "arxiv:2302.13971#introduction:part-1",
+      "arxiv:333078981_693988129081760_4712707815225756708_n#introduction:part-1",
+      "arxiv:2305.13048#background:part-6",
+      "arxiv:10000000_662098952474184_2584067087619170692_n#related-work:part-1",
+      "arxiv:2307.09288#related-work:part-1",
+      "arxiv:2304.01373#abstract:part-2",
+      "arxiv:2001.08361#abstract",
+      "arxiv:2203.15556#model:part-3",
+      "arxiv:2307.10169#conclusion",
+      "arxiv:2204.06745#introduction:part-1"
+    ],
+    "query_time": 0.00836491584777832,
+    "metadata": {
+      "scores": [
+        0.6884725,
+        0.6878826,
+        0.6772575,
+        0.67381096,
+        0.67381096,
+        0.649871,
+        0.6493593,
+        0.62291807,
+        0.6199197,
+        0.6191927
+      ],
+      "num_hits": 10
+    }
+  },
+  "query_4": {
+    "doc_ids": [
+      "arxiv:2303.18223#result:part-22",
+      "arxiv:2303.18223#result:part-20",
+      "arxiv:2303.18223#result:part-21",
+      "arxiv:2303.18223#result:part-15",
+      "arxiv:2307.10169#methods:part-17",
+      "arxiv:2305.14314#evaluation:part-1",
+      "arxiv:2412.19437#model",
+      "arxiv:2303.18223#result:part-14",
+      "arxiv:2501.19393#evaluation:part-1",
+      "arxiv:2303.18223#model:part-19"
+    ],
+    "query_time": 0.0061550140380859375,
+    "metadata": {
+      "scores": [
+        0.68523395,
+        0.6492865,
+        0.63632727,
+        0.60450435,
+        0.5787048,
+        0.55027187,
+        0.5443043,
+        0.5435612,
+        0.5412934,
+        0.52988
+      ],
+      "num_hits": 10
+    }
+  },
+  "query_5": {
+    "doc_ids": [
+      "arxiv:2305.18290#related-work:part-6",
+      "arxiv:2305.18290#related-work:part-2",
+      "arxiv:2307.10169#methods:part-7",
+      "arxiv:2510.13794#background:part-1",
+      "arxiv:2203.02155#model:part-11",
+      "arxiv:2203.02155#related-work:part-1",
+      "arxiv:2303.18223#approach:part-9",
+      "arxiv:2305.18290#related-work:part-3",
+      "arxiv:2305.03047#introduction:part-5",
+      "arxiv:2510.13367#abstract"
+    ],
+    "query_time": 0.007963895797729492,
+    "metadata": {
+      "scores": [
+        0.6035907,
+        0.5850842,
+        0.57657194,
+        0.5328868,
+        0.528461,
+        0.51899755,
+        0.5078332,
+        0.4937139,
+        0.48284656,
+        0.48110765
+      ],
+      "num_hits": 10
+    }
+  },
+  "query_6": {
+    "doc_ids": [
+      "arxiv:2307.10169#conclusion",
+      "arxiv:palm2techreport#introduction:part-7",
+      "arxiv:2211.05100#abstract:part-2",
+      "arxiv:2207.00112#introduction:part-1",
+      "arxiv:palm2techreport#introduction:part-1",
+      "arxiv:1909.08053#abstract:part-4",
+      "arxiv:2203.15556#model:part-1",
+      "arxiv:2304.01373#abstract:part-2",
+      "arxiv:2304.01373#abstract:part-9",
+      "arxiv:2203.15556#model:part-3"
+    ],
+    "query_time": 0.007275104522705078,
+    "metadata": {
+      "scores": [
+        0.7156366,
+        0.64688766,
+        0.6173171,
+        0.5896987,
+        0.58578,
+        0.5783089,
+        0.5775151,
+        0.57674277,
+        0.5670552,
+        0.5665738
+      ],
+      "num_hits": 10
+    }
+  },
+  "query_7": {
+    "doc_ids": [
+      "arxiv:2312.00752#introduction:part-1",
+      "arxiv:2303.18223#method:part-7",
+      "arxiv:2303.18223#method:part-6",
+      "arxiv:1901.02860#model:part-2",
+      "arxiv:1901.02860#related-work",
+      "arxiv:2305.13048#background:part-8",
+      "arxiv:2307.03172#related-work",
+      "arxiv:2307.03172#abstract",
+      "arxiv:2312.00752#conclusion",
+      "arxiv:2412.19437#method:part-14"
+    ],
+    "query_time": 0.0069119930267333984,
+    "metadata": {
+      "scores": [
+        0.5598581,
+        0.54942214,
+        0.54798937,
+        0.51804054,
+        0.50076807,
+        0.49633548,
+        0.4961029,
+        0.49580938,
+        0.49276823,
+        0.48927626
+      ],
+      "num_hits": 10
+    }
+  },
+  "query_8": {
+    "doc_ids": [
+      "arxiv:2303.18223#model:part-20",
+      "arxiv:2310.20707#model:part-13",
+      "arxiv:333078981_693988129081760_4712707815225756708_n#approach:part-2",
+      "arxiv:2302.13971#approach:part-2",
+      "arxiv:2304.01373#abstract:part-15",
+      "arxiv:2303.18223#model:part-16",
+      "arxiv:2303.18223#model:part-12",
+      "arxiv:2211.09110#model:part-40",
+      "arxiv:palm2techreport#evaluation:part-17",
+      "arxiv:palm2techreport#evaluation:part-15"
+    ],
+    "query_time": 0.006028175354003906,
+    "metadata": {
+      "scores": [
+        0.60613,
+        0.59969825,
+        0.56853116,
+        0.5664444,
+        0.5605733,
+        0.5524434,
+        0.52744615,
+        0.5188782,
+        0.51584285,
+        0.5134096
+      ],
+      "num_hits": 10
+    }
+  },
+  "query_9": {
+    "doc_ids": [
+      "arxiv:2203.02155#model:part-13",
+      "arxiv:10000000_662098952474184_2584067087619170692_n#related-work:part-1",
+      "arxiv:2307.09288#related-work:part-1",
+      "arxiv:2211.05100#model:part-2",
+      "arxiv:2304.00612#abstract",
+      "arxiv:10000000_662098952474184_2584067087619170692_n#model:part-18",
+      "arxiv:2307.09288#model:part-18",
+      "arxiv:2211.05100#evaluation:part-1",
+      "arxiv:2307.10169#methods:part-11",
+      "arxiv:2310.20707#introduction:part-3"
+    ],
+    "query_time": 0.005476951599121094,
+    "metadata": {
+      "scores": [
+        0.5033438,
+        0.48764014,
+        0.48764014,
+        0.44331813,
+        0.43823314,
+        0.414334,
+        0.414334,
+        0.39175117,
+        0.38042605,
+        0.37614498
+      ],
+      "num_hits": 10
+    }
+  },
+  "query_10": {
+    "doc_ids": [
+      "arxiv:2203.02155#model:part-7",
+      "arxiv:2307.10169#methods:part-8",
+      "arxiv:10000000_662098952474184_2584067087619170692_n#model:part-2",
+      "arxiv:2307.09288#model:part-2",
+      "arxiv:1901.02860#model:part-5",
+      "arxiv:2303.18223#model:part-5",
+      "arxiv:2305.03047#evaluation",
+      "arxiv:2203.02155#model:part-11",
+      "arxiv:2303.18223#result:part-20",
+      "arxiv:2203.02155#model:part-6"
+    ],
+    "query_time": 0.004251003265380859,
+    "metadata": {
+      "scores": [
+        0.52454174,
+        0.5125788,
+        0.5075817,
+        0.5075817,
+        0.4744758,
+        0.44810504,
+        0.44628567,
+        0.4155748,
+        0.4114169,
+        0.4081009
+      ],
+      "num_hits": 10
+    }
+  }
+}
