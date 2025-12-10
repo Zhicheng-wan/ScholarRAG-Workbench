@@ -1,0 +1,142 @@
+================================================================================
+RAG SYSTEM COMPARISON REPORT
+================================================================================
+
+METRIC COMPARISON:
+--------------------------------------------------------------------------------
+Metric                                    baseline           bm25_only                Best
+--------------------------------------------------------------------------------
+ndcg@5                                      0.7238              0.3548            baseline
+citation_accuracy                           0.4495              0.4333            baseline
+precision@3                                 0.6333              0.4333            baseline
+recall@5                                    0.7321              0.3226            baseline
+recall@10                                   0.7607              0.3226            baseline
+grounding_accuracy                          1.0000              1.0000            baseline
+hit_rate@3                                  0.9000              0.8000            baseline
+ndcg@1                                      0.7000              0.3500            baseline
+recall@1                                    0.2060              0.1143            baseline
+retrieval_latency                           0.0060              2.0594           bm25_only
+precision@10                                0.4495              0.4333            baseline
+ndcg@3                                      0.6350              0.3613            baseline
+recall@3                                    0.5345              0.3226            baseline
+precision@5                                 0.5400              0.4333            baseline
+hit_rate@1                                  0.7000              0.4000            baseline
+mrr                                         0.8250              0.5833            baseline
+hit_rate@5                                  1.0000              0.8000            baseline
+hit_rate@10                                 1.0000              0.8000            baseline
+ndcg@10                                     0.7321              0.3525            baseline
+precision@1                                 0.7000              0.4000            baseline
+average_response_time                       0.0060              2.0594           bm25_only
+queries_per_second                        167.3251              0.4856            baseline
+
+IMPROVEMENT ANALYSIS (baseline -> bm25_only):
+----------------------------------------
+ndcg@5:
+  baseline: 0.7238
+  bm25_only: 0.3548
+  Improvement: -0.3689 (-51.0%)
+
+citation_accuracy:
+  baseline: 0.4495
+  bm25_only: 0.4333
+  Improvement: -0.0162 (-3.6%)
+
+precision@3:
+  baseline: 0.6333
+  bm25_only: 0.4333
+  Improvement: -0.2000 (-31.6%)
+
+recall@5:
+  baseline: 0.7321
+  bm25_only: 0.3226
+  Improvement: -0.4095 (-55.9%)
+
+recall@10:
+  baseline: 0.7607
+  bm25_only: 0.3226
+  Improvement: -0.4381 (-57.6%)
+
+grounding_accuracy:
+  baseline: 1.0000
+  bm25_only: 1.0000
+  Improvement: +0.0000 (+0.0%)
+
+hit_rate@3:
+  baseline: 0.9000
+  bm25_only: 0.8000
+  Improvement: -0.1000 (-11.1%)
+
+ndcg@1:
+  baseline: 0.7000
+  bm25_only: 0.3500
+  Improvement: -0.3500 (-50.0%)
+
+recall@1:
+  baseline: 0.2060
+  bm25_only: 0.1143
+  Improvement: -0.0917 (-44.5%)
+
+retrieval_latency:
+  baseline: 0.0060
+  bm25_only: 2.0594
+  Improvement: +2.0534 (+34358.4%)
+
+precision@10:
+  baseline: 0.4495
+  bm25_only: 0.4333
+  Improvement: -0.0162 (-3.6%)
+
+ndcg@3:
+  baseline: 0.6350
+  bm25_only: 0.3613
+  Improvement: -0.2737 (-43.1%)
+
+recall@3:
+  baseline: 0.5345
+  bm25_only: 0.3226
+  Improvement: -0.2119 (-39.6%)
+
+precision@5:
+  baseline: 0.5400
+  bm25_only: 0.4333
+  Improvement: -0.1067 (-19.8%)
+
+hit_rate@1:
+  baseline: 0.7000
+  bm25_only: 0.4000
+  Improvement: -0.3000 (-42.9%)
+
+mrr:
+  baseline: 0.8250
+  bm25_only: 0.5833
+  Improvement: -0.2417 (-29.3%)
+
+hit_rate@5:
+  baseline: 1.0000
+  bm25_only: 0.8000
+  Improvement: -0.2000 (-20.0%)
+
+hit_rate@10:
+  baseline: 1.0000
+  bm25_only: 0.8000
+  Improvement: -0.2000 (-20.0%)
+
+ndcg@10:
+  baseline: 0.7321
+  bm25_only: 0.3525
+  Improvement: -0.3796 (-51.9%)
+
+precision@1:
+  baseline: 0.7000
+  bm25_only: 0.4000
+  Improvement: -0.3000 (-42.9%)
+
+average_response_time:
+  baseline: 0.0060
+  bm25_only: 2.0594
+  Improvement: +2.0534 (+34358.4%)
+
+queries_per_second:
+  baseline: 167.3251
+  bm25_only: 0.4856
+  Improvement: -166.8395 (-99.7%)
