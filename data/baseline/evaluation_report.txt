@@ -1,5 +1,5 @@
 ================================================================================
-RAG RETRIEVAL EVALUATION REPORT: baseline
+RAG RETRIEVAL EVALUATION REPORT: baseline_cached
 ================================================================================
 
 Total Queries Evaluated: 30
@@ -11,7 +11,7 @@ mrr                           : 0.5611
 grounding_accuracy            : 0.8135
 precision@5                   : 0.3283
 ndcg@1                        : 0.4667
-retrieval_latency             : 0.0064
+retrieval_latency             : 0.0059
 hit_rate@5                    : 0.6667
 hit_rate@10                   : 0.6667
 hit_rate@3                    : 0.6000
@@ -26,8 +26,8 @@ precision@3                   : 0.3889
 recall@1                      : 0.1514
 ndcg@10                       : 0.4561
 ndcg@3                        : 0.3986
-average_response_time         : 0.0064
-queries_per_second            : 155.4824
+average_response_time         : 0.0059
+queries_per_second            : 170.0017
 
 SUMMARY STATISTICS:
 ----------------------------------------
@@ -57,10 +57,10 @@ ndcg@1:
   Min:  0.0000
   Max:  1.0000
 retrieval_latency:
-  Mean: 0.0064
-  Std:  0.0027
-  Min:  0.0038
-  Max:  0.0194
+  Mean: 0.0059
+  Std:  0.0019
+  Min:  0.0036
+  Max:  0.0121
 hit_rate@5:
   Mean: 0.6667
   Std:  0.4714
@@ -152,7 +152,7 @@ Query query_1:
   ndcg@10: 0.8403
   hit_rate@10: 1.0000
   mrr: 1.0000
-  retrieval_latency: 0.0194
+  retrieval_latency: 0.0115
   grounding_accuracy: 1.0000
   citation_accuracy: 1.0000
 
@@ -174,7 +174,7 @@ Query query_2:
   ndcg@10: 0.9652
   hit_rate@10: 1.0000
   mrr: 1.0000
-  retrieval_latency: 0.0075
+  retrieval_latency: 0.0064
   grounding_accuracy: 1.0000
   citation_accuracy: 0.4286
 
@@ -196,7 +196,7 @@ Query query_3:
   ndcg@10: 0.8693
   hit_rate@10: 1.0000
   mrr: 1.0000
-  retrieval_latency: 0.0088
+  retrieval_latency: 0.0069
   grounding_accuracy: 1.0000
   citation_accuracy: 0.7500
 
@@ -218,7 +218,7 @@ Query query_4:
   ndcg@10: 0.7975
   hit_rate@10: 1.0000
   mrr: 1.0000
-  retrieval_latency: 0.0078
+  retrieval_latency: 0.0059
   grounding_accuracy: 1.0000
   citation_accuracy: 0.4000
 
@@ -262,7 +262,7 @@ Query query_6:
   ndcg@10: 0.5627
   hit_rate@10: 1.0000
   mrr: 0.5000
-  retrieval_latency: 0.0064
+  retrieval_latency: 0.0056
   grounding_accuracy: 1.0000
   citation_accuracy: 0.2500
 
@@ -284,7 +284,7 @@ Query query_7:
   ndcg@10: 0.2641
   hit_rate@10: 1.0000
   mrr: 0.2500
-  retrieval_latency: 0.0065
+  retrieval_latency: 0.0059
   grounding_accuracy: 1.0000
   citation_accuracy: 0.1667
 
@@ -306,7 +306,7 @@ Query query_8:
   ndcg@10: 0.9082
   hit_rate@10: 1.0000
   mrr: 1.0000
-  retrieval_latency: 0.0038
+  retrieval_latency: 0.0058
   grounding_accuracy: 1.0000
   citation_accuracy: 0.5000
 
@@ -328,7 +328,7 @@ Query query_9:
   ndcg@10: 0.8635
   hit_rate@10: 1.0000
   mrr: 1.0000
-  retrieval_latency: 0.0066
+  retrieval_latency: 0.0068
   grounding_accuracy: 1.0000
   citation_accuracy: 0.5000
 
@@ -350,7 +350,7 @@ Query query_10:
   ndcg@10: 0.3869
   hit_rate@10: 1.0000
   mrr: 0.5000
-  retrieval_latency: 0.0064
+  retrieval_latency: 0.0058
   grounding_accuracy: 1.0000
   citation_accuracy: 0.1250
 
@@ -372,7 +372,7 @@ Query query_11:
   ndcg@10: 0.0000
   hit_rate@10: 0.0000
   mrr: 0.0000
-  retrieval_latency: 0.0043
+  retrieval_latency: 0.0064
   grounding_accuracy: 0.5000
   citation_accuracy: 0.0000
 
@@ -394,7 +394,7 @@ Query query_12:
   ndcg@10: 0.0000
   hit_rate@10: 0.0000
   mrr: 0.0000
-  retrieval_latency: 0.0052
+  retrieval_latency: 0.0076
   grounding_accuracy: 0.7778
   citation_accuracy: 0.0000
 
@@ -416,7 +416,7 @@ Query query_13:
   ndcg@10: 0.0000
   hit_rate@10: 0.0000
   mrr: 0.0000
-  retrieval_latency: 0.0058
+  retrieval_latency: 0.0059
   grounding_accuracy: 0.5714
   citation_accuracy: 0.0000
 
@@ -438,7 +438,7 @@ Query query_14:
   ndcg@10: 0.0000
   hit_rate@10: 0.0000
   mrr: 0.0000
-  retrieval_latency: 0.0056
+  retrieval_latency: 0.0044
   grounding_accuracy: 0.8571
   citation_accuracy: 0.0000
 
@@ -460,7 +460,7 @@ Query query_15:
   ndcg@10: 0.0000
   hit_rate@10: 0.0000
   mrr: 0.0000
-  retrieval_latency: 0.0053
+  retrieval_latency: 0.0045
   grounding_accuracy: 0.2000
   citation_accuracy: 0.0000
 
@@ -482,7 +482,7 @@ Query query_16:
   ndcg@10: 0.0000
   hit_rate@10: 0.0000
   mrr: 0.0000
-  retrieval_latency: 0.0059
+  retrieval_latency: 0.0063
   grounding_accuracy: 0.0000
   citation_accuracy: 0.0000
 
@@ -504,7 +504,7 @@ Query query_17:
   ndcg@10: 0.0000
   hit_rate@10: 0.0000
   mrr: 0.0000
-  retrieval_latency: 0.0052
+  retrieval_latency: 0.0047
   grounding_accuracy: 1.0000
   citation_accuracy: 0.0000
 
@@ -526,7 +526,7 @@ Query query_18:
   ndcg@10: 0.0000
   hit_rate@10: 0.0000
   mrr: 0.0000
-  retrieval_latency: 0.0059
+  retrieval_latency: 0.0047
   grounding_accuracy: 0.0000
   citation_accuracy: 0.0000
 
@@ -548,7 +548,7 @@ Query query_19:
   ndcg@10: 0.0000
   hit_rate@10: 0.0000
   mrr: 0.0000
-  retrieval_latency: 0.0048
+  retrieval_latency: 0.0046
   grounding_accuracy: 0.3750
   citation_accuracy: 0.0000
 
@@ -570,7 +570,7 @@ Query query_20:
   ndcg@10: 0.0000
   hit_rate@10: 0.0000
   mrr: 0.0000
-  retrieval_latency: 0.0063
+  retrieval_latency: 0.0121
   grounding_accuracy: 0.2500
   citation_accuracy: 0.0000
 
@@ -592,7 +592,7 @@ Query query_21:
   ndcg@10: 0.4257
   hit_rate@10: 1.0000
   mrr: 1.0000
-  retrieval_latency: 0.0058
+  retrieval_latency: 0.0039
   grounding_accuracy: 1.0000
   citation_accuracy: 0.3000
 
@@ -614,7 +614,7 @@ Query query_22:
   ndcg@10: 1.0000
   hit_rate@10: 1.0000
   mrr: 1.0000
-  retrieval_latency: 0.0050
+  retrieval_latency: 0.0042
   grounding_accuracy: 1.0000
   citation_accuracy: 1.0000
 
@@ -636,7 +636,7 @@ Query query_23:
   ndcg@10: 1.0000
   hit_rate@10: 1.0000
   mrr: 1.0000
-  retrieval_latency: 0.0055
+  retrieval_latency: 0.0038
   grounding_accuracy: 1.0000
   citation_accuracy: 0.5000
 
@@ -658,7 +658,7 @@ Query query_24:
   ndcg@10: 0.8772
   hit_rate@10: 1.0000
   mrr: 1.0000
-  retrieval_latency: 0.0049
+  retrieval_latency: 0.0039
   grounding_accuracy: 1.0000
   citation_accuracy: 0.2500
 
@@ -680,7 +680,7 @@ Query query_25:
   ndcg@10: 0.7429
   hit_rate@10: 1.0000
   mrr: 1.0000
-  retrieval_latency: 0.0054
+  retrieval_latency: 0.0036
   grounding_accuracy: 0.8750
   citation_accuracy: 0.3750
 
@@ -702,7 +702,7 @@ Query query_26:
   ndcg@10: 0.2054
   hit_rate@10: 1.0000
   mrr: 0.2500
-  retrieval_latency: 0.0071
+  retrieval_latency: 0.0045
   grounding_accuracy: 1.0000
   citation_accuracy: 0.1111
 
@@ -724,7 +724,7 @@ Query query_27:
   ndcg@10: 0.8287
   hit_rate@10: 1.0000
   mrr: 1.0000
-  retrieval_latency: 0.0059
+  retrieval_latency: 0.0070
   grounding_accuracy: 1.0000
   citation_accuracy: 0.5714
 
@@ -746,7 +746,7 @@ Query query_28:
   ndcg@10: 0.4693
   hit_rate@10: 1.0000
   mrr: 1.0000
-  retrieval_latency: 0.0084
+  retrieval_latency: 0.0064
   grounding_accuracy: 1.0000
   citation_accuracy: 0.2500
 
@@ -790,6 +790,6 @@ Query query_30:
   ndcg@10: 0.5317
   hit_rate@10: 1.0000
   mrr: 1.0000
-  retrieval_latency: 0.0055
+  retrieval_latency: 0.0051
   grounding_accuracy: 1.0000
   citation_accuracy: 0.1429

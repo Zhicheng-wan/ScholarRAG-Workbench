@@ -1,6 +1,6 @@
 #!/usr/bin/env python3
-# src/baseline/index.py
-"""Index the baseline system's processed corpus into Qdrant."""
+# src/baseline_cached/index.py
+"""Index the cached baseline system's processed corpus into Qdrant."""
 
 from __future__ import annotations
 
@@ -60,3 +60,4 @@ def main():
 
 if __name__ == "__main__":
     main()
+
