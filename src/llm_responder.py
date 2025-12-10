@@ -20,44 +20,18 @@ from typing import Dict, Iterable, List, Tuple
 import requests
 
 
-REPO_ROOT = Path(__file__).resolve().parent.parent
-DEFAULT_DATA_DIR = REPO_ROOT / "data"
+DEFAULT_DATA_DIR = Path("data")
 DEFAULT_REQUESTS = DEFAULT_DATA_DIR / "evaluation" / "requests.json"
 
 
-def resolve_system_dir(system: str) -> Path:
-    """
-    Resolve a system directory. Accepts:
-    - bare name like "scholarrag"
-    - relative path like "data/scholarrag"
-    - absolute path to the system data directory
-    """
-    raw = Path(system)
-    candidates = []
-    if raw.is_absolute():
-        candidates.append(raw)
-    else:
-        candidates.append(DEFAULT_DATA_DIR / raw)
-        candidates.append(REPO_ROOT / raw)
-
-    for candidate in candidates:
-        if candidate.exists():
-            return candidate.resolve()
-
-    raise FileNotFoundError(
-        f"Could not find system directory for '{system}'. Tried: "
-        f"{', '.join(str(c) for c in candidates)}"
-    )
-
-
 def resolve_paths(system: str, results_path: Path | None, corpus_path: Path | None) -> Tuple[Path, Path]:
-    system_dir = resolve_system_dir(system)
-    results = (results_path or (system_dir / "results.json")).resolve()
+    system_dir = DEFAULT_DATA_DIR / system
+    results = results_path or (system_dir / "results.json")
     if not results.exists():
         raise FileNotFoundError(f"results.json not found at {results}")
 
     if corpus_path:
-        corpus = corpus_path.resolve()
+        corpus = corpus_path
     else:
         # Prefer corpus.json (dict) when available, else fall back to corpus.jsonl
         json_corpus = system_dir / "corpus.json"
@@ -212,19 +186,10 @@ def run_demo(args: argparse.Namespace) -> None:
 
 def parse_args() -> argparse.Namespace:
     parser = argparse.ArgumentParser(description="LLM responder over cached retrieval results.")
-    parser.add_argument(
-        "--system",
-        default="scholarrag",
-        help="System data folder (e.g., 'scholarrag' or 'data/scholarrag').",
-    )
+    parser.add_argument("--system", default="hybrid_optimized_v19_cached_batched", help="System folder under data/")
     parser.add_argument("--results", type=Path, help="Optional explicit path to results.json")
     parser.add_argument("--corpus", type=Path, help="Optional explicit path to corpus.json or corpus.jsonl")
-    parser.add_argument(
-        "--requests",
-        type=Path,
-        default=DEFAULT_REQUESTS,
-        help="Path to requests.json (defaults to repo data/evaluation/requests.json)",
-    )
+    parser.add_argument("--requests", type=Path, default=DEFAULT_REQUESTS, help="Path to requests.json")
     parser.add_argument("--query-id", default="query_1", help="Query id key (e.g., query_1)")
     parser.add_argument("--top-k", type=int, default=5, help="How many retrieved docs to pass to the LLM")
     parser.add_argument("--model", default="gpt-4o-mini", help="Model name for the chat completion API")
@@ -240,12 +205,31 @@ if __name__ == "__main__":
     run_demo(parse_args())
     
     
-""" Example
+""" an example
 ----------------------------------------
 python src/llm_responder.py \
-  --system scholarrag \
+  --system hybrid_optimized_v19_cached_batched \
   --query-id query_3 \
   --top-k 5 \
   --model gpt-4o-mini \
   --api-key [your api key here]
+
+=== Question ===
+Which papers discuss scaling laws or compute-efficiency trade-offs for large language models?
+
+=== Top docs ===
+arxiv:2303.18223#introduction:part-7: with a model size larger than 10B. compute (orders of magnification). Extensive research has shown that scaling can largely improve the model capacity of LLMs [26, 55, 56]. Thus, it is useful to ...
+arxiv:2302.13971#introduction:part-1: Large Languages Models (LLMs) trained on mas- sive corpora of texts have shown their ability to per- form new tasks from textual instructions or from a few examples (Brown et al., 2020). These ...
+arxiv:2001.08361#abstract: We study empirical scaling laws for language model performance on the cross-entropy loss. The loss scales as a power-law with model size, dataset size, and the amount of compute used for training, ...
+arxiv:333078981_693988129081760_4712707815225756708_n#introduction:part-1: Large Languages Models (LLMs) trained on mas- sive corpora of texts have shown their ability to per- form new tasks from textual instructions or from a few examples (Brown et al., 2020). These ...
+arxiv:2307.09288#related-work:part-1: Large Language Models. The recent years have witnessed a substantial evolution in the field of LLMs. Following the scaling laws of Kaplan et al. (2020), several Large Language Models with more ...
+
+=== LLM answer ===
+The papers that discuss scaling laws or compute-efficiency trade-offs for large language models include:
+
+1. **Kaplan et al. (2020)**, which introduced scaling laws that model the power-law relationship of model performance with respect to model size, dataset size, and training compute [arxiv:2303.18223].
+2. **Hoffmann et al. (2022)**, which argues that for a given compute budget, the best performances are not achieved by the largest models but by smaller models trained on more data, focusing on optimizing performance based on scaling laws [arxiv:2302.13971].
+3. **Another study** that examines empirical scaling laws for language model performance, noting that larger models are significantly more sample-efficient and discussing optimal allocation of a fixed compute budget [arxiv:2001.08361]. 
+
+These papers collectively address the scaling laws and trade-offs in compute efficiency for large language models.
 """
