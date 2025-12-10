@@ -75,7 +75,8 @@ ScholarRAG-Workbench/
 │   │   ├── query.py                           # Query implementation
 │   │   ├── index.py                           # Indexing script
 │   │   └── README.md                          # System documentation
-│   └── evaluation/                            # Evaluation framework
+│   ├── evaluation/                            # Evaluation framework
+│   └── utils/                                 # Shared utilities (preprocessing, indexing)
 │
 ├── data/
 │   ├── baseline/                              # Baseline system data
