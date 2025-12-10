@@ -1,0 +1,138 @@
+{
+  "query_1": {
+    "relevant_docs": [
+      "arxiv:2307.10169",
+      "arxiv:2303.18223",
+      "arxiv:2412.10543"
+    ],
+    "relevance_scores": {
+      "arxiv:2307.10169": 1.0,
+      "arxiv:2303.18223": 0.5,
+      "arxiv:2412.10543": 0.5
+    },
+    "notes": "Several papers focus on reducing hallucinations in retrieval-augmented generation (RAG) systems. One of the main studies (2307.10169) shows that grounding model inputs on external knowledge can reduce hallucinations by up to 85%. The same work also introduces decoding-level techniques like diverse beam search and Confident Decoding, both targeting hallucination reduction during generation. Another paper discusses REALM, which integrates retrieved documents during pretraining to provide factual grounding. While these methods show strong improvements, other papers note that retrieval alone isn’t enough to fully eliminate hallucinations. Overall, the highest-scoring sources (1.0) directly propose concrete techniques, while the partially relevant ones (0.5) only discuss the issue or provide broader context."
+  },
+  "query_2": {
+    "relevant_docs": [
+      "arxiv:2306.09782",
+      "arxiv:2304.01933",
+      "arxiv:2106.09685"
+    ],
+    "relevance_scores": {
+      "arxiv:2306.09782": 0.5,
+      "arxiv:2304.01933": 1.0,
+      "arxiv:2106.09685": 1.0
+    },
+    "notes": "These papers explore parameter-efficient fine-tuning methods such as LoRA and Prefix-Tuning. The introduction in 2306.09782 mentions both as practical options for resource-limited settings, though they sometimes trail full fine-tuning slightly. Other studies (2304.01933, 2106.09685) provide head-to-head comparisons and show that LoRA, when configured correctly, can match or even outperform full fine-tuning on benchmarks like WikiSQL and MultiNLI. The highly relevant papers (score 1.0) contain direct empirical evaluations, while the moderately relevant one (0.5) provides background context."
+  },
+  "query_3": {
+    "relevant_docs": [
+      "arxiv:2001.08361",
+      "arxiv:333078981_693988129081760_4712707815225756708_n",
+      "arxiv:2303.18223",
+      "arxiv:2302.13971",
+      "arxiv:2203.15556",
+      "arxiv:2307.09288",
+      "arxiv:2204.02311"
+    ],
+    "relevance_scores": {
+      "arxiv:2001.08361": 1.0,
+      "arxiv:333078981_693988129081760_4712707815225756708_n": 1.0,
+      "arxiv:2303.18223": 0.5,
+      "arxiv:2302.13971": 0.5,
+      "arxiv:2203.15556": 1.0,
+      "arxiv:2307.09288": 0.5,
+      "arxiv:2204.02311": 0.5
+    },
+    "notes": "These works examine scaling laws and compute-efficiency trade-offs for large language models. The classic Kaplan et al. (2020) paper defined the original scaling laws, showing predictable performance gains with model and data size. The Chinchilla analysis (Hoffmann et al. 2022) refined that insight, showing that smaller models trained on more data can be compute-optimal. The LLaMA report (2302.13971) reinforces this, suggesting that smaller, well-trained models can outperform massive ones at equal inference cost. Supporting papers discuss related topics like multilingual scaling and retrieval-based efficiency. Overall, the top-ranked papers (1.0) form the foundation for modern scaling discussions, while 0.5 papers provide helpful but secondary context."
+  },
+  "query_4": {
+    "relevant_docs": [
+      "arxiv:2303.18223",
+      "arxiv:2305.14314",
+      "arxiv:palm2techreport"
+    ],
+    "relevance_scores": {
+      "arxiv:2303.18223": 1.0,
+      "arxiv:2305.14314": 1.0,
+      "arxiv:palm2techreport": 0.5
+    },
+    "notes": "The top sources clearly identify reasoning and math benchmarks. Standard datasets include GSM8K, SVAMP, and MATH for mathematical reasoning, and MMLU for general knowledge reasoning. PaLM 2 is also evaluated on GSM8K, MATH, and MGSM, confirming these as common benchmarks. The 1.0 papers directly enumerate these datasets, while the 0.5 reference mentions them in context. Together, they outline the core evaluation suite for reasoning and math ability."
+  },
+  "query_5": {
+    "relevant_docs": [
+      "arxiv:2305.18290",
+      "arxiv:2303.18223",
+      "arxiv:2203.02155"
+    ],
+    "relevance_scores": {
+      "arxiv:2305.18290": 1.0,
+      "arxiv:2303.18223": 0.5,
+      "arxiv:2203.02155": 1.0
+    },
+    "notes": "These papers compare how RLHF is used across models like InstructGPT, Sparrow, and Claude. InstructGPT follows the classic 3-step RLHF process: supervised fine-tuning, reward model training, and PPO optimization. Sparrow modifies this with human rule-based safety constraints, while Anthropic’s Claude introduces Constitutional AI, replacing some human feedback with AI-guided principles. The 1.0 sources provide detailed contrasts, while the 0.5 source mentions the topic only briefly."
+  },
+  "query_6": {
+    "relevant_docs": [
+      "arxiv:2211.05100",
+      "arxiv:2307.03172",
+      "arxiv:2211.09110"
+    ],
+    "relevance_scores": {
+      "arxiv:2211.05100": 1.0,
+      "arxiv:2307.03172": 0.5,
+      "arxiv:2211.09110": 0.5
+    },
+    "notes": "These works cover multilingual large language models. BLOOM, a 176B model trained on 46 natural and 13 programming languages, is the flagship example. It emphasizes evaluation in the source language instead of translation. Similarly, mGPT trains on data from about 60 languages, proving that multilingualism is achievable even at moderate scales. Other works, like PaLM, started English-dominant but improved cross-lingual capabilities with additional data. In summary, BLOOM and mGPT represent massive multilingual pretraining, while models like PaLM 2 use targeted fine-tuning to enhance multilingual performance."
+  },
+  "query_7": {
+    "relevant_docs": [
+      "arxiv:2307.03172",
+      "arxiv:2412.10543"
+    ],
+    "relevance_scores": {
+      "arxiv:2307.03172": 0.5,
+      "arxiv:2412.10543": 0.5
+    },
+    "notes": "Few papers propose new methods for extending long-context capabilities, but some provide insightful analysis. One study (2307.03172) shows that standard transformers often fail to use information from the middle of long inputs, producing a U-shaped performance curve. While it doesn’t offer a fix, it highlights the need for more robust long-context handling. Another paper suggests retrieval-augmentation as an alternative, fetching relevant chunks on demand instead of feeding the entire long sequence. Overall, these papers emphasize the challenge of maintaining context awareness across long inputs and the growing interest in hybrid retrieval approaches."
+  },
+  "query_8": {
+    "relevant_docs": [
+      "arxiv:2310.20707",
+      "arxiv:2303.18223",
+      "arxiv:20-074",
+      "arxiv:2005.14165"
+    ],
+    "relevance_scores": {
+      "arxiv:2310.20707": 1.0,
+      "arxiv:2303.18223": 1.0,
+      "arxiv:20-074": 0.5,
+      "arxiv:2005.14165": 1.0
+    },
+    "notes": "These papers focus on data contamination and memorization issues in LLM training. The comprehensive 2310.20707 study discusses duplication, overlap, and documentation practices for improving data quality. Another paper outlines preprocessing steps like filtering and deduplication at multiple levels. The GPT-3 paper (2005.14165) also stresses test data decontamination to prevent inflated results. Collectively, these high-relevance works propose concrete solutions for reducing memorization, while the older or tangential ones provide supporting context."
+  },
+  "query_9": {
+    "relevant_docs": [
+      "arxiv:2203.02155",
+      "arxiv:2304.01373",
+      "arxiv:2211.05100"
+    ],
+    "relevance_scores": {
+      "arxiv:2203.02155": 1.0,
+      "arxiv:2304.01373": 1.0,
+      "arxiv:2211.05100": 0.5
+    },
+    "notes": "These studies highlight the importance of open-source LLMs for transparency and reproducibility. One argues that depending solely on closed APIs centralizes control and limits verification, while open releases like LLaMA and Falcon enable independent analysis. The Pythia suite (2304.01373) extends this by releasing full training data and checkpoints to allow scaling experiments. BLOOM also showcases the impact of community-driven collaboration. The strongest papers (score 1.0) directly address openness and reproducibility, while the 0.5 paper highlights related community engagement."
+  },
+  "query_10": {
+    "relevant_docs": [
+      "arxiv:2307.10169",
+      "arxiv:2305.18290"
+    ],
+    "relevance_scores": {
+      "arxiv:2307.10169": 1.0,
+      "arxiv:2305.18290": 1.0
+    },
+    "notes": "The selected papers introduce new alignment methods that go beyond standard RLHF. A recent survey (2307.10169) discusses whether the reinforcement learning step is even necessary, introducing Direct Preference Optimization (DPO) as a simpler supervised alternative. DPO replaces the reward model and PPO loop with direct optimization over human preference data. The original DPO paper (2305.18290) confirms that it matches or outperforms RLHF on tasks like summarization and sentiment control, with greater stability. These works also mention related trends, such as purely supervised alignment and Constitutional AI, showing that much of alignment may be achieved without complex RL steps."
+  }
+}

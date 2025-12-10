@@ -1,0 +1,142 @@
+================================================================================
+RAG SYSTEM COMPARISON REPORT
+================================================================================
+
+METRIC COMPARISON:
+--------------------------------------------------------------------------------
+Metric                                    baselineclean_aggressive_512_ov80                Best
+--------------------------------------------------------------------------------
+hit_rate@3                                  0.9000              0.9000            baseline
+recall@10                                   0.7607              0.7607            baseline
+hit_rate@1                                  0.7000              0.7000            baseline
+precision@10                                0.4495              0.4495            baseline
+precision@3                                 0.6333              0.6333            baseline
+grounding_accuracy                          1.0000              1.0000            baseline
+citation_accuracy                           0.4495              0.4495            baseline
+ndcg@5                                      0.7238              0.7238            baseline
+precision@5                                 0.5400              0.5400            baseline
+hit_rate@10                                 1.0000              1.0000            baseline
+recall@3                                    0.5345              0.5345            baseline
+mrr                                         0.8250              0.8250            baseline
+hit_rate@5                                  1.0000              1.0000            baseline
+recall@5                                    0.7321              0.7321            baseline
+ndcg@10                                     0.7321              0.7321            baseline
+retrieval_latency                           0.0060              0.0096clean_aggressive_512_ov80
+ndcg@1                                      0.7000              0.7000            baseline
+precision@1                                 0.7000              0.7000            baseline
+recall@1                                    0.2060              0.2060            baseline
+ndcg@3                                      0.6350              0.6350            baseline
+average_response_time                       0.0060              0.0096clean_aggressive_512_ov80
+queries_per_second                        167.3251            104.6721            baseline
+
+IMPROVEMENT ANALYSIS (baseline -> clean_aggressive_512_ov80):
+----------------------------------------
+hit_rate@3:
+  baseline: 0.9000
+  clean_aggressive_512_ov80: 0.9000
+  Improvement: +0.0000 (+0.0%)
+
+recall@10:
+  baseline: 0.7607
+  clean_aggressive_512_ov80: 0.7607
+  Improvement: +0.0000 (+0.0%)
+
+hit_rate@1:
+  baseline: 0.7000
+  clean_aggressive_512_ov80: 0.7000
+  Improvement: +0.0000 (+0.0%)
+
+precision@10:
+  baseline: 0.4495
+  clean_aggressive_512_ov80: 0.4495
+  Improvement: +0.0000 (+0.0%)
+
+precision@3:
+  baseline: 0.6333
+  clean_aggressive_512_ov80: 0.6333
+  Improvement: +0.0000 (+0.0%)
+
+grounding_accuracy:
+  baseline: 1.0000
+  clean_aggressive_512_ov80: 1.0000
+  Improvement: +0.0000 (+0.0%)
+
+citation_accuracy:
+  baseline: 0.4495
+  clean_aggressive_512_ov80: 0.4495
+  Improvement: +0.0000 (+0.0%)
+
+ndcg@5:
+  baseline: 0.7238
+  clean_aggressive_512_ov80: 0.7238
+  Improvement: +0.0000 (+0.0%)
+
+precision@5:
+  baseline: 0.5400
+  clean_aggressive_512_ov80: 0.5400
+  Improvement: +0.0000 (+0.0%)
+
+hit_rate@10:
+  baseline: 1.0000
+  clean_aggressive_512_ov80: 1.0000
+  Improvement: +0.0000 (+0.0%)
+
+recall@3:
+  baseline: 0.5345
+  clean_aggressive_512_ov80: 0.5345
+  Improvement: +0.0000 (+0.0%)
+
+mrr:
+  baseline: 0.8250
+  clean_aggressive_512_ov80: 0.8250
+  Improvement: +0.0000 (+0.0%)
+
+hit_rate@5:
+  baseline: 1.0000
+  clean_aggressive_512_ov80: 1.0000
+  Improvement: +0.0000 (+0.0%)
+
+recall@5:
+  baseline: 0.7321
+  clean_aggressive_512_ov80: 0.7321
+  Improvement: +0.0000 (+0.0%)
+
+ndcg@10:
+  baseline: 0.7321
+  clean_aggressive_512_ov80: 0.7321
+  Improvement: +0.0000 (+0.0%)
+
+retrieval_latency:
+  baseline: 0.0060
+  clean_aggressive_512_ov80: 0.0096
+  Improvement: +0.0036 (+59.9%)
+
+ndcg@1:
+  baseline: 0.7000
+  clean_aggressive_512_ov80: 0.7000
+  Improvement: +0.0000 (+0.0%)
+
+precision@1:
+  baseline: 0.7000
+  clean_aggressive_512_ov80: 0.7000
+  Improvement: +0.0000 (+0.0%)
+
+recall@1:
+  baseline: 0.2060
+  clean_aggressive_512_ov80: 0.2060
+  Improvement: +0.0000 (+0.0%)
+
+ndcg@3:
+  baseline: 0.6350
+  clean_aggressive_512_ov80: 0.6350
+  Improvement: +0.0000 (+0.0%)
+
+average_response_time:
+  baseline: 0.0060
+  clean_aggressive_512_ov80: 0.0096
+  Improvement: +0.0036 (+59.9%)
+
+queries_per_second:
+  baseline: 167.3251
+  clean_aggressive_512_ov80: 104.6721
+  Improvement: -62.6530 (-37.4%)

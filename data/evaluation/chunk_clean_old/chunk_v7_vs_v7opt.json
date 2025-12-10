@@ -1,0 +1,142 @@
+{
+  "system_metrics": {
+    "chunk_clean_v7": {
+      "precision@1": 0.8,
+      "hit_rate@5": 1.0,
+      "grounding_accuracy": 1.0,
+      "mrr": 0.8833333333333334,
+      "precision@10": 0.4291666666666667,
+      "citation_accuracy": 0.4291666666666667,
+      "hit_rate@1": 0.8,
+      "recall@5": 0.6654761904761904,
+      "precision@3": 0.6,
+      "ndcg@1": 0.8,
+      "retrieval_latency": 0.030486106872558594,
+      "ndcg@3": 0.6501105667053413,
+      "recall@1": 0.23928571428571427,
+      "recall@10": 0.6797619047619048,
+      "hit_rate@10": 1.0,
+      "ndcg@10": 0.7050986304113841,
+      "precision@5": 0.505,
+      "hit_rate@3": 1.0,
+      "recall@3": 0.5178571428571429,
+      "ndcg@5": 0.7021439854975302,
+      "average_response_time": 0.030486106872558594,
+      "queries_per_second": 32.8018268839741
+    },
+    "chunk_clean_v7_optimized": {
+      "precision@1": 0.5,
+      "hit_rate@5": 1.0,
+      "grounding_accuracy": 1.0,
+      "mrr": 0.6616666666666666,
+      "precision@10": 0.2942063492063492,
+      "citation_accuracy": 0.2942063492063492,
+      "hit_rate@1": 0.5,
+      "recall@5": 0.5119047619047619,
+      "precision@3": 0.3333333333333333,
+      "ndcg@1": 0.5,
+      "retrieval_latency": 0.015311264991760254,
+      "ndcg@3": 0.3860546683337582,
+      "recall@1": 0.18333333333333332,
+      "recall@10": 0.5654761904761905,
+      "hit_rate@10": 1.0,
+      "ndcg@10": 0.5140849427005597,
+      "precision@5": 0.33,
+      "hit_rate@3": 0.8,
+      "recall@3": 0.32261904761904764,
+      "ndcg@5": 0.4796137277559411,
+      "average_response_time": 0.015311264991760254,
+      "queries_per_second": 65.3113900476642
+    }
+  },
+  "best_systems": {
+    "precision@1": {
+      "system": "chunk_clean_v7",
+      "score": 0.8
+    },
+    "hit_rate@5": {
+      "system": "chunk_clean_v7",
+      "score": 1.0
+    },
+    "grounding_accuracy": {
+      "system": "chunk_clean_v7",
+      "score": 1.0
+    },
+    "mrr": {
+      "system": "chunk_clean_v7",
+      "score": 0.8833333333333334
+    },
+    "precision@10": {
+      "system": "chunk_clean_v7",
+      "score": 0.4291666666666667
+    },
+    "citation_accuracy": {
+      "system": "chunk_clean_v7",
+      "score": 0.4291666666666667
+    },
+    "hit_rate@1": {
+      "system": "chunk_clean_v7",
+      "score": 0.8
+    },
+    "recall@5": {
+      "system": "chunk_clean_v7",
+      "score": 0.6654761904761904
+    },
+    "precision@3": {
+      "system": "chunk_clean_v7",
+      "score": 0.6
+    },
+    "ndcg@1": {
+      "system": "chunk_clean_v7",
+      "score": 0.8
+    },
+    "retrieval_latency": {
+      "system": "chunk_clean_v7",
+      "score": 0.030486106872558594
+    },
+    "ndcg@3": {
+      "system": "chunk_clean_v7",
+      "score": 0.6501105667053413
+    },
+    "recall@1": {
+      "system": "chunk_clean_v7",
+      "score": 0.23928571428571427
+    },
+    "recall@10": {
+      "system": "chunk_clean_v7",
+      "score": 0.6797619047619048
+    },
+    "hit_rate@10": {
+      "system": "chunk_clean_v7",
+      "score": 1.0
+    },
+    "ndcg@10": {
+      "system": "chunk_clean_v7",
+      "score": 0.7050986304113841
+    },
+    "precision@5": {
+      "system": "chunk_clean_v7",
+      "score": 0.505
+    },
+    "hit_rate@3": {
+      "system": "chunk_clean_v7",
+      "score": 1.0
+    },
+    "recall@3": {
+      "system": "chunk_clean_v7",
+      "score": 0.5178571428571429
+    },
+    "ndcg@5": {
+      "system": "chunk_clean_v7",
+      "score": 0.7021439854975302
+    },
+    "average_response_time": {
+      "system": "chunk_clean_v7",
+      "score": 0.030486106872558594
+    },
+    "queries_per_second": {
+      "system": "chunk_clean_v7_optimized",
+      "score": 65.3113900476642
+    }
+  }
+}
