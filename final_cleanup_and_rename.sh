@@ -41,10 +41,6 @@ sed -i '' 's/hybrid_optimized_v19_cached_batched/scholarrag/g' src/scholarrag/in
 echo "Updating README.md..."
 sed -i '' 's/hybrid_optimized_v19_cached_batched/scholarrag/g' README.md 2>/dev/null || true
 
-echo "Updating final_report.tex..."
-sed -i '' 's/hybrid_optimized_v19_cached_batched/scholarrag/g' final_report.tex 2>/dev/null || true
-sed -i '' 's/hybrid\\_optimized\\_v19\\_cached\\_batched/scholarrag/g' final_report.tex 2>/dev/null || true
-
 echo ""
 echo "✅ Renaming complete!"
 echo ""
@@ -54,6 +50,12 @@ echo ""
 # ====================
 echo "PART 2: Removing redundant files (keeping baseline + scholarrag)"
 echo "--------------------------------------------------------------------"
+
+echo "Removing final_report.tex (for course submission, not GitHub)..."
+rm -f final_report.tex
+
+echo "Removing phase1.pdf..."
+rm -f phase1.pdf
 
 echo "Removing .sh scripts..."
 rm -f cleanup_redundant_files.sh
@@ -87,9 +89,6 @@ rm -f EVALUATION_20_LABELED_QUERIES.md
 rm -f V19_SUBMISSION_README.md
 rm -f V19_UPLOAD_GUIDE.md
 rm -f HOW_TO_ADD_NEW_QUERIES.md
-
-echo "Removing phase1.pdf..."
-rm -f phase1.pdf
 
 echo "Removing analysis scripts..."
 rm -f analyze_extended_test.py
@@ -174,26 +173,26 @@ echo "Staging all changes..."
 git add -A
 
 echo "Committing..."
-git commit -m "Final cleanup: Rename to scholarrag + keep baseline only
+git commit -m "Final cleanup: Rename to scholarrag + minimal files only
 
 PART 1 - RENAMED:
 - src/hybrid_optimized_v19_cached_batched/ → src/scholarrag/
 - data/hybrid_optimized_v19_cached_batched/ → data/scholarrag/
 - Updated collection name: scholar_rag_scholarrag
-- Updated all references in README.md and final_report.tex
+- Updated all references in README.md
 
 PART 2 - REMOVED:
-- All .sh scripts
+- final_report.tex (for course submission, not GitHub)
 - phase1.pdf
+- All .sh scripts
 - All .md files except README.md
 - All Python analysis scripts
 - All intermediate src/ versions (V2-V23, BM25, etc.)
 - .claude/ directory
 - Extra evaluation files
 
-PART 3 - KEPT (for teacher review):
+PART 3 - KEPT (clean GitHub repository):
 - README.md (comprehensive documentation)
-- final_report.tex (LaTeX report for submission)
 - requirements.txt
 - src/baseline/ (Phase 1 baseline system)
 - src/scholarrag/ (final optimized system)
@@ -204,9 +203,10 @@ PART 3 - KEPT (for teacher review):
 
 Benefits:
 - Clean, professional naming (scholarrag)
+- Minimal repository (only essential code/data)
 - Teacher can verify improvements (baseline → scholarrag)
 - Reproducible (both systems runnable)
-- Minimal repository size
+- LaTeX report submitted separately to course
 
 Performance:
 - Baseline: MRR 0.825, P@1 0.700
@@ -225,9 +225,8 @@ echo "======================================================================"
 echo "  ✅ ALL DONE!"
 echo "======================================================================"
 echo ""
-echo "Repository now contains:"
+echo "GitHub repository now contains (clean!):"
 echo "  📄 README.md"
-echo "  📄 final_report.tex"
 echo "  📄 requirements.txt"
 echo "  📁 src/baseline/ (Phase 1)"
 echo "  📁 src/scholarrag/ (Final optimized system)"
@@ -242,7 +241,9 @@ echo ""
 echo "Performance:"
 echo "  Baseline → ScholarRAG: +15.2% MRR, +28.6% P@1"
 echo ""
+echo "Note: final_report.tex removed from GitHub (submit to course separately)"
+echo ""
 echo "GitHub: https://github.com/Zhicheng-wan/ScholarRAG-Workbench/tree/clean_version"
 echo ""
-echo "Ready for submission! 🎉"
+echo "Ready! 🎉"
 echo ""

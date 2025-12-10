@@ -175,20 +175,15 @@ After testing 27 variants, `scholarrag` emerged as the best because:
 - Diversity re-ranking (-34.0% catastrophic failure)
 - Ensemble of similar methods (-5.7%)
 
-## 📝 Project Report
+## 📝 Documentation
 
-See [`final_report.tex`](final_report.tex) for the comprehensive LaTeX project report covering:
-- Problem definition and motivation
-- Phase 1 baseline system
-- Phase 2 optimization journey (27 variants)
-- Final production system design
-- Evaluation results and analysis
-- Key findings and lessons learned
+This repository contains the complete implementation of ScholarRAG, including:
+- **Baseline system** (Phase 1): Basic semantic search
+- **Final optimized system** (scholarrag): Query-aware boosting with caching
+- **Evaluation framework**: Comprehensive metrics and comparison tools
+- **Dataset**: 160 academic documents with 30 test queries
 
-To compile the report:
-1. Upload `final_report.tex` to [Overleaf](https://www.overleaf.com)
-2. Click "Recompile"
-3. Download PDF
+For detailed technical documentation, see the comprehensive README and inline code documentation.
 
 ## 🤝 Contributors
 
@@ -208,9 +203,8 @@ This project is for academic research purposes.
 ## 🔗 Links
 
 - **GitHub Repository**: [Zhicheng-wan/ScholarRAG-Workbench](https://github.com/Zhicheng-wan/ScholarRAG-Workbench)
-- **Final Report**: See `final_report.tex`
 - **System Documentation**: See `src/scholarrag/README.md`
 
 ---
 
-**Note**: This repository contains only the final production system. The complete experimental journey (all 27 variants) is documented in the final report and available in git history.
+**Note**: This repository contains the baseline and final production system. The complete experimental journey (all 27 variants tested) is available in the git history.
