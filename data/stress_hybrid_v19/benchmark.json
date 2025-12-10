@@ -1,0 +1,44 @@
+{
+  "queries_path": "/Users/tangsheng/Desktop/CourseWork/2025Fall/LLM systems/final_proj/ScholarRAG-Workbench/data/evaluation/requests.json",
+  "query_count": 30,
+  "runs": 5,
+  "warmup": 1,
+  "systems": {
+    "hybrid_optimized_v19": {
+      "mean_total_time": 2.447807233594358,
+      "p50_total_time": 2.3926480831578374,
+      "mean_qps": 12.29398056204006,
+      "p50_qps": 12.538408891459602,
+      "runs": 5,
+      "warmup": 1,
+      "wall_time": 19.209496021270752
+    },
+    "hybrid_optimized_v19_cached": {
+      "mean_total_time": 1.7406947501935064,
+      "p50_total_time": 1.7030527917668223,
+      "mean_qps": 17.28603758194609,
+      "p50_qps": 17.615425749002572,
+      "runs": 5,
+      "warmup": 1,
+      "wall_time": 10.46278190612793
+    },
+    "hybrid_optimized_v19_cached_batched": {
+      "mean_total_time": 1.6873409416526557,
+      "p50_total_time": 1.6989597496576607,
+      "mean_qps": 17.79924282855807,
+      "p50_qps": 17.65786388173409,
+      "runs": 5,
+      "warmup": 1,
+      "wall_time": 10.109048128128052
+    },
+    "hybrid_optimized_v19_cached_batched_hot": {
+      "mean_total_time": 1.7552086169831456,
+      "p50_total_time": 1.7361232922412455,
+      "mean_qps": 17.11141251156589,
+      "p50_qps": 17.279878758651726,
+      "runs": 5,
+      "warmup": 1,
+      "wall_time": 10.459656953811646
+    }
+  }
+}
