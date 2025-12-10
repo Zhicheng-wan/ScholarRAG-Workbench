@@ -4,139 +4,139 @@ RAG SYSTEM COMPARISON REPORT
 
 METRIC COMPARISON:
 --------------------------------------------------------------------------------
-Metric                                    baseline        bm25_cascade                Best
+Metric                                    baseline           reranking                Best
 --------------------------------------------------------------------------------
-recall@5                                    0.7321              0.6905            baseline
-grounding_accuracy                          1.0000              1.0000            baseline
-precision@10                                0.4495              0.3964            baseline
-precision@5                                 0.5400              0.4550            baseline
-hit_rate@10                                 1.0000              1.0000            baseline
-ndcg@5                                      0.7238              0.6497            baseline
-ndcg@3                                      0.6350              0.5612            baseline
-retrieval_latency                           0.0060              0.0873        bm25_cascade
-ndcg@1                                      0.7000              0.6500            baseline
-citation_accuracy                           0.4495              0.3964            baseline
-recall@3                                    0.5345              0.4762            baseline
-recall@1                                    0.2060              0.2060            baseline
-precision@3                                 0.6333              0.5333            baseline
-precision@1                                 0.7000              0.7000            baseline
-hit_rate@5                                  1.0000              1.0000            baseline
-hit_rate@3                                  0.9000              0.9000            baseline
-hit_rate@1                                  0.7000              0.7000            baseline
-mrr                                         0.8250              0.8083            baseline
-ndcg@10                                     0.7321              0.6549            baseline
-recall@10                                   0.7607              0.7048            baseline
-average_response_time                       0.0060              0.0873        bm25_cascade
-queries_per_second                        167.3251             11.4529            baseline
+retrieval_latency                           0.0064              0.4411           reranking
+hit_rate@10                                 0.6667              0.6667            baseline
+recall@1                                    0.1514              0.1356            baseline
+ndcg@3                                      0.3986              0.3390            baseline
+ndcg@5                                      0.4457              0.3900            baseline
+ndcg@10                                     0.4561              0.4271            baseline
+recall@3                                    0.3371              0.2990            baseline
+precision@3                                 0.3889              0.3222            baseline
+grounding_accuracy                          0.8135              0.8435           reranking
+hit_rate@3                                  0.6000              0.6333           reranking
+mrr                                         0.5611              0.5178            baseline
+recall@5                                    0.4413              0.3976            baseline
+citation_accuracy                           0.2707              0.1684            baseline
+precision@5                                 0.3283              0.2667            baseline
+hit_rate@1                                  0.5000              0.4333            baseline
+hit_rate@5                                  0.6667              0.6667            baseline
+ndcg@1                                      0.4667              0.4000            baseline
+precision@1                                 0.5000              0.4333            baseline
+recall@10                                   0.4658              0.4849           reranking
+precision@10                                0.2707              0.1778            baseline
+average_response_time                       0.0064              0.4411           reranking
+queries_per_second                        155.4824              2.2671            baseline
 
-IMPROVEMENT ANALYSIS (baseline -> bm25_cascade):
+IMPROVEMENT ANALYSIS (baseline -> reranking):
 ----------------------------------------
-recall@5:
-  baseline: 0.7321
-  bm25_cascade: 0.6905
-  Improvement: -0.0417 (-5.7%)
-
-grounding_accuracy:
-  baseline: 1.0000
-  bm25_cascade: 1.0000
-  Improvement: +0.0000 (+0.0%)
-
-precision@10:
-  baseline: 0.4495
-  bm25_cascade: 0.3964
-  Improvement: -0.0531 (-11.8%)
-
-precision@5:
-  baseline: 0.5400
-  bm25_cascade: 0.4550
-  Improvement: -0.0850 (-15.7%)
+retrieval_latency:
+  baseline: 0.0064
+  reranking: 0.4411
+  Improvement: +0.4347 (+6758.3%)
 
 hit_rate@10:
-  baseline: 1.0000
-  bm25_cascade: 1.0000
+  baseline: 0.6667
+  reranking: 0.6667
   Improvement: +0.0000 (+0.0%)
-
-ndcg@5:
-  baseline: 0.7238
-  bm25_cascade: 0.6497
-  Improvement: -0.0740 (-10.2%)
-
-ndcg@3:
-  baseline: 0.6350
-  bm25_cascade: 0.5612
-  Improvement: -0.0739 (-11.6%)
-
-retrieval_latency:
-  baseline: 0.0060
-  bm25_cascade: 0.0873
-  Improvement: +0.0813 (+1361.0%)
-
-ndcg@1:
-  baseline: 0.7000
-  bm25_cascade: 0.6500
-  Improvement: -0.0500 (-7.1%)
-
-citation_accuracy:
-  baseline: 0.4495
-  bm25_cascade: 0.3964
-  Improvement: -0.0531 (-11.8%)
-
-recall@3:
-  baseline: 0.5345
-  bm25_cascade: 0.4762
-  Improvement: -0.0583 (-10.9%)
 
 recall@1:
-  baseline: 0.2060
-  bm25_cascade: 0.2060
-  Improvement: +0.0000 (+0.0%)
+  baseline: 0.1514
+  reranking: 0.1356
+  Improvement: -0.0159 (-10.5%)
 
-precision@3:
-  baseline: 0.6333
-  bm25_cascade: 0.5333
-  Improvement: -0.1000 (-15.8%)
+ndcg@3:
+  baseline: 0.3986
+  reranking: 0.3390
+  Improvement: -0.0596 (-15.0%)
 
-precision@1:
-  baseline: 0.7000
-  bm25_cascade: 0.7000
-  Improvement: +0.0000 (+0.0%)
-
-hit_rate@5:
-  baseline: 1.0000
-  bm25_cascade: 1.0000
-  Improvement: +0.0000 (+0.0%)
-
-hit_rate@3:
-  baseline: 0.9000
-  bm25_cascade: 0.9000
-  Improvement: +0.0000 (+0.0%)
-
-hit_rate@1:
-  baseline: 0.7000
-  bm25_cascade: 0.7000
-  Improvement: +0.0000 (+0.0%)
-
-mrr:
-  baseline: 0.8250
-  bm25_cascade: 0.8083
-  Improvement: -0.0167 (-2.0%)
+ndcg@5:
+  baseline: 0.4457
+  reranking: 0.3900
+  Improvement: -0.0556 (-12.5%)
 
 ndcg@10:
-  baseline: 0.7321
-  bm25_cascade: 0.6549
-  Improvement: -0.0772 (-10.5%)
+  baseline: 0.4561
+  reranking: 0.4271
+  Improvement: -0.0290 (-6.4%)
+
+recall@3:
+  baseline: 0.3371
+  reranking: 0.2990
+  Improvement: -0.0381 (-11.3%)
+
+precision@3:
+  baseline: 0.3889
+  reranking: 0.3222
+  Improvement: -0.0667 (-17.1%)
+
+grounding_accuracy:
+  baseline: 0.8135
+  reranking: 0.8435
+  Improvement: +0.0300 (+3.7%)
+
+hit_rate@3:
+  baseline: 0.6000
+  reranking: 0.6333
+  Improvement: +0.0333 (+5.6%)
+
+mrr:
+  baseline: 0.5611
+  reranking: 0.5178
+  Improvement: -0.0433 (-7.7%)
+
+recall@5:
+  baseline: 0.4413
+  reranking: 0.3976
+  Improvement: -0.0437 (-9.9%)
+
+citation_accuracy:
+  baseline: 0.2707
+  reranking: 0.1684
+  Improvement: -0.1022 (-37.8%)
+
+precision@5:
+  baseline: 0.3283
+  reranking: 0.2667
+  Improvement: -0.0617 (-18.8%)
+
+hit_rate@1:
+  baseline: 0.5000
+  reranking: 0.4333
+  Improvement: -0.0667 (-13.3%)
+
+hit_rate@5:
+  baseline: 0.6667
+  reranking: 0.6667
+  Improvement: +0.0000 (+0.0%)
+
+ndcg@1:
+  baseline: 0.4667
+  reranking: 0.4000
+  Improvement: -0.0667 (-14.3%)
+
+precision@1:
+  baseline: 0.5000
+  reranking: 0.4333
+  Improvement: -0.0667 (-13.3%)
 
 recall@10:
-  baseline: 0.7607
-  bm25_cascade: 0.7048
-  Improvement: -0.0560 (-7.4%)
+  baseline: 0.4658
+  reranking: 0.4849
+  Improvement: +0.0191 (+4.1%)
+
+precision@10:
+  baseline: 0.2707
+  reranking: 0.1778
+  Improvement: -0.0929 (-34.3%)
 
 average_response_time:
-  baseline: 0.0060
-  bm25_cascade: 0.0873
-  Improvement: +0.0813 (+1361.0%)
+  baseline: 0.0064
+  reranking: 0.4411
+  Improvement: +0.4347 (+6758.3%)
 
 queries_per_second:
-  baseline: 167.3251
-  bm25_cascade: 11.4529
-  Improvement: -155.8721 (-93.2%)
+  baseline: 155.4824
+  reranking: 2.2671
+  Improvement: -153.2153 (-98.5%)

@@ -12,7 +12,7 @@
       "arxiv:2307.10169#introduction:part-12",
       "arxiv:2303.18223#result:part-3"
     ],
-    "query_time": 0.008926868438720703,
+    "query_time": 0.01940298080444336,
     "metadata": {
       "scores": [
         0.5410123,
@@ -42,7 +42,7 @@
       "arxiv:2306.09782#method:part-1",
       "arxiv:2101.03961#introduction:part-1"
     ],
-    "query_time": 0.007603883743286133,
+    "query_time": 0.007483243942260742,
     "metadata": {
       "scores": [
         0.56739795,
@@ -72,7 +72,7 @@
       "arxiv:2203.15556#model:part-2",
       "arxiv:2307.10169#conclusion"
     ],
-    "query_time": 0.006703853607177734,
+    "query_time": 0.00875997543334961,
     "metadata": {
       "scores": [
         0.71224856,
@@ -102,7 +102,7 @@
       "arxiv:2304.00612#introduction:part-9",
       "arxiv:2303.18223#result:part-9"
     ],
-    "query_time": 0.00568699836730957,
+    "query_time": 0.007845878601074219,
     "metadata": {
       "scores": [
         0.6913332,
@@ -132,7 +132,7 @@
       "arxiv:2305.18290#related-work:part-7",
       "arxiv:2304.00612#introduction:part-7"
     ],
-    "query_time": 0.006046295166015625,
+    "query_time": 0.006760120391845703,
     "metadata": {
       "scores": [
         0.54157877,
@@ -162,7 +162,7 @@
       "arxiv:2001.08361#model:part-2",
       "arxiv:palm2techreport#evaluation:part-12"
     ],
-    "query_time": 0.005571842193603516,
+    "query_time": 0.006389617919921875,
     "metadata": {
       "scores": [
         0.7156366,
@@ -192,7 +192,7 @@
       "arxiv:2312.00752#conclusion",
       "arxiv:2303.18223#model:part-34"
     ],
-    "query_time": 0.004716157913208008,
+    "query_time": 0.006527900695800781,
     "metadata": {
       "scores": [
         0.5598582,
@@ -222,7 +222,7 @@
       "arxiv:2303.18223#model:part-13",
       "arxiv:2211.09110#model:part-37"
     ],
-    "query_time": 0.0048100948333740234,
+    "query_time": 0.0037796497344970703,
     "metadata": {
       "scores": [
         0.62101173,
@@ -252,7 +252,7 @@
       "arxiv:2211.05100#evaluation:part-1",
       "arxiv:2304.00612#introduction:part-8"
     ],
-    "query_time": 0.004971981048583984,
+    "query_time": 0.0065708160400390625,
     "metadata": {
       "scores": [
         0.5074837,
@@ -282,7 +282,7 @@
       "arxiv:2106.09685#introduction:part-8",
       "arxiv:2301.00774#abstract:part-5"
     ],
-    "query_time": 0.004725933074951172,
+    "query_time": 0.00643610954284668,
     "metadata": {
       "scores": [
         0.5541335,
@@ -295,6 +295,606 @@
         0.41116613,
         0.4041937,
         0.3969069
+      ],
+      "num_hits": 10
+    }
+  },
+  "query_11": {
+    "doc_ids": [
+      "arxiv:2510.13594#conclusion:part-2",
+      "blog:spectrum.ieee.org#robotics-307",
+      "blog:www.therobotreport.com#robotics-309",
+      "blog:www.therobotreport.com#robotics-310",
+      "blog:www.therobotreport.com#robotics-308",
+      "blog:www.therobotreport.com#robotics-311",
+      "arxiv:2510.13704#introduction:part-12",
+      "arxiv:2510.13594#abstract",
+      "arxiv:2510.13594#introduction:part-3",
+      "arxiv:2510.13594#conclusion:part-1"
+    ],
+    "query_time": 0.0043261051177978516,
+    "metadata": {
+      "scores": [
+        0.63583124,
+        0.56248105,
+        0.5441769,
+        0.54362804,
+        0.5070582,
+        0.49507964,
+        0.48890072,
+        0.4648085,
+        0.46396783,
+        0.4622634
+      ],
+      "num_hits": 10
+    }
+  },
+  "query_12": {
+    "doc_ids": [
+      "blog:techcrunch.com#robotics-317",
+      "arxiv:2303.18223#introduction:part-1",
+      "arxiv:2510.13626#related-work",
+      "arxiv:2510.13778#model:part-19",
+      "arxiv:2203.02155#related-work:part-1",
+      "arxiv:1910.01108#introduction:part-1",
+      "arxiv:2211.09110#introduction:part-1",
+      "arxiv:2305.03047#introduction:part-3",
+      "arxiv:2303.18223#introduction:part-14",
+      "blog:news.mit.edu#robotics-319"
+    ],
+    "query_time": 0.005154132843017578,
+    "metadata": {
+      "scores": [
+        0.62382066,
+        0.61191654,
+        0.6038306,
+        0.58452374,
+        0.5740944,
+        0.57035387,
+        0.5690656,
+        0.5682343,
+        0.55819124,
+        0.5449885
+      ],
+      "num_hits": 10
+    }
+  },
+  "query_13": {
+    "doc_ids": [
+      "arxiv:2510.13778#model:part-15",
+      "blog:www.magazino.eu#robotics-326",
+      "arxiv:2510.13686#abstract",
+      "arxiv:2510.13149#evaluation:part-2",
+      "arxiv:2510.13778#model:part-13",
+      "blog:robohub.org#robotics-322",
+      "arxiv:2510.13686#introduction",
+      "arxiv:2510.13048#introduction:part-1",
+      "blog:www.therobotreport.com#robotics-309",
+      "blog:www.therobotreport.com#robotics-311"
+    ],
+    "query_time": 0.005833864212036133,
+    "metadata": {
+      "scores": [
+        0.45449123,
+        0.44853365,
+        0.44684398,
+        0.4413577,
+        0.43678504,
+        0.43357787,
+        0.42571434,
+        0.42409202,
+        0.4179547,
+        0.4118365
+      ],
+      "num_hits": 10
+    }
+  },
+  "query_14": {
+    "doc_ids": [
+      "arxiv:2510.13778#model:part-18",
+      "arxiv:2510.13625#introduction:part-3",
+      "arxiv:2510.13149#evaluation:part-5",
+      "arxiv:2510.13778#model:part-1",
+      "arxiv:2510.13778#model:part-15",
+      "arxiv:2510.13778#model:part-19",
+      "arxiv:2307.10169#methods:part-43",
+      "blog:www.therobotreport.com#robotics-309",
+      "arxiv:2510.13626#related-work",
+      "arxiv:2212.03551#introduction:part-13"
+    ],
+    "query_time": 0.00556492805480957,
+    "metadata": {
+      "scores": [
+        0.5059019,
+        0.4844421,
+        0.4829939,
+        0.4791721,
+        0.4782598,
+        0.47458333,
+        0.47092855,
+        0.4691889,
+        0.45800582,
+        0.4577909
+      ],
+      "num_hits": 10
+    }
+  },
+  "query_15": {
+    "doc_ids": [
+      "blog:robohub.org#robotics-322",
+      "blog:www.therobotreport.com#robotics-311",
+      "blog:medium.com#body:part-7",
+      "arxiv:2510.13594#abstract",
+      "blog:www.therobotreport.com#robotics-309",
+      "blog:medium.com#body:part-17",
+      "arxiv:2510.13594#introduction:part-2",
+      "blog:blog.robotiq.com#robotics-323",
+      "arxiv:2510.13594#introduction:part-1",
+      "blog:www.therobotreport.com#robotics-312"
+    ],
+    "query_time": 0.005277872085571289,
+    "metadata": {
+      "scores": [
+        0.5990622,
+        0.5688838,
+        0.54869246,
+        0.5454362,
+        0.5342661,
+        0.51789576,
+        0.5096494,
+        0.5038657,
+        0.4887373,
+        0.4862613
+      ],
+      "num_hits": 10
+    }
+  },
+  "query_16": {
+    "doc_ids": [
+      "blog:spectrum.ieee.org#robotics-306",
+      "blog:www.therobotreport.com#robotics-309",
+      "blog:www.therobotreport.com#robotics-308",
+      "blog:www.therobotreport.com#robotics-311",
+      "blog:www.magazino.eu#robotics-326",
+      "blog:robohub.org#robotics-322",
+      "blog:www.therobotreport.com#robotics-310",
+      "blog:www.technologyreview.com#robotics-316",
+      "blog:www.aethon.com#robotics-324",
+      "blog:www.knightscope.com#robotics-325"
+    ],
+    "query_time": 0.005872964859008789,
+    "metadata": {
+      "scores": [
+        0.6341988,
+        0.6324551,
+        0.5915636,
+        0.5616156,
+        0.53409135,
+        0.5334297,
+        0.52855396,
+        0.52542865,
+        0.4986086,
+        0.49656433
+      ],
+      "num_hits": 10
+    }
+  },
+  "query_17": {
+    "doc_ids": [
+      "arxiv:2510.13794#introduction",
+      "arxiv:2510.13794#conclusion",
+      "arxiv:2510.13626#related-work",
+      "arxiv:2510.13149#evaluation:part-2",
+      "arxiv:2510.13794#methods:part-1",
+      "arxiv:2510.13704#introduction:part-13",
+      "arxiv:2510.13149#evaluation:part-5",
+      "arxiv:2510.13149#abstract",
+      "arxiv:2510.13778#model:part-1",
+      "arxiv:2510.13778#model:part-19"
+    ],
+    "query_time": 0.005218029022216797,
+    "metadata": {
+      "scores": [
+        0.67133206,
+        0.6586608,
+        0.5888578,
+        0.5346475,
+        0.52299637,
+        0.52241886,
+        0.5140628,
+        0.5097664,
+        0.5046922,
+        0.50464785
+      ],
+      "num_hits": 10
+    }
+  },
+  "query_18": {
+    "doc_ids": [
+      "blog:www.therobotreport.com#robotics-309",
+      "blog:medium.com#body:part-1",
+      "blog:www.technologyreview.com#robotics-316",
+      "blog:medium.com#body:part-13",
+      "blog:medium.com#body:part-7",
+      "blog:medium.com#body:part-14",
+      "blog:medium.com#body:part-9",
+      "blog:robohub.org#robotics-322",
+      "blog:www.magazino.eu#robotics-326",
+      "blog:medium.com#body:part-5"
+    ],
+    "query_time": 0.005866050720214844,
+    "metadata": {
+      "scores": [
+        0.4623549,
+        0.45252877,
+        0.4511337,
+        0.44795763,
+        0.42938432,
+        0.42255044,
+        0.41209966,
+        0.40751457,
+        0.4042077,
+        0.3980798
+      ],
+      "num_hits": 10
+    }
+  },
+  "query_19": {
+    "doc_ids": [
+      "blog:www.therobotreport.com#robotics-309",
+      "arxiv:2009.06489#introduction:part-12",
+      "arxiv:2510.13686#evaluation:part-7",
+      "arxiv:2510.13048#introduction:part-2",
+      "blog:robohub.org#robotics-322",
+      "arxiv:2510.13686#evaluation:part-4",
+      "blog:spectrum.ieee.org#robotics-306",
+      "blog:www.therobotreport.com#robotics-311",
+      "blog:www.technologyreview.com#robotics-316",
+      "blog:www.roboticstomorrow.com#robotics-314"
+    ],
+    "query_time": 0.004829883575439453,
+    "metadata": {
+      "scores": [
+        0.46066672,
+        0.42664585,
+        0.42498466,
+        0.41895935,
+        0.41158116,
+        0.40624848,
+        0.40474367,
+        0.40089533,
+        0.40074024,
+        0.39177835
+      ],
+      "num_hits": 10
+    }
+  },
+  "query_20": {
+    "doc_ids": [
+      "blog:www.technologyreview.com#robotics-316",
+      "blog:www.therobotreport.com#robotics-308",
+      "blog:www.therobotreport.com#robotics-309",
+      "blog:spectrum.ieee.org#robotics-306",
+      "blog:www.magazino.eu#robotics-326",
+      "blog:robohub.org#robotics-322",
+      "blog:medium.com#body:part-7",
+      "arxiv:2304.00612#conclusion",
+      "arxiv:2307.10169#introduction:part-1",
+      "blog:www.therobotreport.com#robotics-310"
+    ],
+    "query_time": 0.006264209747314453,
+    "metadata": {
+      "scores": [
+        0.5278888,
+        0.5130631,
+        0.5128458,
+        0.4690723,
+        0.4529175,
+        0.44608685,
+        0.44294912,
+        0.43402058,
+        0.42061746,
+        0.41954577
+      ],
+      "num_hits": 10
+    }
+  },
+  "query_21": {
+    "doc_ids": [
+      "arxiv:2211.10438#related-work",
+      "arxiv:2305.07185#model:part-8",
+      "arxiv:2207.00112#introduction:part-1",
+      "arxiv:2020.aacl-main.88#abstract",
+      "arxiv:2307.10169#conclusion",
+      "arxiv:2305.19268#introduction:part-1",
+      "arxiv:2311.00502#introduction:part-1",
+      "arxiv:2305.11627#introduction",
+      "arxiv:2304.01373#abstract:part-4",
+      "arxiv:1701.06538#experiments:part-1"
+    ],
+    "query_time": 0.0058019161224365234,
+    "metadata": {
+      "scores": [
+        0.6842857,
+        0.68124676,
+        0.6661774,
+        0.66310835,
+        0.6627263,
+        0.6514814,
+        0.6483153,
+        0.63673294,
+        0.6336513,
+        0.6330662
+      ],
+      "num_hits": 10
+    }
+  },
+  "query_22": {
+    "doc_ids": [
+      "arxiv:2303.18223#approach:part-19",
+      "arxiv:2212.03551#introduction:part-15",
+      "arxiv:2303.18223#model:part-35",
+      "arxiv:2303.18223#approach:part-14",
+      "arxiv:2307.10169#methods:part-1",
+      "arxiv:2303.18223#approach:part-18",
+      "arxiv:2303.18223#approach:part-17",
+      "arxiv:2307.10169#introduction:part-27",
+      "arxiv:2303.18223#approach:part-20",
+      "arxiv:2303.18223#approach:part-4"
+    ],
+    "query_time": 0.004991292953491211,
+    "metadata": {
+      "scores": [
+        0.60106075,
+        0.55937004,
+        0.5269794,
+        0.515996,
+        0.49663976,
+        0.48813987,
+        0.45996377,
+        0.4486733,
+        0.43302977,
+        0.42956945
+      ],
+      "num_hits": 10
+    }
+  },
+  "query_23": {
+    "doc_ids": [
+      "arxiv:2005.14165#approach:part-2",
+      "arxiv:20-074#abstract:part-10",
+      "arxiv:2005.14165#introduction:part-4",
+      "arxiv:language_models_are_unsupervised_multitask_learners#abstract:part-3",
+      "arxiv:2005.14165#approach:part-3",
+      "arxiv:2307.10169#introduction:part-30",
+      "arxiv:2005.14165#introduction:part-3",
+      "arxiv:2204.02311#abstract",
+      "arxiv:2211.10438#related-work",
+      "arxiv:2005.14165#results:part-3"
+    ],
+    "query_time": 0.00546574592590332,
+    "metadata": {
+      "scores": [
+        0.74196434,
+        0.64652383,
+        0.6322686,
+        0.6245045,
+        0.6232348,
+        0.5989153,
+        0.58729434,
+        0.57490194,
+        0.56756264,
+        0.56314194
+      ],
+      "num_hits": 10
+    }
+  },
+  "query_24": {
+    "doc_ids": [
+      "arxiv:Adaptive-mixtures-of-local-experts#abstract:part-8",
+      "arxiv:2401.04088#introduction:part-2",
+      "arxiv:2510.13149#experiments:part-1",
+      "arxiv:1701.06538#abstract:part-6",
+      "arxiv:2107.11817#model:part-2",
+      "arxiv:2307.10169#introduction:part-20",
+      "arxiv:1701.06538#abstract:part-4",
+      "arxiv:2203.15556#model:part-2",
+      "arxiv:2401.04088#conclusion",
+      "arxiv:20-074#abstract:part-42"
+    ],
+    "query_time": 0.004891872406005859,
+    "metadata": {
+      "scores": [
+        0.53680736,
+        0.5017025,
+        0.48890084,
+        0.48541427,
+        0.48525113,
+        0.4823581,
+        0.4813186,
+        0.47218084,
+        0.47203642,
+        0.46160924
+      ],
+      "num_hits": 10
+    }
+  },
+  "query_25": {
+    "doc_ids": [
+      "arxiv:2305.19268#introduction:part-1",
+      "arxiv:2306.07629#related-work:part-3",
+      "arxiv:2306.11695#introduction:part-1",
+      "arxiv:2306.07629#introduction:part-2",
+      "arxiv:2109.06243#introduction:part-1",
+      "arxiv:2305.11627#evaluation:part-1",
+      "blog:www.databricks.com#body:part-7",
+      "arxiv:2305.14314#introduction",
+      "arxiv:2305.11627#methods:part-1",
+      "arxiv:2211.10438#method:part-2"
+    ],
+    "query_time": 0.005441188812255859,
+    "metadata": {
+      "scores": [
+        0.61057323,
+        0.59177655,
+        0.5823047,
+        0.55419177,
+        0.545141,
+        0.52920467,
+        0.51247156,
+        0.51120484,
+        0.50967914,
+        0.50852394
+      ],
+      "num_hits": 10
+    }
+  },
+  "query_26": {
+    "doc_ids": [
+      "arxiv:2302.10866#introduction:part-1",
+      "arxiv:2303.18223#model:part-34",
+      "arxiv:2306.07042#introduction:part-1",
+      "arxiv:2005.14165#introduction:part-3",
+      "arxiv:2211.09718#introduction:part-1",
+      "arxiv:1910.07467#model:part-2",
+      "arxiv:2510.13367#conclusion",
+      "arxiv:2302.13971#introduction:part-2",
+      "arxiv:1901.02860#model:part-3",
+      "arxiv:2306.07042#introduction:part-2"
+    ],
+    "query_time": 0.007108926773071289,
+    "metadata": {
+      "scores": [
+        0.6479123,
+        0.56391287,
+        0.55771863,
+        0.53974897,
+        0.53014076,
+        0.52729374,
+        0.52363926,
+        0.5161225,
+        0.5160892,
+        0.51215136
+      ],
+      "num_hits": 10
+    }
+  },
+  "query_27": {
+    "doc_ids": [
+      "arxiv:2303.18223#model:part-11",
+      "arxiv:2310.05492#abstract",
+      "arxiv:2303.18223#result:part-6",
+      "arxiv:2307.10169#methods:part-31",
+      "arxiv:2306.17806#experiments:part-4",
+      "arxiv:2307.10169#related-work",
+      "arxiv:palm2techreport#conclusion:part-1",
+      "arxiv:2211.05100#abstract:part-2",
+      "arxiv:2211.09110#introduction:part-1",
+      "arxiv:palm2techreport#introduction:part-1"
+    ],
+    "query_time": 0.005880832672119141,
+    "metadata": {
+      "scores": [
+        0.62536216,
+        0.62211514,
+        0.585803,
+        0.5682694,
+        0.5670879,
+        0.55522573,
+        0.55171216,
+        0.5493531,
+        0.54748875,
+        0.5446444
+      ],
+      "num_hits": 10
+    }
+  },
+  "query_28": {
+    "doc_ids": [
+      "arxiv:2307.10169#methods:part-4",
+      "arxiv:2307.10169#methods:part-14",
+      "arxiv:2307.10169#related-work",
+      "arxiv:2204.02311#evaluation:part-1",
+      "arxiv:2307.03172#introduction:part-2",
+      "arxiv:2307.03172#abstract",
+      "arxiv:2307.10169#conclusion",
+      "arxiv:2307.03172#conclusion",
+      "arxiv:2307.03172#introduction:part-4",
+      "arxiv:2211.09110#model:part-7"
+    ],
+    "query_time": 0.008445978164672852,
+    "metadata": {
+      "scores": [
+        0.59198153,
+        0.5785813,
+        0.5620972,
+        0.55331355,
+        0.54461014,
+        0.53147995,
+        0.5249093,
+        0.5180661,
+        0.50954723,
+        0.50430524
+      ],
+      "num_hits": 10
+    }
+  },
+  "query_29": {
+    "doc_ids": [
+      "arxiv:2204.02311#results:part-1",
+      "arxiv:2304.00612#introduction:part-6",
+      "arxiv:2303.18223#approach:part-19",
+      "arxiv:2204.02311#model:part-7",
+      "arxiv:2404.10630#model",
+      "arxiv:2304.01933#method:part-4",
+      "arxiv:2212.03551#introduction:part-16",
+      "arxiv:2211.09110#model:part-9",
+      "arxiv:2303.18223#result:part-13",
+      "arxiv:2305.03047#introduction:part-2"
+    ],
+    "query_time": 0.005290031433105469,
+    "metadata": {
+      "scores": [
+        0.5738464,
+        0.5527715,
+        0.55165386,
+        0.54549813,
+        0.5387204,
+        0.53677285,
+        0.5269295,
+        0.5196559,
+        0.5183939,
+        0.5173196
+      ],
+      "num_hits": 10
+    }
+  },
+  "query_30": {
+    "doc_ids": [
+      "arxiv:20-074#abstract:part-36",
+      "arxiv:20-074#abstract:part-10",
+      "arxiv:2303.18223#model:part-33",
+      "arxiv:2301.13688#related-work:part-1",
+      "arxiv:language_models_are_unsupervised_multitask_learners#abstract:part-4",
+      "arxiv:2005.14165#related-work:part-3",
+      "arxiv:2303.18223#introduction:part-4",
+      "arxiv:2302.14045#abstract:part-6",
+      "arxiv:2307.10169#conclusion",
+      "arxiv:20-074#model:part-4"
+    ],
+    "query_time": 0.00546574592590332,
+    "metadata": {
+      "scores": [
+        0.6892204,
+        0.6109234,
+        0.6069205,
+        0.6061726,
+        0.5992662,
+        0.5976194,
+        0.5963353,
+        0.5885304,
+        0.5855466,
+        0.57786
       ],
       "num_hits": 10
     }

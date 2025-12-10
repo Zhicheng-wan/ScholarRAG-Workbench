@@ -29,7 +29,7 @@ def get_system_data_dir() -> pathlib.Path:
 
 def get_collection_name() -> str:
     """Use existing dense collection (reuse reranking collection)."""
-    return "scholar_rag_reranking"
+    return "scholar_rag_baseline"
 
 
 _TOKEN_PATTERN = re.compile(r"[A-Za-z0-9]+")
