@@ -1,15 +1,21 @@
 # ScholarRAG: Domain-Specific RAG System for Academic Literature
 
-A production-ready Retrieval-Augmented Generation (RAG) system optimized for Computer Science and Robotics academic literature. This repository contains the final production system after systematic experimentation across 27 variants.
+A production-ready Retrieval-Augmented Generation (RAG) system optimized for Computer Science and Robotics academic literature. This repository contains both the baseline system (Phase 1) and the final optimized system after systematic experimentation across 27 variants.
 
 ## 📊 Performance
 
-**Final System: hybrid_optimized_v19_cached_batched**
+### Baseline System (Phase 1)
+- **MRR**: 0.825
+- **Precision@1**: 0.700
+- **NDCG@10**: 0.733
+- **Latency**: 7ms
+- Basic semantic search with all-MiniLM-L6-v2
 
-- **MRR**: 0.950 (+15.2% vs baseline)
-- **Precision@1**: 0.900 (+28.6% vs baseline)
-- **NDCG@10**: 0.769 (+4.9% vs baseline)
-- **Latency**: 29ms average (45% faster with caching)
+### Final System: hybrid_optimized_v19_cached_batched
+- **MRR**: 0.950 **(+15.2% improvement)**
+- **Precision@1**: 0.900 **(+28.6% improvement)**
+- **NDCG@10**: 0.769 **(+4.9% improvement)**
+- **Latency**: 29ms (with caching and batching)
 - **QPS**: 31.4
 
 ## 🎯 Key Features
@@ -62,6 +68,9 @@ with open('results.json', 'w') as f:
 ScholarRAG-Workbench/
 │
 ├── src/
+│   ├── baseline/                              # Phase 1 baseline system
+│   │   ├── query.py                           # Basic semantic search
+│   │   └── index.py                           # Indexing script
 │   ├── hybrid_optimized_v19_cached_batched/  # Final production system
 │   │   ├── query.py                           # Query implementation
 │   │   ├── index.py                           # Indexing script
@@ -69,6 +78,10 @@ ScholarRAG-Workbench/
 │   └── evaluation/                            # Evaluation framework
 │
 ├── data/
+│   ├── baseline/                              # Baseline system data
+│   │   ├── corpus.jsonl                       # Indexed corpus
+│   │   ├── manual_baseline.json               # Ground truth relevance
+│   │   └── results.json                       # Query results
 │   ├── hybrid_optimized_v19_cached_batched/  # Final system data
 │   │   ├── cache.json                         # Query cache (555KB)
 │   │   ├── corpus.json                        # Indexed corpus (6.8MB)
