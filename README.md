@@ -196,7 +196,7 @@ For detailed technical documentation, see the comprehensive README and inline co
 - Tang Sheng
 
 **University of California, San Diego**
-CSE 291A - Fall 2024
+CSE 291A - Fall 2025
 
 ## License
 
