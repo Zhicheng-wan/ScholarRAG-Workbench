@@ -297,7 +297,7 @@ def run_queries(queries: Dict[str, str]) -> Dict[str, Dict[str, Any]]:
             'query_time': query_time,
             'metadata': {
                 'num_variations': len(query_variations),
-                'retrieval_method': 'hybrid_optimized_v19_cached_batched',
+                'retrieval_method': 'scholarrag',
                 'query_aware_boosts': query_aware_boosts,
                 'optimizations': ['v9_baseline', 'v18_static_section', 'v10_query_aware_section', 'batched_variations'],
                 'cache_hit': False

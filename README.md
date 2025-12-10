@@ -11,7 +11,7 @@ A production-ready Retrieval-Augmented Generation (RAG) system optimized for Com
 - **Latency**: 7ms
 - Basic semantic search with all-MiniLM-L6-v2
 
-### Final System: hybrid_optimized_v19_cached_batched
+### Final System: scholarrag
 - **MRR**: 0.950 **(+15.2% improvement)**
 - **Precision@1**: 0.900 **(+28.6% improvement)**
 - **NDCG@10**: 0.769 **(+4.9% improvement)**
@@ -44,13 +44,13 @@ docker run -p 6333:6333 qdrant/qdrant
 
 ```bash
 # 1. Index documents
-python src/hybrid_optimized_v19_cached_batched/index.py
+python src/scholarrag/index.py
 
 # 2. Run queries
 python -c "
 import json, sys
 sys.path.insert(0, 'src')
-from hybrid_optimized_v19_cached_batched.query import run_queries
+from scholarrag.query import run_queries
 
 with open('data/evaluation/requests.json') as f:
     queries = json.load(f)
@@ -71,7 +71,7 @@ ScholarRAG-Workbench/
 │   ├── baseline/                              # Phase 1 baseline system
 │   │   ├── query.py                           # Basic semantic search
 │   │   └── index.py                           # Indexing script
-│   ├── hybrid_optimized_v19_cached_batched/  # Final production system
+│   ├── scholarrag/  # Final production system
 │   │   ├── query.py                           # Query implementation
 │   │   ├── index.py                           # Indexing script
 │   │   └── README.md                          # System documentation
@@ -82,7 +82,7 @@ ScholarRAG-Workbench/
 │   │   ├── corpus.jsonl                       # Indexed corpus
 │   │   ├── manual_baseline.json               # Ground truth relevance
 │   │   └── results.json                       # Query results
-│   ├── hybrid_optimized_v19_cached_batched/  # Final system data
+│   ├── scholarrag/  # Final system data
 │   │   ├── cache.json                         # Query cache (555KB)
 │   │   ├── corpus.json                        # Indexed corpus (6.8MB)
 │   │   ├── evaluation_report.txt              # Performance metrics
@@ -154,7 +154,7 @@ The system is evaluated on:
 
 ## 🏆 Why This System?
 
-After testing 27 variants, `hybrid_optimized_v19_cached_batched` emerged as the best because:
+After testing 27 variants, `scholarrag` emerged as the best because:
 
 1. **Best accuracy**: 15.2% MRR improvement, 28.6% P@1 improvement
 2. **Production speed**: 45% faster with zero accuracy loss
@@ -209,7 +209,7 @@ This project is for academic research purposes.
 
 - **GitHub Repository**: [Zhicheng-wan/ScholarRAG-Workbench](https://github.com/Zhicheng-wan/ScholarRAG-Workbench)
 - **Final Report**: See `final_report.tex`
-- **System Documentation**: See `src/hybrid_optimized_v19_cached_batched/README.md`
+- **System Documentation**: See `src/scholarrag/README.md`
 
 ---
 

@@ -1,5 +1,5 @@
 #!/usr/bin/env python3
-"""Index corpus for hybrid_optimized_v19_cached_batched (V19 with caching + batched search)."""
+"""Index corpus for scholarrag (V19 with caching + batched search)."""
 
 import json, pathlib, sys
 from qdrant_client import QdrantClient
