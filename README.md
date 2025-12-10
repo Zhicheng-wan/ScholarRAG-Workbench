@@ -209,4 +209,4 @@ This project is for academic research purposes.
 
 ---
 
-**Note**: Earlier RAG variants and experiments are in the git history.
+**Note**: Earlier RAG variants and experiments are in the git history or under branch experiements. 
