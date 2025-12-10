@@ -1,0 +1,12 @@
+{
+  "query_11": "What architectures are used for efficient inference of large language models?",
+  "query_13": "Which papers study chain-of-thought prompting or step-by-step reasoning?",
+  "query_14": "What methods exist for few-shot and zero-shot learning in language models?",
+  "query_17": "Which studies explore mixture-of-experts architectures for scaling?",
+  "query_22": "What methods exist for model compression and quantization of LLMs?",
+  "query_25": "What techniques enable in-context learning in transformer models?",
+  "query_29": "Which studies explore code generation capabilities of language models?",
+  "query_35": "Which studies explore retrieval-augmented language models?",
+  "query_36": "How do models perform on commonsense reasoning tasks?",
+  "query_40": "What approaches exist for multi-task learning in language models?"
+}
