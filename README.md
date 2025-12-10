@@ -1,6 +1,6 @@
 # ScholarRAG: Domain-Specific RAG System for Academic Literature
 
-This version keeps only the best working system we produced. All earlier variants and experiments remain available in the git history.
+This version keeps only the best working system we produced. **All earlier variants and experiments remain available in the git history.**
 
 A Retrieval-Augmented Generation (RAG) system optimized for Computer Science and Robotics academic literature. This repository contains the final optimized system and the original baseline (Phase 1); other intermediate attempts are in history only.
 
