@@ -156,54 +156,194 @@
     "notes": "The selected papers introduce new alignment methods that go beyond standard RLHF. A recent survey (2307.10169) discusses whether the reinforcement learning step is even necessary, introducing Direct Preference Optimization (DPO) as a simpler supervised alternative. DPO replaces the reward model and PPO loop with direct optimization over human preference data. The original DPO paper (2305.18290) confirms that it matches or outperforms RLHF on tasks like summarization and sentiment control, with greater stability. These works also mention related trends, such as purely supervised alignment and Constitutional AI, showing that much of alignment may be achieved without complex RL steps."
   },
   "query_11": {
-    "relevant_docs": [],
-    "relevance_scores": {},
-    "notes": "PLACEHOLDER: Robotics query - needs manual labeling. Current corpus may not contain robotics papers. Query: Summarize the most recent advancements in humanoid robot design and control."
+    "relevant_docs": [
+      "blog:www.therobotreport.com#robotics-310",
+      "blog:www.therobotreport.com#robotics-311",
+      "arxiv:2510.13794#abstract",
+      "arxiv:2510.13704#abstract",
+      "arxiv:2510.13625#abstract",
+      "blog:www.technologyreview.com#robotics-316",
+      "arxiv:2510.13358#abstract"
+    ],
+    "relevance_scores": {
+      "blog:www.therobotreport.com#robotics-310": 1.0,
+      "blog:www.therobotreport.com#robotics-311": 1.0,
+      "arxiv:2510.13794#abstract": 1.0,
+      "arxiv:2510.13704#abstract": 1.0,
+      "arxiv:2510.13625#abstract": 0.5,
+      "blog:www.technologyreview.com#robotics-316": 0.5,
+      "arxiv:2510.13358#abstract": 0.5
+    },
+    "notes": "The most recent advancements in humanoid robot design and control are covered extensively in 2024 blog articles and October 2024 papers. The Robot Report's top stories highlight that humanoid robots dominated 2024, appearing in six of the top 10 robotics stories. Recent papers focus on RL-based motion imitation for agile humanoid behaviors (2510.13794), actor-critic methods for continuous control with humanoid locomotion benchmarks (2510.13704), and computer vision modules optimized for humanoid robots (2510.13625). The highly relevant sources (1.0) directly discuss humanoid design and control advances from 2024, while partially relevant ones (0.5) provide supporting context on legged robotics and robust control methods."
   },
   "query_12": {
-    "relevant_docs": [],
-    "relevance_scores": {},
-    "notes": "PLACEHOLDER: Robotics query - needs manual labeling. Current corpus may not contain robotics papers. Query: Which papers or blogs discuss the integration of large language models or generative AI into robot learning and control?"
+    "relevant_docs": [
+      "arxiv:2307.10169#abstract",
+      "arxiv:2303.18223#abstract",
+      "arxiv:2510.13778#abstract",
+      "arxiv:2510.13149#abstract",
+      "arxiv:2302.14045#abstract",
+      "arxiv:2005.14165#abstract",
+      "arxiv:2212.03551#abstract"
+    ],
+    "relevance_scores": {
+      "arxiv:2307.10169#abstract": 1.0,
+      "arxiv:2303.18223#abstract": 1.0,
+      "arxiv:2510.13778#abstract": 1.0,
+      "arxiv:2510.13149#abstract": 1.0,
+      "arxiv:2302.14045#abstract": 1.0,
+      "arxiv:2005.14165#abstract": 0.5,
+      "arxiv:2212.03551#abstract": 0.5
+    },
+    "notes": "Multiple papers discuss integrating LLMs and generative AI into robotics. Two comprehensive surveys (2307.10169, 2303.18223) cover LLM applications in robotics including task planning, embodied AI, navigation, and instruction following. Recent work introduces Vision-Language-Action (VLA) models for robotic manipulation with spatial reasoning (2510.13778) and long-horizon manipulation tasks (2510.13149). KOSMOS-1 (2302.14045) presents a Multimodal LLM for perception, action, and world modeling in robotics. The highly relevant papers (1.0) directly propose or survey LLM integration in robot systems, while partially relevant ones (0.5) discuss foundation models with potential robotics applications."
   },
   "query_13": {
-    "relevant_docs": [],
-    "relevance_scores": {},
-    "notes": "PLACEHOLDER: Robotics query - needs manual labeling. Current corpus may not contain robotics papers. Query: Identify research focusing on robot manipulation or grasping in unstructured environments."
+    "relevant_docs": [
+      "arxiv:2510.13778#model:part-10",
+      "arxiv:2510.13778#model:part-13",
+      "arxiv:2510.13149#abstract",
+      "arxiv:2303.18223#evaluation",
+      "arxiv:2312.07104#introduction",
+      "arxiv:2005.14165#abstract"
+    ],
+    "relevance_scores": {
+      "arxiv:2510.13778#model:part-10": 1.0,
+      "arxiv:2510.13778#model:part-13": 1.0,
+      "arxiv:2510.13149#abstract": 1.0,
+      "arxiv:2303.18223#evaluation": 0.5,
+      "arxiv:2312.07104#introduction": 0.5,
+      "arxiv:2005.14165#abstract": 0.5
+    },
+    "notes": "Research on robot manipulation in unstructured environments focuses on VLA models for cluttered scenes. Key work (2510.13778) demonstrates spatial grounding and pick-and-place tasks in real-world cluttered scenarios with Franka robotic arms, including instruction-following capabilities for complex manipulation. Another study (2510.13149) addresses manipulation under diverse perturbations and composing learned skills for novel long-horizon tasks in unstructured settings. The highly relevant papers (1.0) directly evaluate manipulation and grasping in cluttered or unstructured real-world environments, while partially relevant ones (0.5) discuss embodied AI benchmarks and task specification methods applicable to manipulation."
   },
   "query_14": {
-    "relevant_docs": [],
-    "relevance_scores": {},
-    "notes": "PLACEHOLDER: Robotics query - needs manual labeling. Current corpus may not contain robotics papers. Query: Find works that discuss robot perception improvements using vision-based or multimodal approaches."
+    "relevant_docs": [
+      "arxiv:2510.13778#model:part-2",
+      "arxiv:2510.13625#abstract",
+      "arxiv:2510.13626#abstract",
+      "arxiv:2302.14045#abstract",
+      "arxiv:2510.13778#model:part-4",
+      "arxiv:2510.13594#abstract",
+      "arxiv:2510.13149#abstract"
+    ],
+    "relevance_scores": {
+      "arxiv:2510.13778#model:part-2": 1.0,
+      "arxiv:2510.13625#abstract": 1.0,
+      "arxiv:2510.13626#abstract": 1.0,
+      "arxiv:2302.14045#abstract": 1.0,
+      "arxiv:2510.13778#model:part-4": 1.0,
+      "arxiv:2510.13594#abstract": 0.5,
+      "arxiv:2510.13149#abstract": 0.5
+    },
+    "notes": "Robot perception improvements using vision-based and multimodal approaches are extensively covered in recent work. Key papers present multimodal VLMs for robot perception combining vision, language, and spatial understanding (2510.13778), YOLOv9-based vision modules addressing computational constraints (2510.13625), and systematic analysis of visual robustness under perturbations like lighting changes and sensor noise (2510.13626). KOSMOS-1 (2302.14045) demonstrates multimodal perception capabilities across general modalities. The highly relevant sources (1.0) directly propose or evaluate vision-based and multimodal perception methods for robotics, while partially relevant ones (0.5) mention vision integration as supporting components."
   },
   "query_15": {
-    "relevant_docs": [],
-    "relevance_scores": {},
-    "notes": "PLACEHOLDER: Robotics query - needs manual labeling. Current corpus may not contain robotics papers. Query: Summarize the main challenges and solutions in human-robot collaboration for industrial applications."
+    "relevant_docs": [
+      "blog:www.therobotreport.com#robotics-311",
+      "blog:www.therobotreport.com#robotics-308",
+      "blog:blog.robotiq.com#robotics-323",
+      "blog:robohub.org#robotics-322",
+      "blog:medium.com#body:part-12"
+    ],
+    "relevance_scores": {
+      "blog:www.therobotreport.com#robotics-311": 1.0,
+      "blog:www.therobotreport.com#robotics-308": 1.0,
+      "blog:blog.robotiq.com#robotics-323": 1.0,
+      "blog:robohub.org#robotics-322": 0.5,
+      "blog:medium.com#body:part-12": 0.5
+    },
+    "notes": "Human-robot collaboration in industrial settings is extensively discussed in robotics blogs from 2024. The Robot Report's coverage highlights industry collaborations, partnerships, and collaborative robot (cobot) deployments in industrial applications. Robotiq's blog focuses on collaborative robotics and automation solutions for manufacturing. The highly relevant sources (1.0) directly address human-robot collaboration challenges and solutions in industrial contexts, including safety, programming simplicity, and workforce integration. Partially relevant sources (0.5) discuss broader human-robot interaction topics and AI agents for collaborative systems."
   },
   "query_16": {
-    "relevant_docs": [],
-    "relevance_scores": {},
-    "notes": "PLACEHOLDER: Robotics query - needs manual labeling. Current corpus may not contain robotics papers. Query: Which blog articles report major breakthroughs in autonomous mobile robots or warehouse automation in 2024?"
+    "relevant_docs": [
+      "blog:www.therobotreport.com#robotics-310",
+      "blog:www.therobotreport.com#robotics-311",
+      "blog:www.therobotreport.com#robotics-308",
+      "blog:www.aethon.com#robotics-324",
+      "blog:www.technologyreview.com#robotics-315",
+      "blog:medium.com#body:part-9",
+      "arxiv:2510.13686#introduction"
+    ],
+    "relevance_scores": {
+      "blog:www.therobotreport.com#robotics-310": 1.0,
+      "blog:www.therobotreport.com#robotics-311": 1.0,
+      "blog:www.therobotreport.com#robotics-308": 1.0,
+      "blog:www.aethon.com#robotics-324": 1.0,
+      "blog:www.technologyreview.com#robotics-315": 1.0,
+      "blog:medium.com#body:part-9": 0.5,
+      "arxiv:2510.13686#introduction": 0.5
+    },
+    "notes": "Multiple blog articles cover 2024 breakthroughs in autonomous mobile robots (AMRs) and warehouse automation. The Robot Report's year-end and monthly top stories (robotics-310, -311, -308) highlight AMR deployments, warehouse automation milestones, and novel autonomous navigation solutions. Aethon's blog discusses AMR partnerships and developments. MIT Technology Review examines mobile robots and warehouse applications with future implications. The highly relevant sources (1.0) are blog articles specifically reporting on 2024 AMR and warehouse automation breakthroughs, while partially relevant ones (0.5) discuss related autonomous systems and AI agents in warehouse contexts."
   },
   "query_17": {
-    "relevant_docs": [],
-    "relevance_scores": {},
-    "notes": "PLACEHOLDER: Robotics query - needs manual labeling. Current corpus may not contain robotics papers. Query: Find and summarize works that discuss reinforcement learning or imitation learning for robotic motion control."
+    "relevant_docs": [
+      "arxiv:2510.13794#abstract",
+      "arxiv:2510.13358#abstract",
+      "arxiv:2510.13704#abstract",
+      "arxiv:2510.13367#abstract",
+      "arxiv:2510.13626#abstract",
+      "blog:medium.com#body:part-2",
+      "arxiv:2412.19437#introduction"
+    ],
+    "relevance_scores": {
+      "arxiv:2510.13794#abstract": 1.0,
+      "arxiv:2510.13358#abstract": 1.0,
+      "arxiv:2510.13704#abstract": 1.0,
+      "arxiv:2510.13367#abstract": 1.0,
+      "arxiv:2510.13626#abstract": 0.5,
+      "blog:medium.com#body:part-2": 0.5,
+      "arxiv:2412.19437#introduction": 0.5
+    },
+    "notes": "Multiple papers focus on RL and imitation learning for robotic motion control. Core work includes RL-based motion imitation for agile, life-like robot behaviors (2510.13794), offline RL for robust control under action-space perturbations (2510.13358), actor-critic methods for continuous control with environment parallelization (2510.13704), and transformers in online model-free RL (2510.13367). The highly relevant papers (1.0) directly propose or evaluate RL/imitation learning methods specifically for robotic motion control tasks, while partially relevant ones (0.5) discuss RL applications in robotics more broadly or VLA models incorporating RL training."
   },
   "query_18": {
-    "relevant_docs": [],
-    "relevance_scores": {},
-    "notes": "PLACEHOLDER: Robotics query - needs manual labeling. Current corpus may not contain robotics papers. Query: Which papers focus on robotic safety and explainable AI in decision-making systems?"
+    "relevant_docs": [
+      "blog:www.sciencedaily.com#robotics-313",
+      "arxiv:2307.09288#model:part-23",
+      "arxiv:10000000_662098952474184_2584067087619170692_n#model:part-23",
+      "blog:blog.robotiq.com#robotics-323",
+      "blog:medium.com#body:part-13"
+    ],
+    "relevance_scores": {
+      "blog:www.sciencedaily.com#robotics-313": 1.0,
+      "arxiv:2307.09288#model:part-23": 0.5,
+      "arxiv:10000000_662098952474184_2584067087619170692_n#model:part-23": 0.5,
+      "blog:blog.robotiq.com#robotics-323": 0.5,
+      "blog:medium.com#body:part-13": 0.5
+    },
+    "notes": "Robotic safety and explainable AI are discussed primarily in robotics news and blog coverage. ScienceDaily's robotics news covers safety, trustworthy AI, and explainable approaches in robotics systems. The Llama 2 papers discuss safety preprompts and responsible AI considerations applicable to robot decision-making systems. Robotiq's blog addresses robot safety standards for industrial applications, while Medium discusses explainable AI (XAI) and responsible AI for autonomous systems. The highly relevant source (1.0) directly focuses on robotics safety and explainability, while partially relevant ones (0.5) discuss safety and explainability in AI systems with potential robotics applications."
   },
   "query_19": {
-    "relevant_docs": [],
-    "relevance_scores": {},
-    "notes": "PLACEHOLDER: Robotics query - needs manual labeling. Current corpus may not contain robotics papers. Query: Summarize discussions about energy efficiency or hardware optimization in robotics research."
+    "relevant_docs": [
+      "arxiv:2510.13625#introduction",
+      "arxiv:2510.13625#conclusions",
+      "arxiv:2510.13594#abstract",
+      "blog:www.sciencedaily.com#robotics-313"
+    ],
+    "relevance_scores": {
+      "arxiv:2510.13625#introduction": 1.0,
+      "arxiv:2510.13625#conclusions": 1.0,
+      "arxiv:2510.13594#abstract": 0.5,
+      "blog:www.sciencedaily.com#robotics-313": 0.5
+    },
+    "notes": "Energy efficiency and hardware optimization in robotics are addressed in recent work focusing on computationally constrained environments. A key paper (2510.13625) discusses hardware optimization for robotics with battery considerations and efficient vision processing using YOLOv9, summarizing computational challenges and targeted optimizations. ScienceDaily's robotics news mentions energy-efficient approaches including bacterial-powered neurons and battery technology. The highly relevant papers (1.0) directly propose or analyze hardware and energy optimization methods for robotic systems, while partially relevant ones (0.5) mention computational efficiency and resource considerations as supporting aspects."
   },
   "query_20": {
-    "relevant_docs": [],
-    "relevance_scores": {},
-    "notes": "PLACEHOLDER: Robotics query - needs manual labeling. Current corpus may not contain robotics papers. Query: Identify works or blog posts highlighting the societal or ethical impacts of deploying robots in real-world environments."
+    "relevant_docs": [
+      "blog:medium.com#body:part-13",
+      "blog:medium.com#body:part-16",
+      "blog:www.sciencedaily.com#robotics-313",
+      "arxiv:2211.09110#model:part-4",
+      "arxiv:2303.18223#evaluation"
+    ],
+    "relevance_scores": {
+      "blog:medium.com#body:part-13": 1.0,
+      "blog:medium.com#body:part-16": 1.0,
+      "blog:www.sciencedaily.com#robotics-313": 1.0,
+      "arxiv:2211.09110#model:part-4": 0.5,
+      "arxiv:2303.18223#evaluation": 0.5
+    },
+    "notes": "Societal and ethical impacts of deploying robots are discussed in multiple blog posts and survey papers. Medium articles cover ethical and responsible AI, bias mitigation, fairness in autonomous vehicles, and robotics deployments, as well as applications of AI agents in robotics with ethical considerations. ScienceDaily's robotics news discusses societal implications and ethical considerations in robotics research and deployment. The highly relevant sources (1.0) directly address societal and ethical impacts of real-world robot deployment, while partially relevant ones (0.5) discuss responsible deployment considerations for language models in robotic systems and broader societal impact assessments."
   },
   "query_21": {
     "relevant_docs": [
