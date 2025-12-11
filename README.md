@@ -194,7 +194,6 @@ For detailed technical documentation, see the comprehensive README and inline co
 - Zhicheng Wang
 - Yvonne Wang
 - Tang Sheng
-- Thanh Trinh
 
 **University of California, San Diego**
 CSE 291A - Fall 2025
